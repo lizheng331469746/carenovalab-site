@@ -32,7 +32,7 @@ button { cursor: pointer; }
 img { max-width: 100%; display: block; }
 h1, h2, h3, h4, p { margin-top: 0; }
 h1, h2, h3 { line-height: 1.08; letter-spacing: -.035em; }
-h1 { font-size: clamp(3.2rem, 7vw, 6.7rem); max-width: 12ch; margin-bottom: 1.35rem; }
+h1 { font-size: clamp(2.8rem, 6vw, 4.8rem); max-width: 15ch; margin-bottom: 1.35rem; }
 h2 { font-size: clamp(2.35rem, 4vw, 4.25rem); margin-bottom: 1.1rem; }
 h3 { font-size: 1.35rem; margin-bottom: .7rem; }
 p { color: var(--muted); }
@@ -99,7 +99,7 @@ p { color: var(--muted); }
 
 .page-hero { padding: 85px 0 80px; overflow: hidden; background: linear-gradient(180deg, var(--paper), #f4eee2); }
 .page-hero-grid { display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 65px; }
-.page-hero h1 { font-size: clamp(3rem, 6vw, 5.6rem); }
+.page-hero h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); }
 .page-hero p { font-size: 1.13rem; max-width: 650px; }
 .page-hero-art { min-height: 490px; display: grid; place-items: center; }
 .page-hero-art img { width: 100%; max-height: 510px; object-fit: cover; border-radius: 28px; box-shadow: var(--shadow); }
@@ -340,7 +340,7 @@ details p { margin: 15px 0 0; }
   .header-inner { height: 70px; }
   .brand img { width: 160px; }
   .header-actions { display: none; }
-  h1 { font-size: clamp(2.8rem, 14vw, 4.6rem); }
+  h1 { font-size: clamp(2.2rem, 10vw, 3.8rem); }
   .home-hero { min-height: auto; }
   .hero-art, .page-hero-art { min-height: 320px; }
   .hero-art-photo { min-height: 430px; }

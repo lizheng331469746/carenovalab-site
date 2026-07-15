@@ -22,10 +22,6 @@ export function SiteHeader() {
 
   return (
     <>
-      <div className="announcement">
-        <span>Beauty product development and OEM/ODM project coordination for global brands.</span>
-        <button onClick={() => setMenuOpen(false)} className="announcement-link">Talk to our product team →</button>
-      </div>
       <header className="site-header">
         <div className="container header-inner">
           <Link href="/" className="brand" aria-label="CareNova Lab home">

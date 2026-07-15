@@ -99,7 +99,7 @@ p { color: var(--muted); }
 
 .page-hero { padding: 85px 0 80px; overflow: hidden; background: linear-gradient(180deg, var(--paper), #f4eee2); }
 .page-hero-grid { display: grid; grid-template-columns: 1.03fr .97fr; align-items: center; gap: 65px; }
-.page-hero h1 { font-size: clamp(2.5rem, 5vw, 4.2rem); }
+.page-hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); }
 .page-hero p { font-size: 1.13rem; max-width: 650px; }
 .page-hero-art { min-height: 490px; display: grid; place-items: center; }
 .page-hero-art img { width: 100%; max-height: 510px; object-fit: cover; border-radius: 28px; box-shadow: var(--shadow); }

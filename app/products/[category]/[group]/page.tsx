@@ -7,7 +7,8 @@ import { InquiryButton } from '@/components/inquiry-provider';
 export async function generateMetadata({ params }: { params: Promise<{ category: string; group: string }> }): Promise<Metadata> {
   const p = await params;
   const category = getCategory(p.category);
-  const group = category?.groups.find((g) => g.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-') === p.group);
+  if (!category) return { title: 'Not Found' };
+  const group = category.groups.find((g) => g.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-') === p.group);
   if (!group) return { title: 'Not Found' };
   return { title: `${group.name} | ${category.name}` };
 }

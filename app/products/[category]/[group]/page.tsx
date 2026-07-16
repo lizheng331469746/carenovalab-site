@@ -4,19 +4,21 @@ import type { Metadata } from 'next';
 import { getCategory } from '@/lib/products';
 import { InquiryButton } from '@/components/inquiry-provider';
 
-export async function generateMetadata({ params }: { params: { category: string; group: string } }): Promise<Metadata> {
-  const category = getCategory(params.category);
-  const group = category?.groups.find((g) => g.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-') === params.group);
+export async function generateMetadata({ params }: { params: Promise<{ category: string; group: string }> }): Promise<Metadata> {
+  const p = await params;
+  const category = getCategory(p.category);
+  const group = category?.groups.find((g) => g.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-') === p.group);
   if (!group) return { title: 'Not Found' };
   return { title: `${group.name} | ${category.name}` };
 }
 
-export default function GroupPage({ params }: { params: { category: string; group: string } }) {
-  const category = getCategory(params.category);
+export default async function GroupPage({ params }: { params: Promise<{ category: string; group: string }> }) {
+  const p = await params;
+  const category = getCategory(p.category);
   if (!category) notFound();
 
   const group = category.groups.find(
-    (g) => g.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-') === params.group
+    (g) => g.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-') === p.group
   );
   if (!group) notFound();
 
@@ -31,7 +33,6 @@ export default function GroupPage({ params }: { params: { category: string; grou
         </div>
       </div>
       <div className="container group-layout">
-        {/* Sidebar */}
         <aside className="group-sidebar">
           <div className="group-search">
             <span className="group-search-icon">🔍</span>
@@ -54,8 +55,6 @@ export default function GroupPage({ params }: { params: { category: string; grou
             ))}
           </ul>
         </aside>
-
-        {/* Product grid */}
         <div className="group-grid">
           {group.products.map((product) => (
             <article className="group-product-card" key={product}>

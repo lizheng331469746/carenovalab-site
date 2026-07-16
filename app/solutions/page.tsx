@@ -45,6 +45,7 @@ export default function SolutionsPage() {
         title="From Market Opportunity to a Clear Product System"
         description="A product catalog tells you what exists. A product solution helps you decide what to launch, who it is for, how the products work together and what must be prepared before production."
         image="/images/site/formula-ampoules.webp"
+        backgroundImage="https://sc02.alicdn.com/kf/H71ae70c0f9bb4d3cab585cb8de9f61aaR.jpg"
         primaryLabel="Build My Product Concept"
         primaryContext={{ source: 'Solutions page', message: 'I need help turning a market opportunity into a product concept.' }}
         secondaryLabel="Browse the Product Library"

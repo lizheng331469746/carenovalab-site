@@ -44,7 +44,7 @@ const groups = [
 export default function WhoWeHelpPage() {
   return (
     <>
-      <PageHero eyebrow="Who We Help" title="Different Business Models Need Different Product Development Paths" description="A startup brand, a beauty device company and a distributor should not receive the same product recommendation. We adjust the project route according to your channel, market, quantity, timeline and commercial goal." image="/images/hero-about.svg" primaryLabel="Talk to Our Team" primaryContext={{ source: 'Who We Help page' }} secondaryLabel="Explore Product Solutions" secondaryHref="/solutions" />
+      <PageHero eyebrow="Who We Help" title="Different Business Models Need Different Product Development Paths" description="A startup brand, a beauty device company and a distributor should not receive the same product recommendation. We adjust the project route according to your channel, market, quantity, timeline and commercial goal." image="/images/hero-about.svg" backgroundImage="https://sc02.alicdn.com/kf/H1edba2089b1447468063dd5821dd8dfaf.jpg" primaryLabel="Talk to Our Team" primaryContext={{ source: 'Who We Help page' }} secondaryLabel="Explore Product Solutions" secondaryHref="/solutions" />
       <section className="section section-white">
         <div className="container">
           <SectionHeading eyebrow="Client Types" title="How We Support Each Type of Partner" text="The goal is not to add more services. It is to identify the decisions that matter most for your type of project." />

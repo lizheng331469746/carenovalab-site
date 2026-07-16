@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <>
-      <PageHero eyebrow="Product Library" title="Explore Product Formats Across Beauty, Personal Care and Home Care" description="Use the library when you already know the product category. Formula, texture, fragrance, packaging, MOQ and available documents are confirmed according to the specific project." image="/images/site/product-library-flatlay.webp" primaryLabel="Ask About a Product" primaryContext={{ source: 'Product Library hero' }} secondaryLabel="Explore Product Solutions" secondaryHref="/solutions" />
+      <PageHero eyebrow="Product Library" title="Explore Product Formats Across Beauty, Personal Care and Home Care" description="Use the library when you already know the product category. Formula, texture, fragrance, packaging, MOQ and available documents are confirmed according to the specific project." image="/images/site/product-library-flatlay.webp" backgroundImage="https://sc02.alicdn.com/kf/Hfd8c808f24c04b2cb6885700e30c2a57d.jpg" primaryLabel="Ask About a Product" primaryContext={{ source: 'Product Library hero' }} secondaryLabel="Explore Product Solutions" secondaryHref="/solutions" />
       <section className="section section-white">
         <div className="container">
           <SectionHeading eyebrow="Browse by Category" title="Seven Product Capability Areas" text="Each category page organizes product formats into practical groups. The library is a starting point—not a promise that every product uses the same MOQ, timeline or document package." />

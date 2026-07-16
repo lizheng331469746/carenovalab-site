@@ -25,6 +25,20 @@ export const productCategories: ProductCategory[] = [
     ]
   },
   {
+    slug: 'makeup',
+    name: 'Makeup',
+    eyebrow: 'Professional color cosmetics',
+    description: 'Foundation, concealer, eye, lip and tool formats for private label, semi-custom and full OEM/ODM projects.',
+    color: 'rose',
+    image: '/images/categories/skincare.webp',
+    groups: [
+      { name: 'Face & Cheek', products: ['Foundation','Concealer','Face Primers','Setting Sprays','Face Powders','Blush','Highlighter','Bronzer'] },
+      { name: 'Eyes & Brows', products: ['Palettes','Single Eyeshadow','Mascara','Eyeliners','Pencils','Brow Gels','Eye Primers'] },
+      { name: 'Lips', products: ['Liquid Lipsticks','Lip Gloss','Bullet Lipsticks','Lip Liners','Lip Tints','Lip Oils','Lip Kits'] },
+      { name: 'Tools & Accessories', products: ['Brushes','Sponges','Makeup Bags'] }
+    ]
+  },
+  {
     slug: 'body-care',
     name: 'Body Care',
     eyebrow: 'Body cleansing and treatment',

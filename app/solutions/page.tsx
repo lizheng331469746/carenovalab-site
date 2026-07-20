@@ -63,7 +63,10 @@ export default function SolutionsPage() {
                   <p><strong>Best for:</strong> {solution.audience}</p>
                   <p><strong>Development goal:</strong> {solution.goal}</p>
                   <div className="delivery-strip" style={{marginTop: 18}}>{solution.outputs.slice(0,4).map((item) => <span style={{color:'#696a67',borderColor:'#ded8cb'}} key={item}>{item}</span>)}</div>
-                  <div className="solution-actions"><Link href={solution.href}>Explore Solution →</Link><InquiryButton className="text-link" context={{ solution: solution.title, source: 'Solutions page' }}>Discuss This Direction</InquiryButton></div>
+                  <div className="solution-actions-refined">
+                    <Link href={solution.href} className="button-black-sm">Explore Solution</Link>
+                    <InquiryButton className="button-black-sm" context={{ solution: solution.title, source: 'Solutions page' }}>Discuss This Direction</InquiryButton>
+                  </div>
                 </div>
               </article>
             ))}

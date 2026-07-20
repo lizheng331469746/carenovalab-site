@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import Link from 'next/link';
 import { Package, Leaf, Droplets, Clock } from 'lucide-react';
 import { productCategories } from '@/lib/products';
 import { useInquiry } from './inquiry-provider';

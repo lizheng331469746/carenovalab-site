@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getCategory } from '@/lib/products';
 import { InquiryButton } from '@/components/inquiry-provider';
+import { asset } from '@/lib/assets';
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string; group: string }> }): Promise<Metadata> {
   const p = await params;
@@ -58,16 +59,20 @@ export default async function GroupPage({ params }: { params: Promise<{ category
         </aside>
         <div className="group-grid">
           {group.products.map((product) => (
-            <article className="group-product-card" key={product}>
+            <article className="group-product-card" key={product.name}>
               <div className="group-product-art">
-                <span className="group-product-placeholder">{product.charAt(0)}</span>
+                {product.image ? (
+                  <img src={asset(product.image)} alt={product.name} />
+                ) : (
+                  <span className="group-product-placeholder">{product.name.charAt(0)}</span>
+                )}
               </div>
               <div className="group-product-body">
-                <h3>{product}</h3>
-                <p>Bulk Price Starts From: Contact us</p>
+                <h3>{product.name}</h3>
+                <p>{product.description}</p>
                 <InquiryButton
                   className="text-link"
-                  context={{ product, source: `${category.name} / ${group.name}` }}
+                  context={{ product: product.name, source: `${category.name} / ${group.name}` }}
                 >
                   Ask about this product →
                 </InquiryButton>

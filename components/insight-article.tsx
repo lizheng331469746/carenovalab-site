@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { insights } from '@/lib/insights';
 import { InquiryButton } from '@/components/inquiry-provider';
+import { asset } from '@/lib/assets';
 
 const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:string[]}[]; solution:string; solutionHref:string }> = {
   'beauty-device-companion-skincare': {
@@ -35,7 +36,9 @@ export function InsightArticle({ slug }: { slug: string }) {
   return (
     <section className="section section-white"><article className="container article">
       <span className="eyebrow">{item.category} · {item.readTime}</span><h1>{item.title}</h1><p className="article-lead">{body.intro}</p>
-      <div className="insight-art" style={{height:360,borderRadius:28,margin:'45px 0'}}/>
+      <div className="insight-art" style={{height:460,borderRadius:28,margin:'45px 0',overflow:'hidden'}}>
+        <img src={asset((item as any).image)} alt={item.title} style={{width:'100%',height:'100%',objectFit:'cover'}} />
+      </div>
       {body.sections.map(section=><section key={section.title}><h2>{section.title}</h2>{section.paragraphs.map(p=><p key={p}>{p}</p>)}</section>)}
       <div className="article-callout"><strong>Project note:</strong><p>Formula, claims, testing, documents, compatibility, MOQ and timeline must be confirmed according to the specific product, target market and manufacturing partner.</p></div>
       <div className="hero-actions"><Link className="button button-outline" href={body.solutionHref}>Explore {body.solution}</Link><InquiryButton context={{source:`Insight: ${item.title}`,solution:body.solution}}>Discuss This Product Direction</InquiryButton></div>

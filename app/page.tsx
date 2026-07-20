@@ -121,15 +121,15 @@ export default function HomePage() {
 
       <section className="section section-white">
         <div className="container">
-          <SectionHeading eyebrow="Who We Help" title="Built for Brands That Need More Than a Product Catalog" text="Whether you are launching your first product, expanding an online brand, building skincare for a beauty device or creating a regional product line, we help turn commercial goals into a clear development plan." />
-          <div className="card-grid-5">
-            {audiences.map((item, index) => (
-              <article className="audience-card" key={item[0]}>
-                <span className="card-index">0{index + 1}</span>
-                <h3>{item[0]}</h3>
-                <p>{item[1]}</p>
-                <InquiryButton className="text-link" context={{ source: `Home audience: ${item[0]}`, message: `I would like to discuss support for ${item[0]}.` }}>{item[2]} →</InquiryButton>
-              </article>
+          <SectionHeading eyebrow="Insights" title="Product Trends, Development and Market Preparation" text="Use our content to understand product opportunities, range architecture, packaging decisions and target-market preparation before you request a quote." />
+          <div className="insight-grid">
+            {insights.map((article) => (
+              <Link className="insight-card" href={`/insights/${article.slug}`} key={article.slug}>
+                <div className="insight-art">
+                  <img src={asset(article.image)} alt={article.title} />
+                </div>
+                <div className="insight-copy"><div className="insight-meta"><span>{article.category}</span><span>{article.readTime}</span></div><h3>{article.title}</h3><p>{article.excerpt}</p><strong>Read Insight →</strong></div>
+              </Link>
             ))}
           </div>
         </div>

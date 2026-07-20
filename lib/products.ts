@@ -91,7 +91,13 @@ export const productCategories: ProductCategory[] = [
       { 
         name: 'Face & Cheek', 
         products: [
-          { name: 'Foundation', description: 'Build-able medium-to-full coverage with a skin-like satin finish. 12-hour wear formula.' },
+          { 
+            name: 'Lightweight Buildable Foundation', 
+            description: 'Buildable medium-to-full coverage with a natural, skin-like finish. 12-hour wear formula.',
+            image: '/images/categories/skincare.webp',
+            tags: ['Natural Finish', 'Moisturizing', 'Long-Wear'],
+            moq: 'from 1,000 pcs'
+          },
           { name: 'Concealer', description: 'High-pigment, crease-proof formula to mask imperfections and brighten the undereye area.' },
           { name: 'Face Primers', description: 'Pre-makeup base that blurs pores and extends foundation wear for a flawless look.' },
           { name: 'Setting Sprays', description: 'Fine mist that locks makeup in place while providing a dewy or matte finish.' },

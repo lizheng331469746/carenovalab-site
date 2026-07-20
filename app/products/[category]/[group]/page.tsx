@@ -60,22 +60,29 @@ export default async function GroupPage({ params }: { params: Promise<{ category
         <div className="group-grid">
           {group.products.map((product) => (
             <article className="group-product-card" key={product.name}>
-              <div className="group-product-art">
+              <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="group-product-art">
                 {product.image ? (
                   <img src={asset(product.image)} alt={product.name} />
                 ) : (
                   <span className="group-product-placeholder">{product.name.charAt(0)}</span>
                 )}
-              </div>
+              </Link>
               <div className="group-product-body">
-                <h3>{product.name}</h3>
+                <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>
+                  <h3>{product.name}</h3>
+                </Link>
                 <p>{product.description}</p>
-                <InquiryButton
-                  className="text-link"
-                  context={{ product: product.name, source: `${category.name} / ${group.name}` }}
-                >
-                  Ask about this product →
-                </InquiryButton>
+                <div className="group-product-actions">
+                  <InquiryButton
+                    className="text-link"
+                    context={{ product: product.name, source: `${category.name} / ${group.name}` }}
+                  >
+                    Direct Inquiry →
+                  </InquiryButton>
+                  <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="text-link">
+                    View Details →
+                  </Link>
+                </div>
               </div>
             </article>
           ))}

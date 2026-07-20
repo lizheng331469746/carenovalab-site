@@ -40,7 +40,7 @@ export function ProductLibraryClient() {
       <div className="product-grid">
         {products.map((item) => (
           <article className="product-card" key={`${item.category.slug}-${item.group}-${item.product.name}`}>
-            <div className={`product-card-art color-${item.category.color}`}>
+            <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className={`product-card-art color-${item.category.color}`}>
               {item.product.image ? (
                 <img src={asset(item.product.image)} alt={item.product.name} className="product-card-image" />
               ) : (
@@ -49,14 +49,16 @@ export function ProductLibraryClient() {
                   <span className="mini-jar" />
                 </>
               )}
-            </div>
+            </Link>
             <div className="product-card-body">
               <span className="product-meta">{item.category.name} · {item.group}</span>
-              <h3>{item.product.name}</h3>
+              <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>
+                <h3>{item.product.name}</h3>
+              </Link>
               <p>{item.product.description}</p>
               <div className="product-card-actions">
-                <button onClick={() => openInquiry({ product: item.product.name, source: 'Product Library' })}>Ask about this product</button>
-                <Link href={`/products/${item.category.slug}`}>View category →</Link>
+                <button onClick={() => openInquiry({ product: item.product.name, source: 'Product Library' })}>Inquiry</button>
+                <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>View Details →</Link>
               </div>
             </div>
           </article>

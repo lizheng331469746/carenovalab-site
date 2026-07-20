@@ -580,3 +580,10 @@ details p { margin: 15px 0 0; }
   .insight-process-grid { grid-template-columns: 1fr; }
   .text-center-serif h2 { font-size: 2rem; }
 }
+
+/* Product Library Refinements */
+.product-description-sm { font-size: 0.82rem; line-height: 1.4; color: var(--muted); margin-bottom: 15px; min-height: 4.2em; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.product-visual-placeholder { width: 42px; height: 60px; border: 1px solid rgba(36,38,37,.12); background: var(--paper-2); border-radius: 8px 8px 6px 6px; margin-bottom: 24px; position: relative; overflow: hidden; }
+.product-visual-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+.product-visual-placeholder span::before { content: ''; position: absolute; width: 18px; height: 8px; left: 12px; top: -8px; background: var(--ink); border-radius: 2px; }
+.product-card-image { width: 100%; height: 100%; object-fit: cover; }

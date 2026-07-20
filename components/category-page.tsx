@@ -33,10 +33,17 @@ export function CategoryPage({ slug }: { slug: string }) {
               </div>
               <div className="simple-product-grid">
                 {group.products.map((product) => (
-                  <article className="simple-product" key={product}>
-                    <span aria-hidden="true" />
-                    <h3>{product}</h3>
-                    <InquiryButton className="text-link" context={{ product, source: `${category.name} / ${group.name}` }}>Ask about this product →</InquiryButton>
+                  <article className="simple-product" key={product.name}>
+                    <div className="product-visual-placeholder">
+                      {product.image ? (
+                        <img src={asset(product.image)} alt={product.name} />
+                      ) : (
+                        <span aria-hidden="true" />
+                      )}
+                    </div>
+                    <h3>{product.name}</h3>
+                    <p className="product-description-sm">{product.description}</p>
+                    <InquiryButton className="text-link" context={{ product: product.name, source: `${category.name} / ${group.name}` }}>Ask about this product →</InquiryButton>
                   </article>
                 ))}
               </div>

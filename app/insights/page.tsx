@@ -11,31 +11,31 @@ const insightCategories = [
     num: '01',
     title: 'Market Trends',
     desc: 'Analyze global consumer shifts and regional beauty market signals to uncover high-growth opportunities.',
-    image: '/images/site/product-library-flatlay.webp'
+    image: '/images/site/insight-1.webp'
   },
   {
     num: '02',
     title: 'Product Opportunities',
     desc: 'Identify category gaps and emerging product formats designed for online and retail differentiation.',
-    image: '/images/site/home-hero-lab-serum.webp'
+    image: '/images/site/insight-2.webp'
   },
   {
     num: '03',
     title: 'Ingredient Insights',
     desc: 'Technical reviews of active ingredients and high-performance formula stories for professional performance.',
-    image: '/images/site/formula-ampoules.webp'
+    image: '/images/site/insight-3.webp'
   },
   {
     num: '04',
     title: 'Packaging Trends',
     desc: 'Discover practical and sustainable packaging formats designed for protection, usability and brand impact.',
-    image: '/images/categories/body-care.webp'
+    image: '/images/site/insight-4.webp'
   },
   {
     num: '05',
     title: 'Brand Strategy',
     desc: 'Defining the consumer, positioning, selling points and launch content for scalable product ranges.',
-    image: '/images/categories/skincare.webp'
+    image: '/images/site/insight-5.webp'
   }
 ];
 

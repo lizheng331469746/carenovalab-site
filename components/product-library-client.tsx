@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
+import Link from 'next/link';
+import { Package, Leaf, Droplets, Clock } from 'lucide-react';
 import { productCategories } from '@/lib/products';
 import { useInquiry } from './inquiry-provider';
 import { asset } from '@/lib/assets';
@@ -37,28 +39,39 @@ export function ProductLibraryClient() {
         <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search products…" aria-label="Search products" />
       </div>
       <div className="result-count">{products.length} product directions</div>
-      <div className="product-grid">
+      <div className="product-grid-refined">
         {products.map((item) => (
-          <article className="product-card" key={`${item.category.slug}-${item.group}-${item.product.name}`}>
-            <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className={`product-card-art color-${item.category.color}`}>
+          <article className="refined-product-card" key={`${item.category.slug}-${item.group}-${item.product.name}`}>
+            <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="refined-card-art">
               {item.product.image ? (
-                <img src={asset(item.product.image)} alt={item.product.name} className="product-card-image" />
+                <img src={asset(item.product.image)} alt={item.product.name} />
               ) : (
-                <>
+                <div className="refined-placeholder">
                   <span className="mini-bottle" />
                   <span className="mini-jar" />
-                </>
+                </div>
               )}
             </Link>
-            <div className="product-card-body">
-              <span className="product-meta">{item.category.name} · {item.group}</span>
+            <div className="refined-card-body">
+              <span className="refined-meta">{item.category.name} · {item.group}</span>
               <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>
                 <h3>{item.product.name}</h3>
               </Link>
               <p>{item.product.description}</p>
-              <div className="product-card-actions">
-                <button onClick={() => openInquiry({ product: item.product.name, source: 'Product Library' })}>Inquiry</button>
-                <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>View Details →</Link>
+              
+              <div className="refined-tags">
+                <span className="refined-tag"><Leaf size={12} /> Natural Finish</span>
+                <span className="refined-tag"><Droplets size={12} /> Moisturizing</span>
+                <span className="refined-tag"><Clock size={12} /> Long-Wear</span>
+              </div>
+
+              <div className="refined-moq">
+                <Package size={14} /> <span>MOQ from 1,000 pcs</span>
+              </div>
+
+              <div className="refined-actions">
+                <button className="button-request" onClick={() => openInquiry({ product: item.product.name, source: 'Product Library' })}>Request a Quote</button>
+                <Link className="link-details" href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>View Product Details →</Link>
               </div>
             </div>
           </article>

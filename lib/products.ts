@@ -2,6 +2,8 @@ export type Product = {
   name: string;
   description: string;
   image?: string;
+  tags?: string[];
+  moq?: string;
 };
 
 export type ProductGroup = {

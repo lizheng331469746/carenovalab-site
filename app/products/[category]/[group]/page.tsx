@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { Package, Leaf, Droplets, Clock } from 'lucide-react';
 import { getCategory } from '@/lib/products';
 import { InquiryButton } from '@/components/inquiry-provider';
 import { asset } from '@/lib/assets';
@@ -57,30 +58,44 @@ export default async function GroupPage({ params }: { params: Promise<{ category
             ))}
           </ul>
         </aside>
-        <div className="group-grid">
+        <div className="product-grid-refined">
           {group.products.map((product) => (
-            <article className="group-product-card" key={product.name}>
-              <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="group-product-art">
+            <article className="refined-product-card" key={product.name}>
+              <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="refined-card-art">
                 {product.image ? (
                   <img src={asset(product.image)} alt={product.name} />
                 ) : (
-                  <span className="group-product-placeholder">{product.name.charAt(0)}</span>
+                  <div className="refined-placeholder">
+                    <span className="group-product-placeholder">{product.name.charAt(0)}</span>
+                  </div>
                 )}
               </Link>
-              <div className="group-product-body">
+              <div className="refined-card-body">
+                <span className="refined-meta">{category.name} · {group.name}</span>
                 <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>
                   <h3>{product.name}</h3>
                 </Link>
                 <p>{product.description}</p>
-                <div className="group-product-actions">
+                
+                <div className="refined-tags">
+                  <span className="refined-tag"><Leaf size={12} /> Natural Finish</span>
+                  <span className="refined-tag"><Droplets size={12} /> Moisturizing</span>
+                  <span className="refined-tag"><Clock size={12} /> Long-Wear</span>
+                </div>
+
+                <div className="refined-moq">
+                  <Package size={14} /> <span>MOQ from 1,000 pcs</span>
+                </div>
+
+                <div className="refined-actions">
                   <InquiryButton
-                    className="text-link"
+                    className="button-request"
                     context={{ product: product.name, source: `${category.name} / ${group.name}` }}
                   >
-                    Direct Inquiry →
+                    Request a Quote
                   </InquiryButton>
-                  <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="text-link">
-                    View Details →
+                  <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="link-details">
+                    View Product Details →
                   </Link>
                 </div>
               </div>

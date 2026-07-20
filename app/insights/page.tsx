@@ -8,34 +8,40 @@ import { asset } from '@/lib/assets';
 
 const insightCategories = [
   {
-    num: '01',
-    title: 'Market Trends',
-    desc: 'Analyze global consumer shifts and regional beauty market signals to uncover high-growth opportunities.',
-    image: '/images/site/insight-1.webp'
+    num: '1',
+    title: 'Market Insight',
+    desc: 'We analyze trends, consumer needs, and market data to uncover real opportunities.',
+    image: '/images/site/insight-step-1.webp'
   },
   {
-    num: '02',
-    title: 'Product Opportunities',
-    desc: 'Identify category gaps and emerging product formats designed for online and retail differentiation.',
-    image: '/images/site/insight-2.webp'
+    num: '2',
+    title: 'Product Concept',
+    desc: 'We develop strong product concepts and positioning strategies.',
+    image: '/images/site/insight-step-2.webp'
   },
   {
-    num: '03',
-    title: 'Ingredient Insights',
-    desc: 'Technical reviews of active ingredients and high-performance formula stories for professional performance.',
-    image: '/images/site/insight-3.webp'
+    num: '3',
+    title: 'Formulation',
+    desc: 'Our R&D team creates effective, safe, and innovative formulas based on science.',
+    image: '/images/site/insight-step-3.webp'
   },
   {
-    num: '04',
-    title: 'Packaging Trends',
-    desc: 'Discover practical and sustainable packaging formats designed for protection, usability and brand impact.',
-    image: '/images/site/insight-4.webp'
+    num: '4',
+    title: 'Packaging',
+    desc: 'We design functional, sustainable, and brand-aligned packaging solutions.',
+    image: '/images/site/insight-step-4.webp'
   },
   {
-    num: '05',
-    title: 'Brand Strategy',
-    desc: 'Defining the consumer, positioning, selling points and launch content for scalable product ranges.',
-    image: '/images/site/insight-5.webp'
+    num: '5',
+    title: 'Manufacturing',
+    desc: 'We ensure strict quality control and efficient production to support your brand growth.',
+    image: '/images/site/insight-step-5.webp'
+  },
+  {
+    num: '6',
+    title: 'Market Success',
+    desc: 'We help you launch successfully and grow sustainably in the global market.',
+    image: '/images/site/insight-step-6.webp'
   }
 ];
 

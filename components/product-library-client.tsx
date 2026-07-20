@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { productCategories } from '@/lib/products';
 import { useInquiry } from './inquiry-provider';
+import { asset } from '@/lib/assets';
 
 export function ProductLibraryClient() {
   const [active, setActive] = useState('all');

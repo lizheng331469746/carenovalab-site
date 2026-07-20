@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FlaskConical, ShieldCheck, Leaf, Box, Globe, ChevronRight } from 'lucide-react';
 import { InquiryButton } from '@/components/inquiry-provider';
 import { SectionHeading } from '@/components/section-heading';
 import { ProductVisual } from '@/components/product-visual';
@@ -52,6 +53,39 @@ const process = [
   ['05','Documents','Organize available product and manufacturer documents according to the target market.'],
   ['06','Production','Follow sampling, approvals, packaging, manufacturing, quality checkpoints and schedule.'],
   ['07','Launch Content','Prepare naming, packaging copy, key selling points, product visuals and listing direction.']
+];
+
+const insightCategories = [
+  {
+    num: '01',
+    title: 'Market Trends',
+    desc: 'Analyze global consumer shifts and regional beauty market signals to uncover high-growth opportunities.',
+    image: '/images/site/product-library-flatlay.webp'
+  },
+  {
+    num: '02',
+    title: 'Product Opportunities',
+    desc: 'Identify category gaps and emerging product formats designed for online and retail differentiation.',
+    image: '/images/site/home-hero-lab-serum.webp'
+  },
+  {
+    num: '03',
+    title: 'Ingredient Insights',
+    desc: 'Technical reviews of active ingredients and high-performance formula stories for professional performance.',
+    image: '/images/site/formula-ampoules.webp'
+  },
+  {
+    num: '04',
+    title: 'Packaging Trends',
+    desc: 'Discover practical and sustainable packaging formats designed for protection, usability and brand impact.',
+    image: '/images/categories/body-care.webp'
+  },
+  {
+    num: '05',
+    title: 'Brand Strategy',
+    desc: 'Defining the consumer, positioning, selling points and launch content for scalable product ranges.',
+    image: '/images/categories/skincare.webp'
+  }
 ];
 
 export default function HomePage() {
@@ -199,14 +233,33 @@ export default function HomePage() {
 
       <section className="section section-white">
         <div className="container">
-          <SectionHeading eyebrow="Insights" title="Product Trends, Development and Market Preparation" text="Use our content to understand product opportunities, range architecture, packaging decisions and target-market preparation before you request a quote." />
-          <div className="insight-grid">
-            {insights.map((article) => (
-              <Link className="insight-card" href={`/insights/${article.slug}`} key={article.slug}>
-                <div className="insight-art" />
-                <div className="insight-copy"><div className="insight-meta"><span>{article.category}</span><span>{article.readTime}</span></div><h3>{article.title}</h3><p>{article.excerpt}</p><strong>Read Insight →</strong></div>
-              </Link>
+          <div className="text-center-serif" style={{ marginBottom: '60px' }}>
+            <h2>We identify market opportunities and transform them into scalable products.</h2>
+          </div>
+          
+          <div className="insight-process-grid">
+            {insightCategories.map((item, index) => (
+              <div className="insight-process-item" key={item.title}>
+                <div className="step-num">{item.num}. {item.title}</div>
+                <p>{item.desc}</p>
+                <div className="insight-process-image">
+                  <img src={asset(item.image)} alt={item.title} />
+                  {index < insightCategories.length - 1 && (
+                    <div className="insight-process-arrow">
+                      <ChevronRight />
+                    </div>
+                  )}
+                </div>
+              </div>
             ))}
+          </div>
+
+          <div className="insight-features-bar">
+            <div className="feature-item"><FlaskConical /> Science-Driven Formulation</div>
+            <div className="feature-item"><ShieldCheck /> Global Quality Standards</div>
+            <div className="feature-item"><Leaf /> Sustainable Solutions</div>
+            <div className="feature-item"><Box /> End-to-End Support</div>
+            <div className="feature-item"><Globe /> For Global Brands</div>
           </div>
         </div>
       </section>

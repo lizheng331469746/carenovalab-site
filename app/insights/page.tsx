@@ -1,8 +1,43 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { FlaskConical, ShieldCheck, Leaf, Box, Globe, ChevronRight } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { SectionHeading } from '@/components/section-heading';
 import { insights } from '@/lib/insights';
+import { asset } from '@/lib/assets';
+
+const insightCategories = [
+  {
+    num: '01',
+    title: 'Market Trends',
+    desc: 'Analyze global consumer shifts and regional beauty market signals to uncover high-growth opportunities.',
+    image: '/images/site/product-library-flatlay.webp'
+  },
+  {
+    num: '02',
+    title: 'Product Opportunities',
+    desc: 'Identify category gaps and emerging product formats designed for online and retail differentiation.',
+    image: '/images/site/home-hero-lab-serum.webp'
+  },
+  {
+    num: '03',
+    title: 'Ingredient Insights',
+    desc: 'Technical reviews of active ingredients and high-performance formula stories for professional performance.',
+    image: '/images/site/formula-ampoules.webp'
+  },
+  {
+    num: '04',
+    title: 'Packaging Trends',
+    desc: 'Discover practical and sustainable packaging formats designed for protection, usability and brand impact.',
+    image: '/images/categories/body-care.webp'
+  },
+  {
+    num: '05',
+    title: 'Brand Strategy',
+    desc: 'Defining the consumer, positioning, selling points and launch content for scalable product ranges.',
+    image: '/images/categories/skincare.webp'
+  }
+];
 
 export const metadata: Metadata = {
   title: 'Beauty Trends, Product Development & Compliance Insights',
@@ -12,12 +47,36 @@ export const metadata: Metadata = {
 export default function InsightsPage(){return <>
   <PageHero eyebrow="Insights" title="Turn Beauty Trends Into Practical Product Decisions" description="Our content connects market signals with product concepts, formula routes, packaging choices, target-market preparation and launch execution." image="/images/hero-solutions.svg" backgroundImage="https://sc02.alicdn.com/kf/H18b2f89d55b44eb7aadc8bfc480a5a28X.jpg" primaryLabel="Discuss a Product Idea" primaryContext={{source:'Insights page'}} secondaryLabel="Explore Product Solutions" secondaryHref="/solutions"/>
   <section className="section section-white"><div className="container"><SectionHeading eyebrow="Featured Insights" title="Start With the Three Strategic Directions" text="These articles explain the logic behind CareNova Lab’s current solution-led product development approach."/><div className="insight-grid">{insights.map(article=><Link className="insight-card" href={`/insights/${article.slug}`} key={article.slug}><div className="insight-art"/><div className="insight-copy"><div className="insight-meta"><span>{article.category}</span><span>{article.readTime}</span></div><h3>{article.title}</h3><p>{article.excerpt}</p><strong>Read Insight →</strong></div></Link>)}</div></div></section>
-  <section className="section section-muted"><div className="container"><SectionHeading eyebrow="Content Categories" title="What the Knowledge Center Will Cover"/><div className="card-grid">{[
-    ['Market & Trend Insight','Consumer shifts, category opportunities, regional preferences and emerging product formats.'],
-    ['Product Development','Formula routes, SKU architecture, sampling, MOQ and practical OEM/ODM decisions.'],
-    ['Packaging & Presentation','Packaging formats, decoration, sets, artwork and e-commerce presentation.'],
-    ['Target-Market Preparation','Document questions, testing preparation and compliance topics that require project-level review.'],
-    ['Launch Content','Product naming, packaging copy, key selling points, listing structure and content direction.'],
-    ['Founder & Buyer Guides','Practical guidance for startup brands, e-commerce sellers, distributors and device companies.']
-  ].map(x=><article className="info-card" key={x[0]}><h3>{x[0]}</h3><p>{x[1]}</p></article>)}</div></div></section>
+  <section className="section section-muted">
+    <div className="container">
+      <div className="text-center-serif" style={{ marginBottom: '60px' }}>
+        <h2>We identify market opportunities and transform them into scalable products.</h2>
+      </div>
+      
+      <div className="insight-process-grid">
+        {insightCategories.map((item, index) => (
+          <div className="insight-process-item" key={item.title}>
+            <div className="step-num">{item.num}. {item.title}</div>
+            <p>{item.desc}</p>
+            <div className="insight-process-image">
+              <img src={asset(item.image)} alt={item.title} />
+              {index < insightCategories.length - 1 && (
+                <div className="insight-process-arrow">
+                  <ChevronRight />
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="insight-features-bar">
+        <div className="feature-item"><FlaskConical /> Science-Driven Formulation</div>
+        <div className="feature-item"><ShieldCheck /> Global Quality Standards</div>
+        <div className="feature-item"><Leaf /> Sustainable Solutions</div>
+        <div className="feature-item"><Box /> End-to-End Support</div>
+        <div className="feature-item"><Globe /> For Global Brands</div>
+      </div>
+    </div>
+  </section>
 </>}

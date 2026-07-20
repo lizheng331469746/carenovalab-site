@@ -257,8 +257,10 @@ export default function HomePage() {
               <div className="insight-process-item" key={item.title}>
                 <div className="step-num">{item.num}. {item.title}</div>
                 <p>{item.desc}</p>
-                <div className="insight-process-image">
-                  <img src={asset(item.image)} alt={item.title} />
+                <div style={{ position: 'relative' }}>
+                  <div className="insight-process-image">
+                    <img src={asset(item.image)} alt={item.title} />
+                  </div>
                   {index < insightCategories.length - 1 && (
                     <div className="insight-process-arrow">
                       <ChevronRight />

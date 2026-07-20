@@ -654,3 +654,8 @@ details p { margin: 15px 0 0; }
 @media (max-width: 640px) {
   .product-grid-refined { grid-template-columns: 1fr; }
 }
+
+/* Product Solutions Refined Buttons */
+.solution-actions-refined { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.button-black-sm { background: #242625; color: white; border: none; padding: 10px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; transition: background 0.2s; }
+.button-black-sm:hover { background: #000; }

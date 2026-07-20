@@ -28,19 +28,19 @@ const solutions = [
   {
     title: 'Device Companion Skincare',
     href: '/solutions/device-companion-skincare',
-    image: '/images/site/formula-ampoules.webp',
+    image: '/images/site/solution-device.webp',
     text: 'Build cleansers, device gels, comfort-focused serums, masks, creams and body-care products around the full device-use journey.'
   },
   {
     title: 'Fragrance Body Care',
     href: '/solutions/fragrance-body-care',
-    image: '/images/categories/body-care.webp',
+    image: '/images/site/solution-fragrance.webp',
     text: 'Create body mist, hair mist, shower gel, lotion, scrub and hand-care collections through one coordinated scent story.'
   },
   {
     title: 'Scenario-Based Personal Care',
     href: '/solutions/scenario-based-care',
-    image: '/images/hero-scenario.svg',
+    image: '/images/site/solution-scenario.webp',
     text: 'Develop routines around a real consumer, climate, occasion or usage problem instead of relying on generic benefit claims.'
   }
 ];

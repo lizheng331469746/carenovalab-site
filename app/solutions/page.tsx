@@ -14,7 +14,7 @@ const solutions = [
   {
     title: 'Device Companion Skincare',
     href: '/solutions/device-companion-skincare',
-    image: '/images/site/formula-ampoules.webp',
+    image: '/images/site/solution-device.webp',
     audience: 'Beauty device companies, distributors, salons and professional-care brands.',
     goal: 'Build a complete pre-device, during-device and post-device skincare routine.',
     outputs: ['Pre-care cleanser','Conductive or device-use gel','Soothing serum','Repair mask','Barrier cream','Post-hair-removal spray']
@@ -22,7 +22,7 @@ const solutions = [
   {
     title: 'Fragrance Body Care',
     href: '/solutions/fragrance-body-care',
-    image: '/images/categories/body-care.webp',
+    image: '/images/site/solution-fragrance.webp',
     audience: 'Fragrance brands, e-commerce brands, Middle East distributors, gift and hospitality channels.',
     goal: 'Turn one scent direction into a coordinated, repeat-purchase body-care collection.',
     outputs: ['Body mist','Hair mist','Shower gel','Body lotion','Body scrub','Hand cream','Body oil']
@@ -30,7 +30,7 @@ const solutions = [
   {
     title: 'Scenario-Based Personal Care',
     href: '/solutions/scenario-based-care',
-    image: '/images/hero-scenario.svg',
+    image: '/images/site/solution-scenario.webp',
     audience: 'Brands that want a clearer consumer, climate, routine or occasion-based positioning.',
     goal: 'Create products that answer who they are for, when they are used and how the routine works.',
     outputs: ['Post-workout care','Dry-hot-climate body care','Men’s oil-control care','Sensitive minimal care','Overnight radiance care','Dark-area body care']

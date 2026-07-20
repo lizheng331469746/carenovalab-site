@@ -234,7 +234,16 @@ export default function HomePage() {
       <section className="section section-white">
         <div className="container">
           <div className="text-center-serif" style={{ marginBottom: '60px' }}>
-            <h2>We identify market opportunities and transform them into scalable products.</h2>
+            <h2>
+              We identify market opportunities<br />
+              and transform them<br />
+              <span className="text-gold">into scalable products.</span>
+            </h2>
+            <div className="serif-separator">
+              <span className="line" />
+              <span className="dot" />
+              <span className="line" />
+            </div>
           </div>
           
           <div className="insight-process-grid">

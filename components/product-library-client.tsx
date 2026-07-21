@@ -46,8 +46,7 @@ export function ProductLibraryClient() {
                 <img src={asset(item.product.image)} alt={item.product.name} />
               ) : (
                 <div className="refined-placeholder">
-                  <span className="mini-bottle" />
-                  <span className="mini-jar" />
+                  <span className="placeholder-char">{item.product.name.charAt(0)}</span>
                 </div>
               )}
             </Link>

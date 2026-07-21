@@ -66,7 +66,7 @@ export default async function GroupPage({ params }: { params: Promise<{ category
                   <img src={asset(product.image)} alt={product.name} />
                 ) : (
                   <div className="refined-placeholder">
-                    <span className="group-product-placeholder">{product.name.charAt(0)}</span>
+                    <span className="placeholder-char">{product.name.charAt(0)}</span>
                   </div>
                 )}
               </Link>

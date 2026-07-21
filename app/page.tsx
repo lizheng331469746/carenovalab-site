@@ -162,8 +162,8 @@ export default function HomePage() {
                   <h3>{solution.title}</h3>
                   <p>{solution.text}</p>
                   <div className="solution-actions-refined">
-                    <Link href={solution.href} className="button-black-sm">View Solution</Link>
-                    <InquiryButton className="button-black-sm" context={{ solution: solution.title, source: 'Home solutions' }}>Request a Quote</InquiryButton>
+                    <Link href={solution.href} className="button-black-sm">Explore Solution</Link>
+                    <InquiryButton className="button-black-sm" context={{ solution: solution.title, source: 'Home solutions' }}>Discuss This Direction</InquiryButton>
                   </div>
                 </div>
               </article>

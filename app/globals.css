@@ -626,13 +626,13 @@ details p { margin: 15px 0 0; }
 .refined-moq { display: flex; align-items: center; gap: 5px; margin-bottom: 12px; font-size: 0.72rem; font-weight: 600; color: var(--ink); }
 .refined-moq svg { color: var(--muted); }
 
-.refined-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+.refined-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; align-items: center; }
 .button-request, .link-details { 
   display: block;
-  width: 100%;
-  padding: 11px 0;
+  width: 180px;
+  padding: 9px 0;
   border-radius: 10px;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
   text-align: center;
   text-decoration: none;

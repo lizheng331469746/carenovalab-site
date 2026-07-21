@@ -614,16 +614,16 @@ details p { margin: 15px 0 0; }
 .refined-product-card { background: var(--white); border-radius: 16px; overflow: hidden; border: 1px solid rgba(36,38,37,.08); transition: transform .3s ease, box-shadow .3s ease; display: flex; flex-direction: column; }
 .refined-product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,.08); }
 
-.refined-card-art { width: 100%; aspect-ratio: 1; background: var(--paper-2); overflow: hidden; display: block; }
+.refined-card-art { width: 100%; height: 180px; background: var(--paper-2); overflow: hidden; display: block; }
 .refined-card-art img { width: 100%; height: 100%; object-fit: cover; }
-.refined-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; opacity: 0.3; }
+.refined-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; opacity: 0.2; }
 
-.refined-card-body { padding: 12px 14px 16px; display: flex; flex-direction: column; flex-grow: 1; }
-.refined-meta { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; color: var(--gold-dark); letter-spacing: 0.05em; margin-bottom: 4px; display: block; }
-.refined-card-body h3 { font-size: 1.05rem; margin-bottom: 6px; color: var(--ink); line-height: 1.2; font-weight: 600; min-height: 1.2em; display: flex; align-items: center; }
-.refined-card-body p { font-size: 0.78rem; line-height: 1.4; color: var(--muted); margin-bottom: 12px; min-height: 2.8em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.refined-card-body { padding: 12px 14px 14px; display: flex; flex-direction: column; flex-grow: 1; }
+.refined-meta { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; color: var(--gold-dark); letter-spacing: 0.05em; margin-bottom: 2px; display: block; }
+.refined-card-body h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--ink); line-height: 1.2; font-weight: 600; min-height: 1.2em; display: flex; align-items: center; }
+.refined-card-body p { font-size: 0.78rem; line-height: 1.3; color: var(--muted); margin-bottom: 10px; min-height: 2.6em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-.refined-moq { display: flex; align-items: center; gap: 5px; margin-bottom: 14px; font-size: 0.72rem; font-weight: 600; color: var(--ink); }
+.refined-moq { display: flex; align-items: center; gap: 5px; margin-bottom: 12px; font-size: 0.72rem; font-weight: 600; color: var(--ink); }
 .refined-moq svg { color: var(--muted); }
 
 .refined-actions { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }

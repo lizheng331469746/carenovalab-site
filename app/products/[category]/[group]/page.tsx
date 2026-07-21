@@ -76,12 +76,6 @@ export default async function GroupPage({ params }: { params: Promise<{ category
                   <h3>{product.name}</h3>
                 </Link>
                 <p>{product.description}</p>
-                
-                <div className="refined-tags">
-                  <span className="refined-tag"><Leaf size={12} /> Natural Finish</span>
-                  <span className="refined-tag"><Droplets size={12} /> Moisturizing</span>
-                  <span className="refined-tag"><Clock size={12} /> Long-Wear</span>
-                </div>
 
                 <div className="refined-moq">
                   <Package size={14} /> <span>MOQ from 1,000 pcs</span>

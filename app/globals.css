@@ -626,7 +626,7 @@ details p { margin: 15px 0 0; }
 .refined-moq { display: flex; align-items: center; gap: 5px; margin-bottom: 12px; font-size: 0.72rem; font-weight: 600; color: var(--ink); }
 .refined-moq svg { color: var(--muted); }
 
-.refined-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.refined-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 .button-request, .link-details { 
   display: block;
   border-radius: 10px;

@@ -629,8 +629,6 @@ details p { margin: 15px 0 0; }
 .refined-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; align-items: center; }
 .button-request, .link-details { 
   display: block;
-  width: 180px;
-  padding: 9px 0;
   border-radius: 10px;
   font-size: 0.82rem;
   font-weight: 600;
@@ -640,10 +638,11 @@ details p { margin: 15px 0 0; }
   cursor: pointer;
   transition: all .2s ease;
   line-height: 1.2;
+  padding: 10px 0;
 }
-.button-request { background: #242625; color: var(--white); }
+.button-request { background: #242625; color: var(--white); width: 160px; }
 .button-request:hover { background: #000; }
-.link-details { background: var(--gold-dark); color: var(--white); }
+.link-details { background: var(--gold-dark); color: var(--white); width: 100%; }
 .link-details:hover { opacity: 0.9; }
 
 @media (max-width: 1100px) {

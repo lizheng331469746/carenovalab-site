@@ -89,7 +89,7 @@ export default async function GroupPage({ params }: { params: Promise<{ category
                     Request a Quote
                   </InquiryButton>
                   <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="link-details">
-                    View Product Details →
+                    View Product Details
                   </Link>
                 </div>
               </div>

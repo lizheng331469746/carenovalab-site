@@ -64,7 +64,7 @@ export function ProductLibraryClient() {
 
               <div className="refined-actions">
                 <button className="button-request" onClick={() => openInquiry({ product: item.product.name, source: 'Product Library' })}>Request a Quote</button>
-                <Link className="link-details" href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>View Product Details →</Link>
+                <Link className="link-details" href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>View Product Details</Link>
               </div>
             </div>
           </article>

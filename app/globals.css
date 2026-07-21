@@ -626,11 +626,11 @@ details p { margin: 15px 0 0; }
 .refined-moq { display: flex; align-items: center; gap: 5px; margin-bottom: 12px; font-size: 0.72rem; font-weight: 600; color: var(--ink); }
 .refined-moq svg { color: var(--muted); }
 
-.refined-actions { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
-.button-request { background: #242625; color: var(--white); width: 100%; padding: 8px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; border: none; cursor: pointer; transition: background .2s; text-align: center; }
+.refined-actions { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+.button-request { background: #242625; color: var(--white); width: 100%; padding: 11px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; border: none; cursor: pointer; transition: background .2s; text-align: center; }
 .button-request:hover { background: #000; }
-.link-details { font-size: 0.8rem; font-weight: 600; color: var(--ink); text-align: center; text-decoration: none; display: block; }
-.link-details:hover { text-decoration: underline; }
+.link-details { background: var(--gold-dark); color: var(--white); width: 100%; padding: 11px; border-radius: 10px; font-size: 0.88rem; font-weight: 600; text-align: center; text-decoration: none; display: block; transition: opacity .2s; }
+.link-details:hover { opacity: 0.9; text-decoration: none; }
 
 @media (max-width: 1100px) {
   .product-grid-refined { grid-template-columns: repeat(3, 1fr); }

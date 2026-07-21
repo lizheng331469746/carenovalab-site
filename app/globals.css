@@ -640,7 +640,7 @@ details p { margin: 15px 0 0; }
   line-height: 1.2;
   padding: 10px 0;
 }
-.button-request { background: #242625; color: var(--white); width: 160px; }
+.button-request { background: #242625; color: var(--white); width: 150px; }
 .button-request:hover { background: #000; }
 .link-details { background: var(--gold-dark); color: var(--white); width: 100%; }
 .link-details:hover { opacity: 0.9; }

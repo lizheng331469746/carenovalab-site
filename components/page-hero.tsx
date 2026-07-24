@@ -16,7 +16,7 @@ export function PageHero({
   eyebrow: string;
   title: string;
   description: string;
-  image: string;
+  image?: string;
   backgroundImage?: string;
   primaryLabel?: string;
   primaryContext?: { source?: string; solution?: string; product?: string; message?: string };
@@ -50,7 +50,7 @@ export function PageHero({
             ) : null}
           </div>
         </div>
-        {!backgroundImage && (
+        {!backgroundImage && image && (
           <div className="page-hero-art">
             <img src={asset(image)} alt="" />
           </div>

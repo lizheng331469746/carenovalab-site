@@ -55,7 +55,6 @@ export function SiteHeader() {
             })}
           </nav>
           <div className="header-actions">
-            <a className="header-email" href={`mailto:${siteConfig.email}`}>Email Us</a>
             <InquiryButton context={{ source: 'Header' }} className="button button-gold button-small">Talk to Our Team</InquiryButton>
           </div>
           <button className="menu-button" onClick={() => setMenuOpen((value) => !value)} aria-label="Toggle menu">
@@ -68,7 +67,6 @@ export function SiteHeader() {
               <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</Link>
             ))}
             <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Our Team</Link>
-            <a href={`mailto:${siteConfig.email}`}>Email Us</a>
           </nav>
         ) : null}
       </header>

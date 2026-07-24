@@ -51,7 +51,8 @@ export const metadata: Metadata = {
 };
 
 export default function InsightsPage(){return <>
-  <section className="section section-white"><div className="container"><SectionHeading eyebrow="Featured Insights" title="Start With the Three Strategic Directions" text="These articles explain the logic behind CareNova Lab’s current solution-led product development approach."/><div className="insight-grid">{insights.map(article=><Link className="insight-card" href={`/insights/${article.slug}`} key={article.slug}><div className="insight-art"><img src={asset(article.image)} alt={article.title} /></div><div className="insight-copy"><div className="insight-meta"><span>{article.category}</span><span>{article.readTime}</span></div><h3>{article.title}</h3><p>{article.excerpt}</p><strong>Read Insight →</strong></div></Link>)}</div></div></section>
+  <section className="section section-white"><div className="container"><SectionHeading eyebrow="Featured Insights" title="Start With the Three Strategic Directions" text="These articles explain the logic behind CareNova Lab’s current solution-led product development approach."/><div className="insight-grid-5">{insights.map(article=><Link className="insight-card" href={`/insights/${article.slug}`} key={article.slug}><div className="insight-art"><img src={asset(article.image)} alt={article.title} /></div><div className="insight-copy"><div className="insight-meta"><span>{article.category}</span><span>{article.readTime}</span></div><h3>{article.title}</h3><p className="excerpt-sm">{article.excerpt}</p><strong>Read Insight →</strong></div></Link>)}</div>
+</div></section>
   <section className="section section-muted">
     <div className="container">
       <div className="text-center-serif" style={{ marginBottom: '60px' }}>

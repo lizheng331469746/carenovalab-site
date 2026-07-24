@@ -51,7 +51,6 @@ export const metadata: Metadata = {
 };
 
 export default function InsightsPage(){return <>
-  <PageHero eyebrow="Insights" title="Turn Beauty Trends Into Practical Product Decisions" description="Our content connects market signals with product concepts, formula routes, packaging choices, target-market preparation and launch execution." image="/images/hero-solutions.svg" backgroundImage="https://sc02.alicdn.com/kf/H18b2f89d55b44eb7aadc8bfc480a5a28X.jpg" primaryLabel="Discuss a Product Idea" primaryContext={{source:'Insights page'}} secondaryLabel="Explore Product Solutions" secondaryHref="/solutions"/>
   <section className="section section-white"><div className="container"><SectionHeading eyebrow="Featured Insights" title="Start With the Three Strategic Directions" text="These articles explain the logic behind CareNova Lab’s current solution-led product development approach."/><div className="insight-grid">{insights.map(article=><Link className="insight-card" href={`/insights/${article.slug}`} key={article.slug}><div className="insight-art"><img src={asset(article.image)} alt={article.title} /></div><div className="insight-copy"><div className="insight-meta"><span>{article.category}</span><span>{article.readTime}</span></div><h3>{article.title}</h3><p>{article.excerpt}</p><strong>Read Insight →</strong></div></Link>)}</div></div></section>
   <section className="section section-muted">
     <div className="container">

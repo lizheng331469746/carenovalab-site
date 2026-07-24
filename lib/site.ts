@@ -35,3 +35,5 @@ export const primaryNav = [
   { label: 'Insights', href: '/insights' },
   { label: 'About', href: '/about' }
 ] as const;
+
+// Force rebuild to restore stable state

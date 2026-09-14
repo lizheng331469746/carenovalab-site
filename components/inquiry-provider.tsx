@@ -54,7 +54,7 @@ export function InquiryProvider({ children }: { children: React.ReactNode }) {
               {siteConfig.consultants.map((consultant, index) => (
                 <article className="consultant-card" key={consultant.id}>
                   <div className={`avatar avatar-${index + 1}`} aria-hidden="true">
-                    {consultant.name.slice(0, 1)}
+                    {consultant.image ? <img src={consultant.image} alt="" /> : consultant.name.slice(0, 1)}
                   </div>
                   <div>
                     <h3>{consultant.name}</h3>

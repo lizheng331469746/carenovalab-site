@@ -70,7 +70,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <div className="product-specs">
               <div className="spec-item">
                 <strong>Minimum Order (MOQ)</strong>
-                <span>Project specific, typical from 1,000 units</span>
+                <span>From 100 units, depending on the development route you choose.</span>
               </div>
               <div className="spec-item">
                 <strong>Customization Options</strong>
@@ -78,7 +78,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </div>
               <div className="spec-item">
                 <strong>Lead Time</strong>
-                <span>4-6 weeks for production after sample approval.</span>
+                <span>Confirmed after the formula, packaging and selected development route are reviewed.</span>
               </div>
             </div>
 
@@ -97,6 +97,55 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
       </div>
+
+      <section className="section oem-route-section">
+        <div className="container">
+          <span className="eyebrow">Flexible development routes</span>
+          <h2>Choose Your OEM/ODM Route</h2>
+          <p className="oem-route-intro">Select the route that fits your budget, launch stage and customization needs. Our team confirms the exact quotation, packaging and schedule for your chosen product.</p>
+          <div className="oem-route-grid">
+            <article className="oem-route-card">
+              <span className="oem-route-label">Plan A</span>
+              <h3>Ready Stock + Your Label</h3>
+              <p className="oem-route-moq">MOQ from 100 units</p>
+              <p>Choose from available stock products and add your customized labels. A practical route for market testing, limited budgets and a faster first launch.</p>
+              <ul>
+                <li>Choose an available product</li>
+                <li>Confirm quotation and MOQ</li>
+                <li>Finalize label text and design</li>
+                <li>Quality inspection before delivery</li>
+              </ul>
+              <InquiryButton className="text-link" context={{ product: product.name, source: `Product Detail: ${product.name}`, message: `I would like to discuss Plan A — Ready Stock + Your Label for ${product.name}.` }}>Ask about Plan A →</InquiryButton>
+            </article>
+            <article className="oem-route-card oem-route-card-featured">
+              <span className="oem-route-label">Plan B</span>
+              <h3>Semi-Custom Product</h3>
+              <p className="oem-route-moq">MOQ from 1,000 units</p>
+              <p>Adapt a product direction to your brand by confirming ingredients, fragrance, color and packaging details before pre-production samples and mass production.</p>
+              <ul>
+                <li>Refine product and packaging details</li>
+                <li>Review quotation and MOQ</li>
+                <li>Approve pre-production samples</li>
+                <li>Mass production and quality inspection</li>
+              </ul>
+              <InquiryButton className="text-link" context={{ product: product.name, source: `Product Detail: ${product.name}`, message: `I would like to discuss Plan B — Semi-Custom Product for ${product.name}.` }}>Ask about Plan B →</InquiryButton>
+            </article>
+            <article className="oem-route-card">
+              <span className="oem-route-label">Plan C</span>
+              <h3>Full OEM/ODM Customization</h3>
+              <p className="oem-route-moq">MOQ from 50,000 units</p>
+              <p>Build a distinctive product and brand system with custom formula development, packaging design and project coordination from concept through production.</p>
+              <ul>
+                <li>Custom formula development</li>
+                <li>Custom packaging design</li>
+                <li>Dedicated project management</li>
+                <li>End-to-end launch coordination</li>
+              </ul>
+              <InquiryButton className="text-link" context={{ product: product.name, source: `Product Detail: ${product.name}`, message: `I would like to discuss Plan C — Full OEM/ODM Customization for ${product.name}.` }}>Ask about Plan C →</InquiryButton>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <section className="section section-muted">
         <div className="container">
@@ -120,3 +169,4 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     </div>
   );
 }
+

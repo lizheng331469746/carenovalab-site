@@ -12,7 +12,7 @@ export const siteConfig = {
       title: 'Senior Product Consultant & Project Coordinator',
       phoneDisplay: '+86 137 1007 9307',
       phoneUrl: '8613710079307',
-      image: '/images/team/willow-profile.png',
+      image: '/images/team/willow-profile.jpg',
       shortBio:
         'Discuss product concepts, formula and packaging directions, samples, OEM/ODM execution and project coordination.'
     },

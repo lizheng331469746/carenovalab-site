@@ -12,6 +12,7 @@ export const siteConfig = {
       title: 'Senior Product Consultant & Project Coordinator',
       phoneDisplay: '+86 137 1007 9307',
       phoneUrl: '8613710079307',
+      image: '/images/team/willow-profile.png',
       shortBio:
         'Discuss product concepts, formula and packaging directions, samples, OEM/ODM execution and project coordination.'
     },
@@ -21,6 +22,7 @@ export const siteConfig = {
       title: 'Product Consultant & Client Support',
       phoneDisplay: '+86 175 2034 9723',
       phoneUrl: '8617520349723',
+      image: undefined,
       shortBio:
         'Discuss product inquiries, samples, quotations, packaging requirements and project follow-up.'
     }
@@ -37,3 +39,4 @@ export const primaryNav = [
 ] as const;
 
 // Force rebuild to restore stable state
+

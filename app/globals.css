@@ -478,6 +478,10 @@ details p { margin: 15px 0 0; }
 .consultant-card { border: 1px solid var(--line); border-radius: 20px; background: var(--white); padding: 23px; }
 .consultant-card .avatar { width: 62px; height: 62px; margin-bottom: 19px; }
 .consultant-card p { font-size: .88rem; }
+.consultant-card { display: flex; flex-direction: column; }
+.consultant-card > div:last-child { display: flex; flex-direction: column; flex: 1; }
+.consultant-card .button { align-self: center; margin-top: auto; min-height: 44px; padding-block: 10px; }
+
 .email-link { display: inline-block; font-weight: 750; }
 .mobile-contact-bar { display: none; }
 

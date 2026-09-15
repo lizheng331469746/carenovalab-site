@@ -22,7 +22,7 @@ export const siteConfig = {
       title: 'Product Consultant & Client Support',
       phoneDisplay: '+86 175 2034 9723',
       phoneUrl: '8617520349723',
-      image: undefined,
+      image: '/images/team/jasmine-profile.jpg',
       shortBio:
         'Discuss product inquiries, samples, quotations, packaging requirements and project follow-up.'
     }

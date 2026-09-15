@@ -88,7 +88,8 @@ const tabs: TabData[] = [
       {
         title: 'BY CATEGORY',
         items: [
-          { name: 'Cleansers', href: '/products/skincare' },
+          { name: 'Cleansers', href: '/products/skincare/cleansers' },
+          { name: 'Makeup Removers', href: '/products/skincare/makeup-removers' },
           { name: 'Toners & Mists', href: '/products/skincare' },
           { name: 'Serums', href: '/products/skincare' },
           { name: 'Moisturizers', href: '/products/skincare' },

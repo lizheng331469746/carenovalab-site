@@ -3,6 +3,8 @@ import { getCategory } from '@/lib/products';
 import { InquiryButton } from '@/components/inquiry-provider';
 import { asset } from '@/lib/assets';
 
+const productSlug = (value: string) => value.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-');
+
 export function CategoryPage({ slug }: { slug: string }) {
   const category = getCategory(slug)!;
   return (
@@ -34,15 +36,16 @@ export function CategoryPage({ slug }: { slug: string }) {
               <div className="simple-product-grid">
                 {group.products.map((product) => (
                   <article className="simple-product" key={product.name}>
-                    <div className="product-visual-placeholder">
+                    <Link href={`/products/${category.slug}/${productSlug(group.name)}/${productSlug(product.name)}`} className={product.details ? 'category-collection-art' : 'product-visual-placeholder'}>
                       {product.image ? (
-                        <img src={asset(product.image)} alt={product.name} />
+                        <img src={asset(product.image)} alt={product.name} loading="lazy" width={1254} height={1254} />
                       ) : (
                         <span aria-hidden="true" />
                       )}
-                    </div>
-                    <h3>{product.name}</h3>
+                    </Link>
+                    <h3><Link href={`/products/${category.slug}/${productSlug(group.name)}/${productSlug(product.name)}`}>{product.name}</Link></h3>
                     <p className="product-description-sm">{product.description}</p>
+                    {product.details && <Link className="collection-detail-link" href={`/products/${category.slug}/${productSlug(group.name)}/${productSlug(product.name)}`}>View Product Details →</Link>}
                     <InquiryButton className="text-link" context={{ product: product.name, source: `${category.name} / ${group.name}` }}>Ask about this product →</InquiryButton>
                   </article>
                 ))}

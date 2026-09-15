@@ -61,9 +61,9 @@ export default async function GroupPage({ params }: { params: Promise<{ category
         <div className="product-grid-refined">
           {group.products.map((product) => (
             <article className="refined-product-card" key={product.name}>
-              <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="refined-card-art">
+              <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className={`refined-card-art${product.details ? ' collection-product-art' : ''}`}>
                 {product.image ? (
-                  <img src={asset(product.image)} alt={product.name} />
+                  <img src={asset(product.image)} alt={product.name} loading="lazy" width={1254} height={1254} />
                 ) : (
                   <div className="refined-placeholder">
                     <span className="placeholder-char">{product.name.charAt(0)}</span>
@@ -78,7 +78,7 @@ export default async function GroupPage({ params }: { params: Promise<{ category
                 <p>{product.description}</p>
 
                 <div className="refined-moq">
-                  <Package size={14} /> <span>MOQ from 1,000 pcs</span>
+                  <Package size={14} /> <span>{product.details ? 'MOQ confirmed by project' : 'MOQ from 1,000 pcs'}</span>
                 </div>
 
                 <div className="refined-actions">

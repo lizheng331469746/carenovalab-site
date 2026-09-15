@@ -1,9 +1,19 @@
+import { cleansingProducts, makeupRemoverProducts } from './cleansing-collection';
+
 export type Product = {
   name: string;
   description: string;
   image?: string;
   tags?: string[];
   moq?: string;
+  details?: {
+    overview: string;
+    highlights: { title: string; description: string }[];
+    texture: string;
+    packaging: string;
+    ingredientDirection: string;
+    customization: string[];
+  };
 };
 
 export type ProductGroup = {
@@ -33,13 +43,12 @@ export const productCategories: ProductCategory[] = [
       { 
         name: 'Cleansers', 
         products: [
-          { name: 'Amino Acid Cleanser', description: 'Gentle pH-balanced formula with dense micro-foam. Preserves moisture barrier while removing impurities.' },
-          { name: 'Foaming Cleanser', description: 'Deep-cleansing airy foam that effectively removes oil and debris without over-drying the skin.' },
+          ...cleansingProducts,
           { name: 'Gel Cleanser', description: 'Lightweight, refreshing gel texture suitable for all skin types, especially oily and combination skin.' },
-          { name: 'Cream Cleanser', description: 'Rich, nourishing formula designed for dry or sensitive skin to cleanse while adding hydration.' },
           { name: 'Exfoliating Cleanser', description: 'Dual-action formula with gentle acids or beads to resurface skin texture and brighten tone.' }
         ] 
       },
+      { name: 'Makeup Removers', products: makeupRemoverProducts },
       { 
         name: 'Toners', 
         products: [

@@ -41,9 +41,9 @@ export function ProductLibraryClient() {
       <div className="product-grid-refined">
         {products.map((item) => (
           <article className="refined-product-card" key={`${item.category.slug}-${item.group}-${item.product.name}`}>
-            <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="refined-card-art">
+            <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className={`refined-card-art${item.product.details ? ' collection-product-art' : ''}`}>
               {item.product.image ? (
-                <img src={asset(item.product.image)} alt={item.product.name} />
+                <img src={asset(item.product.image)} alt={item.product.name} loading="lazy" width={1254} height={1254} />
               ) : (
                 <div className="refined-placeholder">
                   <span className="placeholder-char">{item.product.name.charAt(0)}</span>
@@ -58,7 +58,7 @@ export function ProductLibraryClient() {
               <p>{item.product.description}</p>
 
               <div className="refined-moq">
-                <Package size={14} /> <span>MOQ from 1,000 pcs</span>
+                <Package size={14} /> <span>{item.product.details ? 'MOQ confirmed by project' : 'MOQ from 1,000 pcs'}</span>
               </div>
 
               <div className="refined-actions">

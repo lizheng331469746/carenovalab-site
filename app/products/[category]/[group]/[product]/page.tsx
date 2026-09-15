@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { getCategory, productCategories } from '@/lib/products';
+import { getCategory } from '@/lib/products';
 import { InquiryButton } from '@/components/inquiry-provider';
 import { asset } from '@/lib/assets';
 
@@ -18,7 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 
   return { 
     title: `${product.name} | ${group.name} | CareNova Lab`,
-    description: product.description
+    description: product.description,
+    openGraph: { title: product.name, description: product.description, ...(product.image ? { images: [{ url: asset(product.image), alt: product.name }] } : {}) }
   };
 }
 
@@ -52,7 +53,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="product-detail-visual">
             <div className="product-main-image">
               {product.image ? (
-                <img src={asset(product.image)} alt={product.name} />
+                <img src={asset(product.image)} alt={`${product.name} — CareNova Lab packaging design`} width={1254} height={1254} fetchPriority="high" />
               ) : (
                 <div className="placeholder-large">
                    <div className="lab-icon">🧪</div>
@@ -66,11 +67,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <span className="eyebrow">{category.name} · {group.name}</span>
             <h1>{product.name}</h1>
             <p className="product-main-desc">{product.description}</p>
+            {product.details && product.tags && <ul className="product-feature-tags" aria-label="Product highlights">{product.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>}
             
             <div className="product-specs">
               <div className="spec-item">
                 <strong>Minimum Order (MOQ)</strong>
-                <span>From 100 units, depending on the development route you choose.</span>
+                <span>{product.details ? 'Confirmed for your formula, packaging and chosen development route.' : 'From 100 units, depending on the development route you choose.'}</span>
               </div>
               <div className="spec-item">
                 <strong>Customization Options</strong>
@@ -91,12 +93,59 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               </Link>
             </div>
             
+            {product.details && <p className="packaging-caption">Packaging concept shown. Final formula, finish and pack size are confirmed with your sample.</p>}
             <p className="detail-hint">
               * Final specifications and certifications depend on the target market and selected manufacturing route.
             </p>
           </div>
         </div>
       </div>
+
+
+      {product.details && (
+        <section className="section product-story-section" aria-label="Product features and development">
+          <div className="container">
+            <span className="eyebrow">Product characteristics</span>
+            <h2>What Makes This Product Stand Out</h2>
+            <p className="product-story-intro">{product.details.overview}</p>
+            <div className="product-highlight-grid">
+              {product.details.highlights.map((highlight, index) => (
+                <article className="product-highlight" key={highlight.title}>
+                  <span className="highlight-number">0{index + 1}</span>
+                  <h3>{highlight.title}</h3>
+                  <p>{highlight.description}</p>
+                </article>
+              ))}
+            </div>
+            <div className="product-story-grid">
+              <article>
+                <span className="eyebrow">Sensory profile</span>
+                <h2>Texture &amp; Cleansing Experience</h2>
+                <p>{product.details.texture}</p>
+                <h3>Ingredient Direction</h3>
+                <p>{product.details.ingredientDirection}</p>
+              </article>
+              <article>
+                <span className="eyebrow">Designed for your brand</span>
+                <h2>Packaging Highlights</h2>
+                <p>{product.details.packaging}</p>
+                <h3>What You Can Customize</h3>
+                <ul className="product-customization-list">
+                  {product.details.customization.map(item => <li key={item}>{item}</li>)}
+                </ul>
+              </article>
+            </div>
+            <div className="product-development-note">
+              <p>These are product development directions. Ingredient choices, sensory performance and finished-product claims are confirmed through formulation, sample approval and relevant testing.</p>
+              <InquiryButton className="button button-dark" context={{ product: product.name, source: 'Product features', message: `I would like to discuss the formula, packaging and sample options for ${product.name}.` }}>Discuss This Product</InquiryButton>
+            </div>
+            <nav className="cleansing-collection-links" aria-label="Explore the cleansing collection">
+              <Link href="/products/skincare/cleansers">Explore Cleansers →</Link>
+              <Link href="/products/skincare/makeup-removers">Explore Makeup Removers →</Link>
+            </nav>
+          </div>
+        </section>
+      )}
 
       <section className="section oem-route-section">
         <div className="container">

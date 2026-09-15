@@ -702,3 +702,35 @@ details p { margin: 15px 0 0; }
 .button-black-sm { background: #242625; color: white; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
 .button-black-sm:hover { background: #000; }
 
+
+/* CareNova Lab cleansing collection */
+.refined-card-art.collection-product-art { height: auto; aspect-ratio: 1; }
+.collection-product-art img, .product-main-image img { object-fit: contain; }
+.category-collection-art { display: block; width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 12px; background: #f8f5ef; margin-bottom: 20px; }
+.category-collection-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.collection-detail-link { display: block; color: var(--gold-dark); font-weight: 700; margin: 8px 0 14px; }
+.packaging-caption { font-size: .8rem; line-height: 1.5; color: var(--muted); margin-top: 14px; }
+.product-feature-tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: -16px 0 28px; }
+.product-feature-tags li { border: 1px solid var(--line); border-radius: 30px; padding: 7px 12px; font-size: .78rem; color: var(--gold-dark); background: #faf7f0; }
+.product-story-section { border-top: 1px solid var(--line); padding-top: 64px; }
+.product-story-intro { max-width: 780px; font-size: 1.08rem; line-height: 1.7; color: var(--muted); margin: 20px 0 32px; }
+.product-highlight-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.product-highlight { background: #faf7f0; border: 1px solid var(--line); border-radius: 18px; padding: 28px; }
+.highlight-number { color: var(--gold-dark); font-size: .8rem; letter-spacing: .12em; }
+.product-highlight h3 { font-size: 1.22rem; margin: 16px 0 12px; }
+.product-highlight p, .product-story-grid p { line-height: 1.75; color: var(--muted); }
+.product-story-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; margin: 54px 0 36px; }
+.product-story-grid h2 { font-size: 1.7rem; line-height: 1.25; margin: 12px 0 18px; }
+.product-story-grid h3 { font-size: 1.05rem; margin: 26px 0 12px; }
+.product-customization-list { padding-left: 20px; color: var(--muted); line-height: 1.75; }
+.product-customization-list li { margin-bottom: 10px; }
+.product-development-note { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 24px; border: 1px solid var(--line); border-radius: 16px; }
+.product-development-note p { max-width: 720px; margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.65; }
+.product-development-note .button { flex-shrink: 0; }
+.cleansing-collection-links { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; color: var(--gold-dark); font-weight: 650; }
+@media (max-width: 900px) {
+  .product-highlight-grid, .product-story-grid { grid-template-columns: 1fr; gap: 22px; }
+  .product-development-note { align-items: flex-start; flex-direction: column; }
+  .detail-actions { flex-wrap: wrap; }
+  .product-detail-grid > * { min-width: 0; }
+}

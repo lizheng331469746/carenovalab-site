@@ -59,7 +59,7 @@ const tabs: TabData[] = [
     label: 'SKINCARE',
     columns: [
       { title: 'BY CATEGORY', items: [
-        { name: 'Cleansers', href: '/products/skincare/cleansers' }, { name: 'Toners & Mists', href: '/products/skincare/toners' },
+        { name: 'Cleansers', href: '/products/skincare/cleansers' }, { name: 'Makeup Removers', href: '/products/skincare/makeup-removers' }, { name: 'Toners & Mists', href: '/products/skincare/toners' },
         { name: 'Serums', href: '/products/skincare/serums' }, { name: 'Moisturizers', href: '/products/skincare/face-creams' },
         { name: 'Masks', href: '/products/skincare/masks' }, { name: 'Eye & Lip Care', href: '/products/skincare' },
         { name: 'Hair Care', href: '/products/hair-care' },

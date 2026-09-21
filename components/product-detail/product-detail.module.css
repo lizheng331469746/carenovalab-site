@@ -1,0 +1,59 @@
+.page { background: var(--paper); padding-bottom: 80px; overflow-wrap: anywhere; }
+.breadcrumb { display: flex; flex-wrap: wrap; gap: 10px; padding-block: 28px; font-size: .82rem; color: var(--muted); }
+.breadcrumb a:hover, .explore:hover { text-decoration: underline; }
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 70px); align-items: center; padding: 12px 0 70px; }
+.heroCopy h1 { font-size: clamp(2.25rem, 4.6vw, 4rem); min-height: 0; max-width: 16ch; }
+.lead { font-size: 1.08rem; }
+.demo { display: table; background: var(--sage); color: var(--ink); border-radius: 6px; padding: 5px 10px; font-size: .75rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 24px 0; }
+.tags li { border: 1px solid var(--line); border-radius: 99px; padding: 6px 12px; font-size: .76rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.actions > * { text-align: center; padding-block: 12px; }
+.explore { display: inline-block; margin-top: 22px; font-size: .88rem; font-weight: 650; }
+.media { margin: 0; min-width: 0; }
+.media img, .placeholder { width: 100%; aspect-ratio: 1; border-radius: 22px; background: var(--paper-2); }
+.media img { height: auto; object-fit: contain; }
+.placeholder { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; background: radial-gradient(ellipse at 40% 25%, #fffdf8, var(--paper-2)); border: 1px solid var(--line); color: var(--gold-dark); font-size: .7rem; letter-spacing: .2em; text-align: center; padding: 20px; }
+.placeholder small { letter-spacing: .02em; color: var(--muted); }
+.monogram { display: grid; place-items: center; width: 98px; height: 98px; border: 1px solid var(--gold); border-radius: 50%; font-size: 1.6rem; letter-spacing: -.09em; font-weight: 400; }
+.media figcaption { color: var(--muted); font-size: .74rem; padding: 12px 4px 0; }
+.section { padding: 68px 0; border-top: 1px solid var(--line); scroll-margin-top: 130px; }
+.sectionHeading { margin-bottom: 30px; }
+.page h2 { font-size: clamp(1.9rem, 3.2vw, 2.8rem); max-width: 26ch; }
+.page h3 { line-height: 1.25; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.card { padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--white); }
+.card p, .packaging p { margin-bottom: 0; font-size: .95rem; }
+.cardNumber { display: block; color: var(--gold-dark); font-size: .8rem; margin-bottom: 28px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(28px, 6vw, 80px); }
+.split .editorial { font-size: clamp(1.55rem, 2.7vw, 2.2rem); }
+.intro { max-width: 74ch; margin-bottom: 28px; }
+.textureList { list-style: none; padding: 0; }
+.textureList li { padding: 13px 0; border-bottom: 1px solid var(--line); }
+.textureList li::before { content: '—'; color: var(--gold-dark); margin-right: 12px; }
+.packaging h3 { margin-top: 24px; }
+.specifications { margin: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.specifications > div { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; padding: 20px 28px; background: white; }
+.specifications > div:nth-child(even) { background: var(--paper-2); }
+.specifications dt { font-weight: 650; }
+.specifications dd { margin: 0; color: var(--muted); }
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.faq summary { cursor: pointer; font-weight: 650; padding-right: 15px; }
+.faq p { margin: 16px 0 0; max-width: 85ch; }
+.cta { background: var(--paper-2); border: 1px solid var(--line); border-radius: 28px; padding: clamp(28px, 6vw, 64px); margin-top: 32px; text-align: center; }
+.cta h2, .cta p { margin-inline: auto; max-width: 650px; }
+.cta .actions { justify-content: center; }
+.page a:focus-visible, .page button:focus-visible, .page summary:focus-visible { outline: 3px solid var(--gold-dark); outline-offset: 5px; }
+@media (max-width: 1000px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) {
+  .hero, .split { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .hero { padding-bottom: 42px; }
+  .heroCopy h1 { max-width: none; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .section { padding-block: 42px; }
+  .specifications > div { grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 18px; }
+  .actions > * { width: 100%; }
+  .cta { border-radius: 20px; }
+  .page { padding-bottom: 90px; }
+}

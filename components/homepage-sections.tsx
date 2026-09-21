@@ -1,11 +1,27 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import heroStyles from './homepage-hero.module.css';
 import { homeCategories, homeProducts, homeInsights, journey, capabilities, type HomeImage } from '@/lib/homepage';
 import styles from './homepage-sections.module.css';
 import { HomepageInquiryDrawer } from './homepage-inquiry-drawer';
 import layout from './homepage-layout.module.css';
 
 function ImagePlaceholder({ image }: { image: HomeImage }) { return <div className={`${styles.placeholder} ${styles[`role-${image.role}`]} ${layout.image}`} role="img" aria-label={image.alt}><span>CNL</span><small>{image.role.toUpperCase()} IMAGE</small></div>; }
-export function HomepageHero() { return <section className={styles.hero}><ImagePlaceholder image={{ role: 'hero', alt: 'Premium skincare, packaging, formula samples and product development visual' }} /><div className={styles.heroOverlay}/><div className={`container ${styles.heroContent}`}><div className={styles.heroCopy}><span className="eyebrow">FROM MARKET INSIGHT TO PRODUCT</span><h1>From Market Opportunity to Market-Ready Products.</h1><p>We identify market opportunities and turn them into scalable skincare, personal care and beauty products — from concept and formulation to packaging and manufacturing.</p><div className={styles.heroTags}>SKINCARE · PERSONAL CARE · OEM/ODM · PRIVATE LABEL · PRODUCT DEVELOPMENT</div><div className={styles.actions}><Link className="button button-dark" href="/start-your-project">Start Your Project →</Link><Link className="button button-outline" href="/products">Explore Products →</Link></div></div></div></section>; }
+export function HomepageHero() {
+  return <section className={`${styles.hero} ${heroStyles.banner}`}>
+    <Image src="/images/homepage-laboratory-hero.webp" alt="Beauty formulation development in a bright laboratory" fill priority sizes="100vw" unoptimized className={heroStyles.image} />
+    <div className={heroStyles.overlay} aria-hidden="true" />
+    <div className={`container ${styles.heroContent}`}>
+      <div className={styles.heroCopy}>
+        <span className="eyebrow">FROM MARKET INSIGHT TO PRODUCT</span>
+        <h1>From Market Opportunity to Market-Ready Products.</h1>
+        <p>We identify market opportunities and turn them into scalable skincare, personal care and beauty products — from concept and formulation to packaging and manufacturing.</p>
+        <div className={styles.heroTags}>SKINCARE · PERSONAL CARE · OEM/ODM · PRIVATE LABEL · PRODUCT DEVELOPMENT</div>
+        <div className={styles.actions}><Link className="button button-dark" href="/start-your-project">Start Your Project →</Link><Link className="button button-outline" href="/products">Explore Products →</Link></div>
+      </div>
+    </div>
+  </section>;
+}
 export function ProductSolutions() { return <section className="section"><div className="container"><div className="section-heading"><span className="eyebrow">PRODUCT SOLUTIONS</span><h2>Explore What We Can Build.</h2><p>Explore scalable product directions across the categories shaping today’s beauty market.</p></div><div className={`${styles.categoryMosaic} ${layout.categoryGrid}`}>{homeCategories.slice(0, 5).map((category, index) => <Link href={`/products/${category.slug}`} className={`${styles.categoryTile} ${layout.categoryCard}`} key={category.slug}><div className={`${styles.categoryCopy} ${layout.categoryCopy}`}><small>0{index + 1}</small><span>{category.name}</span><p>{category.groups.slice(0, 3).map(g => g.name).join(' · ')}</p><b>Explore Products →</b></div><ImagePlaceholder image={category.image}/></Link>)}</div></div></section>; }
 export function MarketOpportunities() { return <section className="section section-white"><div className="container"><div className="section-heading"><span className="eyebrow">MARKET OPPORTUNITIES</span><h2>What’s Next in Beauty.</h2><p>Trend-led product concepts selected around emerging consumer demand and private-label opportunities.</p></div><div className={`${styles.trendGrid} ${layout.trendGrid}`}>{homeProducts.slice(0, 4).map(product => <Link href={product.href} className={`${styles.productTile} ${layout.trendCard}`} key={product.href}><ImagePlaceholder image={product.image}/><span>TREND / OPPORTUNITY</span><h3>{product.name}</h3><p>{product.description}</p><b>Explore Concept →</b></Link>)}</div><Link className="button button-outline" href="/products">Explore All Opportunities →</Link></div></section>; }
 export function IdeaToProduct() { return <section className="section section-muted"><div className={`container ${styles.split}`}><div><div className="section-heading"><span className="eyebrow">PRODUCT DEVELOPMENT</span><h2>From Idea to Product.</h2><p>From market signal to a workable product direction, we coordinate the decisions that move a concept forward.</p></div><div className={styles.process}>{[['01','Market & Trend Research','Identify the opportunity.'],['02','Product Strategy','Define the right direction.'],['03','Formula Development','Build for target-market needs.'],['04','Packaging & Sampling','Make the concept tangible.'],['05','Compliance Support','Prepare for launch requirements.'],['06','Manufacturing & Delivery','Move from sample to scale.']].map(step => <div key={step[0]}><b>{step[0]}</b><span><strong>{step[1]}</strong><small>{step[2]}</small></span></div>)}</div><Link className="button button-outline" href="/how-we-work">How We Work →</Link></div><ImagePlaceholder image={{role:'process',alt:'Formula samples, packaging development and product design process'}}/></div></section>; }

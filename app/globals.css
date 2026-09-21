@@ -37,7 +37,7 @@ h2 { font-size: clamp(2.35rem, 4vw, 4.25rem); margin-bottom: 1.1rem; }
 h3 { font-size: 1.35rem; margin-bottom: .7rem; }
 p { color: var(--muted); }
 
-.container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+.container { width: min(1280px, calc(100% - 80px)); margin-inline: auto; }
 .section { padding: 110px 0; }
 .section-sm { padding: 76px 0; }
 .section-dark { background: var(--ink); color: var(--white); }
@@ -523,7 +523,7 @@ details p { margin: 15px 0 0; }
 
 @media (max-width: 720px) {
   body { padding-bottom: 64px; }
-  .container { width: min(100% - 28px, 1180px); }
+  .container { width: min(100% - 28px, 1280px); }
   .section { padding: 76px 0; }
   .announcement span { display: none; }
   .announcement { justify-content: center; }

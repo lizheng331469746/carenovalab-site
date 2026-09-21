@@ -1,9 +1,11 @@
 .page { background: var(--paper); padding-bottom: 80px; overflow-wrap: anywhere; }
 .breadcrumb { display: flex; flex-wrap: wrap; gap: 10px; padding-block: 28px; font-size: .82rem; color: var(--muted); }
 .breadcrumb a:hover, .explore:hover { text-decoration: underline; }
-.hero { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 70px); align-items: center; padding: 12px 0 70px; }
-.heroCopy h1 { font-size: clamp(2.25rem, 4.6vw, 4rem); min-height: 0; max-width: 16ch; }
-.lead { font-size: 1.08rem; }
+.hero { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 52px); align-items: center; padding: 8px 0 48px; }
+.heroCopy h1 { font-size: clamp(2rem, 3.5vw, 3.15rem); min-height: 0; max-width: 18ch; margin-bottom: 14px; }
+.lead { font-size: .96rem; margin-bottom: 16px; max-width: 52ch; }
+.benefitTags { display: flex; flex-wrap: wrap; gap: 6px 14px; list-style: none; padding: 0; margin: 0 0 16px; font-size: .75rem; font-weight: 600; color: var(--gold-dark); }
+.benefitTags li + li::before { content: '·'; margin-right: 14px; }
 .quickInfo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; padding: 22px 0; margin: 20px 0 0; border-block: 1px solid var(--line); }
 .quickInfo dt { color: var(--gold-dark); text-transform: uppercase; letter-spacing: .09em; font-size: .7rem; font-weight: 700; margin-bottom: 6px; }
 .quickInfo dd { margin: 0; font-size: .92rem; font-weight: 600; }

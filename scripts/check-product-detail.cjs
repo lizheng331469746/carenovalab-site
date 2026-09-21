@@ -61,7 +61,7 @@ const render = product => renderToStaticMarkup(React.createElement(InquiryProvid
   assert.equal(product.specifications.length, 13);
   assert.equal(product.faq.length, 7);
   for (const fact of product.quickInfo) {
-    const spec = product.specifications.find(item => item.label === (fact.label === 'Custom Formula' ? 'Formula' : fact.label));
+    const spec = product.specifications.find(item => item.label === (fact.label === 'Size' ? 'Available Size' : fact.label));
     assert.equal(spec.value, fact.value, 'Hero and specifications must agree');
   }
   const { getPackagingOptions } = require('../lib/product-detail/packaging');
@@ -82,6 +82,34 @@ const render = product => renderToStaticMarkup(React.createElement(InquiryProvid
   assert(variantHtml.includes('/images/test-ingredient.webp'));
   assert(!html.includes('Factory Certifications'), 'Do not imply unverified factory certification');
   assert(html.includes('Subject to review'));
+  const { ProductGallery } = require('../components/product-detail/product-gallery');
+  const { getProductGallery, galleryIndex, swipeDirection } = require('../lib/product-detail/gallery');
+  const { hasSectionData } = require('../lib/product-detail/visibility');
+  for (let count = 1; count <= 5; count++) {
+    const gallery = product.gallery.slice(0, count);
+    const rendered = renderToStaticMarkup(React.createElement(ProductGallery, { product: { name: 'Gallery test', gallery } }));
+    assert(rendered.includes(`1 / ${count}`));
+    assert.equal((rendered.match(/aria-pressed=/g) || []).length, count === 1 ? 0 : count);
+    assert(!rendered.includes('<img'), 'Empty gallery sources use placeholders in main image and thumbnails');
+    assert.equal(galleryIndex(0, -1, count), count - 1);
+    assert.equal(galleryIndex(count - 1, 1, count), 0);
+  }
+  assert.equal(getProductGallery({ name: 'Empty gallery', gallery: [] }).length, 1);
+  assert.equal(getProductGallery({ name: 'Capped gallery', gallery: [...product.gallery, ...product.gallery] }).length, 5);
+  assert.equal(swipeDirection(-100, 5), 1);
+  assert.equal(swipeDirection(100, 5), -1);
+  assert.equal(swipeDirection(30, 5), 0);
+  assert.equal(swipeDirection(50, 100), 0, 'Vertical page scrolling must not change slides');
+  assert.equal(hasSectionData({ heading: '', attributes: [] }), false);
+  const sparse = { slug: 'test-only', name: 'Sparse test', category: 'Test', demo: true, seo: product.seo };
+  const sparseHtml = render(sparse);
+  for (const id of order.slice(1)) assert(!sparseHtml.includes(`id="${id}"`), `Empty section ${id} must be hidden`);
+  assert(!sparseHtml.includes('application/ld+json'));
+  const emptyHtml = render({ ...sparse, overview: {}, texture: {}, manufacturing: {}, benefits: [], ingredients: [], packagingOptions: [], faq: [{ question: '', answer: '' }] });
+  for (const id of order.slice(1)) assert(!emptyHtml.includes(`id="${id}"`));
+  assert(!emptyHtml.includes('application/ld+json'));
+  const gallerySeo = productMetadata({ ...sparse, gallery: [{ type: 'hero', src: '/images/gallery.webp', alt: 'Gallery SEO' }] });
+  assert(gallerySeo.openGraph.images[0].url.endsWith('/images/gallery.webp'));
   await assert.rejects(() => route.default({ params: Promise.resolve({ category: 'unknown-product' }) }), /NEXT_HTTP_ERROR_FALLBACK;404/);
   for (const relative of ['app/products/skincare/page.tsx', 'app/products/[category]/[group]/page.tsx', 'app/products/[category]/[group]/[product]/page.tsx']) assert(fs.existsSync(path.join(root, relative)));
   console.log('PASS: one demo, ordered sections, reusable data, placeholders, CTA destinations, metadata, FAQ escaping, and unknown-slug 404.');

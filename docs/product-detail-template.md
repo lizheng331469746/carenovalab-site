@@ -23,7 +23,8 @@ There are no product-specific values in the React template.
 
 ## Images
 WebP only. Each slot accepts src (optional), alt and caption:
-- heroImage
+- gallery[]: 1–5 entries, each with src, alt, type and optional caption
+- heroImage: backward-compatible fallback only
 - overviewImage
 - textureImage
 - ingredients[].image (optional; absent image retains a placeholder)
@@ -76,3 +77,36 @@ images/materials/decoration, ingredient states, procurement consistency, categor
 single CTA and one registered demo.
 The repository has no ESLint configuration. next lint currently opens its setup prompt,
 so lint is not recorded as passed. No repository-wide lint setup was added in this task.
+
+
+## Master gallery and conditional sections
+ProductGallery is a client component; the rest of the master structure is preserved.
+ProductMedia/ProductImageView are shared with gallery placeholders and handle image
+load errors. Gallery entries live in demo.ts and GalleryImage in types.ts.
+Roles: hero, detail, texture, ingredient, lifestyle. Roles are descriptive metadata;
+the component never assigns a URL or product-specific content based on a role.
+Blank src/omitted src are valid placeholder slots. A single entry hides navigation.
+An empty gallery falls back to heroImage or one brand placeholder. More than five
+entries are capped by MAX_GALLERY_IMAGES in gallery.ts.
+
+Desktop: vertical thumbnail rail; click switches the main image. Selected thumbnail
+has a quiet gold border. Arrow keys and Home/End work on thumbnail buttons.
+Mobile: square main image capped at 320px width, horizontal thumbnails, current/total
+counter and horizontal touch swipes. Vertical gestures keep normal page scrolling.
+All gallery sources use one fixed square frame and object-fit contain.
+Only the first main image receives high fetch priority. Missing/failed images retain
+the same frame. No autoplay or animation is added.
+
+Product data may omit any optional section (or supply an empty list/object).
+Benefits, Overview, Ingredients, Texture, Customization, Packaging, Manufacturing,
+Specifications, FAQ and Final CTA are conditionally rendered. Hero retains the
+required product identity; its description/tags/quick info/actions are optional.
+Empty FAQ suppresses JSON-LD as well. An image can independently populate Overview
+or Texture; missing images alongside real section text show a placeholder.
+Manufacturing subcards only appear when their respective data exists.
+
+Hero shortDescription, benefitTags and quickInfo are managed in demo.ts.
+No MOQ or sample availability is inferred. Benefit tags do not replace the benefits cards.
+Tests additionally cover gallery sizes 1–5, single-image navigation, cap/fallback,
+horizontal versus vertical gestures, empty sections and gallery Open Graph fallback.
+Browser visual and real-device touch acceptance still require a working browser connection.

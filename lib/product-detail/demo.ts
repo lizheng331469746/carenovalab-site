@@ -17,11 +17,19 @@ const texture = 'Cream to foam';
 export const demoProduct: Product = {
   slug: 'demo-amino-acid-cleanser', name: 'Amino Acid Cream Cleanser',
   category: 'Skincare', subcategory: 'Cleansers', demo: true,
-  shortDescription: 'A rinse-off facial cleanser with a cream-to-foam direction. Develop a soft lather and comfortable after-feel, with formula and packaging options for your brand.',
+  shortDescription: 'A rinse-off cream cleanser developed for soft foam and a comfortable after-feel.',
+  benefitTags: ['Gentle Cleansing', 'Cream-to-Foam', 'Comfortable After-Feel'],
+  gallery: [
+    { src: '', alt: 'CareNova Lab amino acid cream cleanser front view', type: 'hero', caption: 'Product Hero' },
+    { src: '', alt: 'Amino acid cream cleanser packaging detail', type: 'detail', caption: 'Product Detail' },
+    { src: '', alt: 'Cream cleanser texture and lather', type: 'texture', caption: 'Texture' },
+    { src: '', alt: 'Amino acid cleanser ingredient direction', type: 'ingredient', caption: 'Ingredient / Product Concept' },
+    { src: '', alt: 'Cream cleanser lifestyle and packaging', type: 'lifestyle', caption: 'Lifestyle / Packaging' }
+  ],
   heroImage: { alt: 'CareNova Lab amino acid cream cleanser', caption: 'Product main view' },
   quickInfo: [
-    { label: 'MOQ', value: procurement.moq }, { label: 'Available Size', value: procurement.size },
-    { label: 'Sample', value: procurement.sample }, { label: 'Custom Formula', value: procurement.formula }
+    { label: 'MOQ', value: procurement.moq }, { label: 'Size', value: procurement.size },
+    { label: 'Sample', value: procurement.sample }, { label: 'Formula', value: procurement.formula }
   ],
   benefits: [
     { title: 'Gentle Cleansing', description: 'An amino acid-based cleansing direction targeting a mild daily wash.' },

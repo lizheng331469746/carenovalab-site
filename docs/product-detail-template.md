@@ -129,3 +129,12 @@ generate more products until the user confirms it.
 - FAQ remains seven entries, including lead time.
 - Desktop/mobile breakpoints and touch logic are implemented and code-tested.
   Live visual/device testing is not claimed while the browser connector is unavailable.
+
+## Catalog-wide production adoption
+All existing /products/[category]/[group]/[product] routes now render ProductDetail.
+lib/product-detail/catalog.ts adapts the existing lib/products.ts catalog at runtime;
+it does not generate new SKU records or change listing URLs. Existing descriptions,
+WebP hero images and rich details are preserved. Shared business support is reused;
+missing SKU-specific facts are not inferred from the cleanser demo.
+catalogDetailOverrides is keyed by full existing URL for future richer Product data.
+This supersedes the earlier first-phase note that legacy details remain independent.

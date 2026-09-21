@@ -34,7 +34,8 @@ const render = product => renderToStaticMarkup(React.createElement(InquiryProvid
   let previous = -1;
   for (const id of order) { const position = html.indexOf(`id="${id}"`); assert(position > previous, id); previous = position; }
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
-  assert.equal((html.match(/<details>/g) || []).length, product.faq.length);
+  const faqHtml = html.slice(html.indexOf('id="faq"'), html.indexOf('id="start-project"'));
+  assert.equal((faqHtml.match(/<details>/g) || []).length, product.faq.length);
   assert(html.includes('href="/start-your-project"'));
   assert(html.includes('href="/contact"'));
   assert(!html.includes('<img'), 'Empty media slots must not request broken assets');
@@ -62,7 +63,7 @@ const render = product => renderToStaticMarkup(React.createElement(InquiryProvid
   assert.equal(product.faq.length, 7);
   for (const fact of product.quickInfo) {
     const spec = product.specifications.find(item => item.label === (fact.label === 'Size' ? 'Available Size' : fact.label));
-    assert.equal(spec.value, fact.value, 'Hero and specifications must agree');
+    if (spec) assert.equal(spec.value, fact.value, 'Hero and specifications must agree');
   }
   const { getPackagingOptions } = require('../lib/product-detail/packaging');
   assert.throws(() => getPackagingOptions(['not-a-real-pack']), /Unknown packaging ID/);
@@ -88,7 +89,7 @@ const render = product => renderToStaticMarkup(React.createElement(InquiryProvid
   for (let count = 1; count <= 5; count++) {
     const gallery = product.gallery.slice(0, count);
     const rendered = renderToStaticMarkup(React.createElement(ProductGallery, { product: { name: 'Gallery test', gallery } }));
-    assert(rendered.includes(`1 / ${count}`));
+    assert.equal(rendered.includes(`1 / ${count}`), count > 1);
     assert.equal((rendered.match(/aria-pressed=/g) || []).length, count === 1 ? 0 : count);
     assert(!rendered.includes('<img'), 'Empty gallery sources use placeholders in main image and thumbnails');
     assert.equal(galleryIndex(0, -1, count), count - 1);
@@ -110,6 +111,31 @@ const render = product => renderToStaticMarkup(React.createElement(InquiryProvid
   assert(!emptyHtml.includes('application/ld+json'));
   const gallerySeo = productMetadata({ ...sparse, gallery: [{ type: 'hero', src: '/images/gallery.webp', alt: 'Gallery SEO' }] });
   assert(gallerySeo.openGraph.images[0].url.endsWith('/images/gallery.webp'));
+  assert(!html.includes('<figcaption'));
+  assert(!html.includes('Product Hero</'));
+  assert(html.includes('Business Details</h3>'));
+  const { displayProduct, visibleFacts } = require('../lib/product-detail/visibility');
+  assert.deepEqual(visibleFacts([{ label: 'Empty', value: ' ' }, { label: 'Missing', value: 'N/A' }, { label: 'Unknown', value: 'unknown' }, { label: 'Later', value: 'TBD' }]), []);
+  const dirty = { ...sparse,
+    benefits: [{ title: 'TBD', description: 'Unknown' }],
+    overview: { heading: '', description: 'N/A', attributes: [{ label: 'Capacity', value: 'TBD' }] },
+    ingredients: [{ name: 'Unknown', description: 'TBD', status: 'proposed' }],
+    texture: { heading: 'Unknown', description: 'TBD', attributes: ['N/A'] },
+    customization: [{ title: '', description: '' }],
+    packagingOptions: [{ id: 'blank', type: 'Unknown', capacity: 'TBD', description: '', image: { alt: 'internal' } }],
+    manufacturing: { standards: 'TBD', qualityControl: 'N/A', targetMarkets: ['Unknown'] },
+    specifications: [{ label: 'Capacity', value: 'TBD', group: 'Product Details' }],
+    faq: [{ question: 'N/A', answer: 'Unknown' }]
+  };
+  const cleanHtml = render(dirty);
+  for (const id of order.slice(1)) assert(!cleanHtml.includes(`id="${id}"`), `Placeholder-only section ${id}`);
+  assert.equal(JSON.parse(faqJsonLd(dirty)).mainEntity.length, 0);
+  const certData = displayProduct({ ...sparse, manufacturing: {
+    factoryCertifications: [{ name: 'Factory test credential', factory: 'Test factory', scope: 'Factory scope', evidenceReference: 'TEST-ONLY' }],
+    productCertifications: [{ name: 'Product test credential', scope: 'Product scope', evidenceReference: 'TEST-ONLY' }]
+  } });
+  const certHtml = render(certData);
+  assert(certHtml.includes('Factory Certifications') && certHtml.includes('Product Certifications'));
   await assert.rejects(() => route.default({ params: Promise.resolve({ category: 'unknown-product' }) }), /NEXT_HTTP_ERROR_FALLBACK;404/);
   for (const relative of ['app/products/skincare/page.tsx', 'app/products/[category]/[group]/page.tsx', 'app/products/[category]/[group]/[product]/page.tsx']) assert(fs.existsSync(path.join(root, relative)));
   console.log('PASS: one demo, ordered sections, reusable data, placeholders, CTA destinations, metadata, FAQ escaping, and unknown-slug 404.');

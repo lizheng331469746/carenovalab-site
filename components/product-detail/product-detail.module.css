@@ -23,17 +23,27 @@
 .placeholder small { letter-spacing: .02em; color: var(--muted); }
 .monogram { display: grid; place-items: center; width: 98px; height: 98px; border: 1px solid var(--gold); border-radius: 50%; font-size: 1.6rem; letter-spacing: -.09em; font-weight: 400; }
 .media figcaption { color: var(--muted); font-size: .74rem; padding: 12px 4px 0; }
-.section { padding: 52px 0; border-top: 1px solid var(--line); scroll-margin-top: 130px; }
-.sectionHeading { margin-bottom: 30px; }
+.section { padding: 46px 0; border-top: 1px solid var(--line); scroll-margin-top: 130px; }
+.sectionHeading { margin-bottom: 24px; }
 .page h2 { font-size: clamp(1.9rem, 3.2vw, 2.8rem); max-width: 26ch; }
 .page h3 { line-height: 1.25; }
 .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .card { padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--white); }
 .card p, .packaging p { margin-bottom: 0; font-size: .95rem; }
 .compactCards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.compactCards .card { padding: 22px 18px; }
+.compactCards .card { padding: 24px 20px; }
 .compactCards h3 { font-size: 1rem; }
 .compactCards p { font-size: .85rem; }
+.customizationIntro { margin-bottom: 22px; }
+.customizationIntro h3 { font-size: 1.2rem; margin-bottom: 8px; }
+.customizationIntro p { margin-bottom: 0; }
+.marketTags { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin-top: 18px; list-style: none; font-size: .78rem; }
+.marketTags li { border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+.complianceDetails { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 16px; font-size: .88rem; }
+.complianceDetails summary { cursor: pointer; font-weight: 600; }
+.complianceDetails h4 { margin: 18px 0 8px; }
+.specGroups > div + div { margin-top: 26px; }
+.specGroupTitle { font-size: .8rem; letter-spacing: .09em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
 .manufacturingGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
 .status { display: inline-block; margin-block: 16px 10px; padding: 3px 8px; background: var(--paper-2); border-radius: 5px; font-size: .73rem; color: var(--ink); }
 .ingredient p { font-size: .95rem; margin-bottom: 0; }

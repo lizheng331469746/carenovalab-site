@@ -49,9 +49,9 @@ export const demoProduct: Product = {
   overviewImage: { alt: 'Cleanser lifestyle and product overview', caption: 'Product overview' },
   ingredientIntroduction: 'Suggested formulation directions. Proposed ingredients are not a confirmed final INCI list.',
   ingredients: [
-    { name: 'Amino Acid Surfactants', description: 'Proposed cleansing system for the desired mild-feeling wash and foam profile.', status: 'proposed', image: { alt: 'Amino acid surfactant ingredient visual', caption: 'Amino acid surfactants' } },
-    { name: 'Glycerin', description: 'A proposed humectant for the desired formula feel.', status: 'proposed', image: { alt: 'Glycerin ingredient visual', caption: 'Glycerin' } },
-    { name: 'Panthenol', description: 'An optional conditioning ingredient, subject to formulation compatibility.', status: 'proposed', image: { alt: 'Panthenol ingredient visual', caption: 'Panthenol' } }
+    { name: 'Amino Acid Surfactants', description: 'Proposed mild cleansing system.', status: 'proposed', image: { alt: 'Amino acid surfactant ingredient visual', caption: 'Amino acid surfactants' } },
+    { name: 'Glycerin', description: 'Proposed humectant for moisture support.', status: 'proposed', image: { alt: 'Glycerin ingredient visual', caption: 'Glycerin' } },
+    { name: 'Panthenol', description: 'Proposed conditioning ingredient; compatibility to be confirmed.', status: 'proposed', image: { alt: 'Panthenol ingredient visual', caption: 'Panthenol' } }
   ],
   texture: {
     heading: 'Smooth cream. Soft lather.',
@@ -59,9 +59,10 @@ export const demoProduct: Product = {
     attributes: ['Cream Format', 'Soft Foam', 'Comfortable Rinse']
   },
   textureImage: { alt: 'Cream cleanser texture and soft foam', caption: 'Texture and sensory detail' },
+  customizationIntro: { heading: 'Make this product your own.', description: 'Customize the formula, fragrance, packaging and branding for your target market.' },
   customization: [
     { title: 'Formula', description: 'Ingredients · Texture · Performance' },
-    { title: 'Fragrance & Appearance', description: 'Scent · Color · Consistency' },
+    { title: 'Scent & Appearance', description: 'Fragrance · Color · Consistency' },
     { title: 'Packaging', description: 'Bottle · Tube · Pump · Jar · Carton' },
     { title: 'Branding', description: 'Logo · Artwork · Printing · Label' }
   ],
@@ -69,23 +70,30 @@ export const demoProduct: Product = {
   packagingOptions: getPackagingOptions(['cleanser-tube', 'cleanser-pump', 'custom-carton']),
   manufacturing: {
     introduction: 'Manufacturing and documentation requirements are reviewed for your chosen formula and destination market.',
-    standards: 'Factory standards and supporting credentials are verified for the selected manufacturing partner before confirmation.',
-    qualityControl: 'Agree on sample approval criteria, batch specifications and inspection requirements before production.',
-    testingSupport: 'Discuss stability, microbiological and packaging compatibility testing for the final formula.',
-    documentationSummary: documents,
+    standards: 'Factory standards and credentials confirmed with the selected partner.',
+    qualityControl: 'Raw material · Bulk · Filling · Finished product checks to be agreed.',
+    testingSupport: 'Stability · Microbiological · Packaging compatibility testing to be scoped.',
+    documentationSummary: 'Documentation support based on the product and destination market.',
+    productCertifications: [],
     factoryCertifications: [],
     availableDocumentation: [{ name: 'Formula & quality documents', details: 'Document list to be confirmed with the manufacturing partner.', status: 'subject-to-review' }],
     regulatorySupport: [{ name: 'Label & export requirements', details: 'Scope depends on the destination market and final formula.', status: 'subject-to-review' }],
     targetMarkets: [procurement.targetMarket]
   },
   specifications: [
-    { label: 'Product Type', value: 'Rinse-off facial cleanser' }, { label: 'Texture', value: texture },
-    { label: 'Available Size', value: procurement.size }, { label: 'Formula', value: procurement.formula },
-    { label: 'Fragrance', value: procurement.fragrance }, { label: 'Packaging', value: procurement.packaging },
-    { label: 'Branding', value: procurement.branding }, { label: 'MOQ', value: procurement.moq },
-    { label: 'Sample', value: procurement.sample }, { label: 'Lead Time', value: procurement.leadTime },
-    { label: 'Shelf Life', value: procurement.shelfLife }, { label: 'Target Market', value: procurement.targetMarket },
-    { label: 'OEM / ODM', value: 'Private label / OEM / ODM development' }
+    { group: 'Product Details', label: 'Product Type', value: 'Rinse-off facial cleanser' },
+    { group: 'Product Details', label: 'Texture', value: texture },
+    { group: 'Product Details', label: 'Skin Type', value: 'To be confirmed with final formula' },
+    { group: 'Product Details', label: 'Key Ingredients', value: 'Proposed: Amino Acid Surfactants · Glycerin · Panthenol' },
+    { group: 'Product Details', label: 'Available Size', value: procurement.size },
+    { group: 'Product Details', label: 'Fragrance', value: procurement.fragrance },
+    { group: 'Product Details', label: 'Shelf Life', value: procurement.shelfLife },
+    { group: 'Business Details', label: 'MOQ', value: procurement.moq },
+    { group: 'Business Details', label: 'Sample', value: procurement.sample },
+    { group: 'Business Details', label: 'OEM / ODM', value: 'Private label / OEM / ODM development' },
+    { group: 'Business Details', label: 'Packaging', value: procurement.packaging },
+    { group: 'Business Details', label: 'Lead Time', value: procurement.leadTime },
+    { group: 'Business Details', label: 'Target Market', value: procurement.targetMarket }
   ],
   faq: createProcurementFaq('cleansers', procurement, documents),
   cta: {
@@ -95,3 +103,4 @@ export const demoProduct: Product = {
   },
   seo: { title: 'Amino Acid Cream Cleanser OEM/ODM | CareNova Lab', description: 'Explore amino acid cream cleanser development, ingredient directions, packaging options and private label OEM/ODM support from CareNova Lab.', canonicalPath: '/products/demo-amino-acid-cleanser' }
 };
+

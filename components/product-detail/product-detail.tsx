@@ -5,7 +5,7 @@ import type { Product, ProductFeature, ProductFact, Manufacturing, SupportItem }
 import { faqJsonLd } from '@/lib/product-detail/seo';
 import { ProductMedia } from './product-media';
 import { ProductGallery } from './product-gallery';
-import { hasSectionData } from '@/lib/product-detail/visibility';
+import { hasSectionData, displayProduct, visibleFacts } from '@/lib/product-detail/visibility';
 export { ProductMedia } from './product-media';
 import styles from './product-detail.module.css';
 
@@ -16,7 +16,9 @@ export function ProductSection({ id, eyebrow, title, children }: { id: string; e
   </section>;
 }
 export function ProductFacts({ items, variant = 'attributes' }: { items: ProductFact[]; variant?: 'quickInfo' | 'attributes' | 'specifications' }) {
-  return <dl className={styles[variant]}>{items.map(item => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl>;
+  const facts = visibleFacts(items);
+  if (!facts.length) return null;
+  return <dl className={styles[variant]}>{facts.map(item => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl>;
 }
 export function FeatureGrid({ items, compact = false }: { items: ProductFeature[]; compact?: boolean }) {
   return <div className={compact ? styles.compactCards : styles.cards}>{items.map(item => <article className={styles.card} key={item.title}>
@@ -35,30 +37,43 @@ function SupportList({ items }: { items: SupportItem[] }) {
     <strong>{item.name}</strong><span className={styles.status}>{item.status === 'confirmed' ? 'Confirmed available' : 'Subject to review'}</span><p>{item.details}</p>
   </li>)}</ul>;
 }
-export function ManufacturingSupport({ data: input }: { data: Manufacturing }) {
-  const data = { ...input, factoryCertifications: input.factoryCertifications ?? [], availableDocumentation: input.availableDocumentation ?? [], regulatorySupport: input.regulatorySupport ?? [], targetMarkets: input.targetMarkets ?? [] };
-  const hasDocuments = hasSectionData([data.documentationSummary, data.availableDocumentation, data.regulatorySupport, data.targetMarkets]);
+export function ProductSpecifications({ items }: { items: ProductFact[] }) {
+  const groups = new Map<string, ProductFact[]>();
+  visibleFacts(items).forEach(item => {
+    const name = item.group || '';
+    groups.set(name, [...(groups.get(name) ?? []), item]);
+  });
+  return <div className={styles.specGroups}>{Array.from(groups, ([name, rows]) => <div key={name}>
+    {name && <h3 className={styles.specGroupTitle}>{name}</h3>}
+    <ProductFacts items={rows} variant="specifications" />
+  </div>)}</div>;
+}
+export function ManufacturingSupport({ data }: { data: Manufacturing }) {
+  const factories = data.factoryCertifications ?? [];
+  const certifications = data.productCertifications ?? [];
+  const documents = data.availableDocumentation ?? [];
+  const regulatory = data.regulatorySupport ?? [];
+  const markets = data.targetMarkets ?? [];
+  const hasDetails = factories.length + certifications.length + documents.length + regulatory.length > 0;
   return <>
-    <p className={styles.intro}>{data.introduction}</p>
+    {data.introduction && <p className={styles.intro}>{data.introduction}</p>}
     <div className={styles.manufacturingGrid}>
-      {(data.standards || data.factoryCertifications.length > 0) && <article className={styles.card}><h3>Manufacturing Standards</h3><p>{data.standards}</p>
-        {data.factoryCertifications.length > 0 && <div className={styles.supportDetail}><h4>Factory Certifications</h4>
-          <ul className={styles.supportList}>{data.factoryCertifications.map(cert => <li key={`${cert.factory}-${cert.name}`}><strong>{cert.name}</strong><p>{cert.factory} · {cert.scope}</p></li>)}</ul>
-        </div>}
-      </article>}
+      {data.standards && <article className={styles.card}><h3>Manufacturing Standards</h3><p>{data.standards}</p></article>}
       {data.qualityControl && <article className={styles.card}><h3>Quality Control</h3><p>{data.qualityControl}</p></article>}
       {data.testingSupport && <article className={styles.card}><h3>Testing Support</h3><p>{data.testingSupport}</p></article>}
-      {hasDocuments && <article className={styles.card}><h3>Regulatory &amp; Export Documentation</h3><p>{data.documentationSummary}</p>
-        <div className={styles.supportDetail}>
-          {data.availableDocumentation.length > 0 && <><h4>Available Documentation</h4><SupportList items={data.availableDocumentation} /></>}
-          {data.regulatorySupport.length > 0 && <><h4>Regulatory Support</h4><SupportList items={data.regulatorySupport} /></>}
-          {data.targetMarkets.length > 0 && <><h4>Target Market</h4><p>{data.targetMarkets.join(' · ')}</p></>}
-        </div>
-      </article>}
+      {data.documentationSummary && <article className={styles.card}><h3>Regulatory &amp; Export Documentation</h3><p>{data.documentationSummary}</p></article>}
     </div>
+    {markets.length > 0 && <ul className={styles.marketTags} aria-label="Target markets">{markets.map(market => <li key={market}>{market}</li>)}</ul>}
+    {hasDetails && <details className={styles.complianceDetails}><summary>Documentation &amp; certification details</summary>
+      {factories.length > 0 && <><h4>Factory Certifications</h4><ul>{factories.map(cert => <li key={cert.factory + cert.name}><strong>{cert.name}</strong> · {cert.factory} · {cert.scope}</li>)}</ul></>}
+      {certifications.length > 0 && <><h4>Product Certifications</h4><ul>{certifications.map(cert => <li key={cert.name}><strong>{cert.name}</strong> · {cert.scope}</li>)}</ul></>}
+      {documents.length > 0 && <><h4>Available Documentation</h4><SupportList items={documents} /></>}
+      {regulatory.length > 0 && <><h4>Regulatory Support</h4><SupportList items={regulatory} /></>}
+    </details>}
   </>;
 }
-export function ProductDetail({ product }: { product: Product }) {
+export function ProductDetail({ product: input }: { product: Product }) {
+  const product = displayProduct(input);
   const faq = (product.faq ?? []).filter(item => item.question.trim() && item.answer.trim());
   const overview = product.overview;
   const texture = product.texture;
@@ -92,7 +107,7 @@ export function ProductDetail({ product }: { product: Product }) {
       {(hasSectionData(texture) || !!product.textureImage?.src) && <ProductSection id="texture-experience" eyebrow="Texture & Experience" title="Texture & Experience"><div className={styles.split}>
         <ProductMedia image={product.textureImage ?? { alt: product.name }} /><div><h3 className={styles.editorial}>{texture?.heading}</h3><p>{texture?.description}</p><ul className={styles.textureList}>{(texture?.attributes ?? []).map(item => <li key={item}>{item}</li>)}</ul></div>
       </div></ProductSection>}
-      {(!!product.customization?.length) && <ProductSection id="customization" eyebrow="OEM / ODM" title="OEM/ODM Customization"><FeatureGrid items={product.customization ?? []} compact /></ProductSection>}
+      {(!!product.customization?.length) && <ProductSection id="customization" eyebrow="OEM / ODM" title="OEM/ODM Customization">{product.customizationIntro && <div className={styles.customizationIntro}><h3>{product.customizationIntro.heading}</h3><p>{product.customizationIntro.description}</p></div>}<FeatureGrid items={product.customization ?? []} compact /></ProductSection>}
       {(!!product.packagingOptions?.length) && <ProductSection id="packaging-options" eyebrow="Packaging" title="Packaging Options">
         <p className={styles.intro}>{product.packagingIntroduction}</p><div className={styles.cards}>{(product.packagingOptions ?? []).map(option => <article className={styles.packaging} key={option.id}>
           <ProductMedia image={option.image} /><h3>{option.type}</h3>
@@ -104,10 +119,11 @@ export function ProductDetail({ product }: { product: Product }) {
         </article>)}</div>
       </ProductSection>}
       {(hasSectionData(product.manufacturing)) && <ProductSection id="manufacturing-compliance" eyebrow="Manufacturing" title="Manufacturing & Compliance"><ManufacturingSupport data={product.manufacturing ?? {}} /></ProductSection>}
-      {(!!product.specifications?.length) && <ProductSection id="product-specifications" eyebrow="Product Details" title="Product Specifications"><ProductFacts items={product.specifications ?? []} variant="specifications" /></ProductSection>}
+      {(!!product.specifications?.length) && <ProductSection id="product-specifications" eyebrow="Product Details" title="Product Specifications"><ProductSpecifications items={product.specifications ?? []} /></ProductSection>}
       {(faq.length > 0) && <ProductSection id="faq" eyebrow="FAQ" title="Frequently Asked Questions"><div className={styles.faq}>{faq.map(item => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></ProductSection>}
       {product.cta && hasSectionData(product.cta) && <section id="start-project" className={styles.cta} aria-labelledby="project-title"><span className="eyebrow">Start Your Project</span><h2 id="project-title">{product.cta.heading}</h2><p>{product.cta.description}</p><ProductActions product={product} /><Link className={styles.explore} href="/contact">{product.cta.contactLabel} →</Link></section>}
     </div>
   </article>;
 }
+
 

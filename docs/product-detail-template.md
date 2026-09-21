@@ -110,3 +110,22 @@ No MOQ or sample availability is inferred. Benefit tags do not replace the benef
 Tests additionally cover gallery sizes 1–5, single-image navigation, cap/fallback,
 horizontal versus vertical gestures, empty sections and gallery Open Graph fallback.
 Browser visual and real-device touch acceptance still require a working browser connection.
+
+## Final UI freeze
+The existing master layout is now in the final review stage. Do not redesign or
+generate more products until the user confirms it.
+- Desktop thumbnails are 68px, with consistent spacing, quiet hover and active borders.
+- Counter sits inside the main image, bottom-right; single-image galleries hide it.
+- Captions are internal metadata only. Neither captions nor image roles are visible.
+  Alt text remains accessible on images/placeholders and thumbnail buttons.
+- customizationIntro is data-driven and the four modules remain compact.
+- Manufacturing uses four concise capabilities. Optional supporting details are
+  collapsed. factoryCertifications and productCertifications are separate arrays;
+  each requires an evidenceReference, and factory records additionally identify the
+  factory and scope. No certifications have been added to the demo.
+- specifications[].group determines Product Details / Business Details dividers.
+- displayProduct and visibleFacts in visibility.ts filter blank, N/A, Unknown and
+  TBD values before rendering. Metadata FAQ filtering matches visible FAQ filtering.
+- FAQ remains seven entries, including lead time.
+- Desktop/mobile breakpoints and touch logic are implemented and code-tested.
+  Live visual/device testing is not claimed while the browser connector is unavailable.

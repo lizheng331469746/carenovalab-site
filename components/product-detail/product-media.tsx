@@ -17,6 +17,5 @@ export function ProductImageView({ image, priority = false, thumbnail = false }:
 }
 export function ProductMedia({ image, priority = false }: { image: ProductImage; priority?: boolean }) {
   return <figure className={styles.media}><ProductImageView key={image.src || image.alt} image={image} priority={priority} />
-    {image.caption && <figcaption>{image.caption}</figcaption>}
   </figure>;
 }

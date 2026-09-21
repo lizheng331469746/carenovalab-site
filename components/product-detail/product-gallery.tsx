@@ -44,10 +44,7 @@ export function ProductGallery({ product }: { product: Pick<Product, 'gallery' |
           if (delta && images.length > 1) move(delta);
         }}>
         <ProductImageView key={active.src || active.alt} image={active} priority={current === 0} />
-      </div>
-      <div className={styles.captionRow}>
-        <span>{active.caption || active.alt}</span>
-        <span className={styles.counter} aria-live="polite" aria-atomic="true">{current + 1} / {images.length}</span>
+        {images.length > 1 && <span className={styles.counter} aria-live="polite" aria-atomic="true">{current + 1} / {images.length}</span>}
       </div>
     </div>
   </div>;

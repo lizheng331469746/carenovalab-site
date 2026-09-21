@@ -17,7 +17,7 @@ export function createProcurementFaq(category: keyof typeof categoryContent, fac
     { question: 'Can I order samples?', answer: `${facts.sample}. Contact the team to confirm sample availability, cost and timing before ordering.` },
     { question: 'Can I use my own packaging?', answer: 'Submit the container specification for filling and formula compatibility review before confirming supply.' },
     { question: 'Can you customize the fragrance?', answer: `${facts.fragrance}. Share your fragrance brief for formula compatibility review.` },
-    { question: 'Can you support packaging design?', answer: `${facts.branding}. Share your brand assets and selected packaging to discuss artwork requirements.` },
+    { question: 'What is the typical lead time?', answer: `${facts.leadTime}. Share your launch date so the team can review the production schedule.` },
     { question: 'What documents can you provide?', answer: documents }
   ];
 }

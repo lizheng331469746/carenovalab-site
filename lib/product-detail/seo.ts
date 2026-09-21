@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { siteConfig } from '@/lib/site';
 import type { Product } from './types';
+import { isDisplayText } from './visibility';
 
 export function productMetadata(product: Product): Metadata {
   const url = new URL(product.seo.canonicalPath, siteConfig.url).toString();
@@ -21,7 +22,7 @@ export function productMetadata(product: Product): Metadata {
 export function faqJsonLd(product: Product): string {
   return JSON.stringify({
     '@context': 'https://schema.org', '@type': 'FAQPage',
-    mainEntity: (product.faq ?? []).filter(item => item.question.trim() && item.answer.trim()).map(({ question, answer }) => ({
+    mainEntity: (product.faq ?? []).filter(item => isDisplayText(item.question) && isDisplayText(item.answer)).map(({ question, answer }) => ({
       '@type': 'Question', name: question,
       acceptedAnswer: { '@type': 'Answer', text: answer }
     }))

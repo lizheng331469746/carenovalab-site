@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import styles from './homepage-inquiry-drawer.module.css';
 
-export function HomepageInquiryDrawer({ triggerLabel = '✉ Talk to Us' }: { triggerLabel?: string }) {
+export function HomepageInquiryDrawer({ triggerLabel = '✉ Talk to Us', floating = false }: { triggerLabel?: string; floating?: boolean }) {
   const [open, setOpen] = useState(false);
   return <>
-    <button className={styles.trigger} onClick={() => setOpen(true)}>{triggerLabel}</button>
+    <button className={`${styles.trigger} ${floating ? styles.floatingTrigger : ''}`} onClick={() => setOpen(true)}>{triggerLabel}</button>
     {open ? <div className={styles.backdrop} onMouseDown={() => setOpen(false)}>
       <aside className={styles.drawer} role="dialog" aria-modal="true" aria-label="Start your project" onMouseDown={e => e.stopPropagation()}>
         <button className={styles.close} onClick={() => setOpen(false)} aria-label="Close">×</button>

@@ -1,0 +1,27 @@
+.banner.banner {
+  width: 100%;
+  height: clamp(620px, 37.5vw, 720px);
+  min-height: 620px;
+  isolation: isolate;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(248, 245, 238, .35), rgba(248, 245, 238, .12) 38%, transparent 60%);
+}
+
+@media (max-width: 767px) {
+  .banner.banner { height: 680px; min-height: 680px; }
+  .image { object-position: 68% center; }
+  .overlay {
+    background: linear-gradient(180deg, rgba(248, 245, 238, .15), rgba(248, 245, 238, .92) 45%, #f8f5ee 100%);
+  }
+}
+

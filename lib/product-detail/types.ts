@@ -1,27 +1,34 @@
-/** Shared contract for the new detail template; legacy catalog remains unchanged. */
-export interface ProductImage {
-  src?: `${string}.webp`;
-  alt: string;
-  caption: string;
-}
+/** Shared contract for the reusable PDP; legacy catalog stays independent. */
+export interface ProductImage { src?: `${string}.webp`; alt: string; caption: string }
 export interface ProductFeature { title: string; description: string }
+export interface ProductFact { label: string; value: string }
+export interface Ingredient {
+  name: string; description: string; status: 'confirmed' | 'proposed'; image?: ProductImage;
+}
+export interface PackagingOption {
+  id: string; type: string; capacity: string; material?: string; decoration?: string;
+  description: string; image: ProductImage;
+}
+export interface SupportItem { name: string; details: string; status: 'confirmed' | 'subject-to-review' }
+export interface Manufacturing {
+  introduction: string; standards: string; qualityControl: string; testingSupport: string; documentationSummary: string;
+  factoryCertifications: { name: string; factory: string; scope: string; evidenceReference: string }[];
+  availableDocumentation: SupportItem[]; regulatorySupport: SupportItem[]; targetMarkets: string[];
+}
 export interface Product {
-  slug: string;
-  name: string;
-  category: string;
-  summary: string;
-  demo: boolean;
-  tags: string[];
-  hero: ProductImage;
-  benefits: ProductFeature[];
-  overview: { heading: string; paragraphs: string[]; image: ProductImage };
-  ingredients: { introduction: string; items: ProductFeature[] };
-  texture: { heading: string; description: string; attributes: string[]; image: ProductImage };
-  customization: ProductFeature[];
-  packaging: { introduction: string; options: (ProductFeature & { image: ProductImage })[] };
-  manufacturing: { introduction: string; items: ProductFeature[] };
-  specifications: { label: string; value: string }[];
+  slug: string; name: string; category: string; subcategory: string; shortDescription: string; demo: boolean;
+  heroImage: ProductImage;
+  quickInfo: ProductFact[];
+  benefits: [ProductFeature, ProductFeature, ProductFeature];
+  overview: { heading: string; description: string; attributes: ProductFact[] };
+  overviewImage: ProductImage;
+  ingredientIntroduction: string; ingredients: Ingredient[];
+  texture: { heading: string; description: string; attributes: [string, string, string] };
+  textureImage: ProductImage;
+  customization: [ProductFeature, ProductFeature, ProductFeature, ProductFeature];
+  packagingIntroduction: string; packagingOptions: PackagingOption[];
+  manufacturing: Manufacturing; specifications: ProductFact[];
   faq: { question: string; answer: string }[];
-  cta: { heading: string; description: string; inquiryLabel: string; projectLabel: string };
+  cta: { heading: string; description: string; inquiryLabel: string; projectLabel: string; contactLabel: string };
   seo: { title: string; description: string; canonicalPath: `/products/${string}`; image?: ProductImage };
 }

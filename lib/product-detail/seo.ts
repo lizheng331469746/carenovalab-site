@@ -4,7 +4,7 @@ import type { Product } from './types';
 
 export function productMetadata(product: Product): Metadata {
   const url = new URL(product.seo.canonicalPath, siteConfig.url).toString();
-  const image = product.seo.image?.src ? product.seo.image : product.hero;
+  const image = product.seo.image?.src ? product.seo.image : product.heroImage;
   return {
     title: { absolute: product.seo.title },
     description: product.seo.description,

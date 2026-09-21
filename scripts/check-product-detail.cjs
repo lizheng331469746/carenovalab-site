@@ -84,6 +84,36 @@ const render = product => renderToStaticMarkup(React.createElement(InquiryProvid
   assert(!html.includes('Factory Certifications'), 'Do not imply unverified factory certification');
   assert(html.includes('Subject to review'));
   const { ProductGallery } = require('../components/product-detail/product-gallery');
+  const { productCategories } = require('../lib/products');
+  const { getCatalogDetail, catalogSlug, catalogProductPath } = require('../lib/product-detail/catalog');
+  const legacyRoute = require('../app/products/[category]/[group]/[product]/page');
+  const urls = new Set();
+  let catalogCount = 0;
+  for (const category of productCategories) for (const group of category.groups) for (const item of group.products) {
+    const path = catalogProductPath(category, group, item);
+    assert(!urls.has(path), `Duplicate existing URL: ${path}`); urls.add(path);
+    const mapped = getCatalogDetail(category.slug, catalogSlug(group.name), catalogSlug(item.name));
+    assert.equal(mapped.name, item.name);
+    assert.equal(mapped.shortDescription, item.description);
+    assert.equal(mapped.seo.canonicalPath, path);
+    assert.equal(productMetadata(mapped).robots.index, true);
+    assert.equal(mapped.customization.length, 4);
+    if (item.image?.endsWith('.webp')) assert(mapped.gallery[0].src.endsWith(item.image));
+    if (item.details) {
+      assert.equal(mapped.texture.description, item.details.texture);
+      assert.equal(mapped.packagingOptions[0].description, item.details.packaging);
+      assert.equal(mapped.ingredients[0].description, item.details.ingredientDirection);
+    }
+    const mappedHtml = render(mapped);
+    assert(mappedHtml.includes('product gallery'));
+    assert(mappedHtml.includes('id="product-title"'));
+    assert(mappedHtml.includes('Business Details'));
+    assert.equal((mappedHtml.match(/id="start-project"/g) || []).length, 1);
+    catalogCount++;
+  }
+  assert.equal(getCatalogDetail('invalid', 'invalid', 'invalid'), undefined);
+  await assert.rejects(() => legacyRoute.default({ params: Promise.resolve({ category: 'skincare', group: 'cleansers', product: 'invalid' }) }), /NEXT_HTTP_ERROR_FALLBACK;404/);
+  console.log(`PASS: ${catalogCount} existing catalog products use the master template; URLs and source content preserved.`);
   const { getProductGallery, galleryIndex, swipeDirection } = require('../lib/product-detail/gallery');
   const { hasSectionData } = require('../lib/product-detail/visibility');
   for (let count = 1; count <= 5; count++) {

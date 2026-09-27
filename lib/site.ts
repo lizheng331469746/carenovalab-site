@@ -2,6 +2,7 @@ export const siteConfig = {
   name: 'CareNova Lab',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.carenovalab.com',
   email: 'willowzheng668@gmail.com',
+  wechat: 'jaswillow',
   location: 'Guangzhou, China',
   description:
     'CareNova Lab combines AI-driven product insights with OEM/ODM supply chain execution, helping beauty and personal care brands turn ideas into production-ready products.',

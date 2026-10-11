@@ -74,7 +74,8 @@ export const productCategories: ProductCategory[] = [
         products: [
           { name: 'Vitamin C Brightening Toner Pads', description: 'Pre-soaked facial toner pads with a brightening vitamin C direction for daily tone care and gentle skin preparation.', tags: ['Vitamin C', 'Brightening', 'Toner Pads'], moq: 'MOQ confirmed by project' },
           { name: 'Vitamin C Brightening Toner Pads 013.1', description: 'Vitamin C radiance pads with a serum-style brightening direction and a convenient jar format for daily facial care.', tags: ['Vitamin C', 'Brightening', 'Toner Pads'], moq: 'MOQ confirmed by project' },
-          { name: 'Vitamin C Brightening Toner Pads 013.2', description: 'Brightening toner pads designed for uneven-looking skin tone, with a gentle pre-soaked pad format for routine use.', tags: ['Vitamin C', 'Brightening', 'Toner Pads'], moq: 'MOQ confirmed by project' }
+          { name: 'Vitamin C Brightening Toner Pads 013.2', description: 'Brightening toner pads designed for uneven-looking skin tone, with a gentle pre-soaked pad format for routine use.', tags: ['Vitamin C', 'Brightening', 'Toner Pads'], moq: 'MOQ confirmed by project' },
+          { name: 'AHA/BHA Exfoliating Pads 014', description: 'Dual-sided exfoliating toner pads with an AHA/BHA direction for smoother-looking texture and refined daily skin care.', tags: ['AHA', 'BHA', 'Exfoliating Pads'], moq: 'MOQ confirmed by project' }
         ]
       },
       { 

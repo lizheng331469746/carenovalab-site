@@ -58,19 +58,11 @@ const tabs: TabData[] = [
     id: 'skincare',
     label: 'SKINCARE',
     columns: [
-      { title: 'BY CATEGORY', items: [
-        { name: 'Cleansers', href: '/products/skincare/facial-cleansers' }, { name: 'Makeup Removers', href: '/products/skincare/makeup-removers' }, { name: 'Toners & Mists', href: '/products/skincare/toners-facial-mists' },
-        { name: 'Serums', href: '/products/skincare/active-serums' }, { name: 'Moisturizers', href: '/products/skincare/moisturizers-face-creams' },
-        { name: 'Masks', href: '/products/skincare/face-masks-hydrogel-masks' }, { name: 'Eye & Lip Care', href: '/products/skincare' },
-        { name: 'Hair Care', href: '/products/hair-care' },
-      ]},
-      { title: 'BY CONCERN', items: [
-        { name: 'Anti-Aging', href: '/products/skincare' }, { name: 'Soothing', href: '/products/skincare' },
-        { name: 'Glow', href: '/products/skincare' }, { name: 'Dryness', href: '/products/skincare' },
-        { name: 'Oil Control', href: '/products/skincare' },
-      ]},
-      { title: 'TOOLS & ACCESSORIES', items: [
-        { name: 'Stock Packaging', href: '/contact' }, { name: 'Accessories', href: '/contact' },
+      { title: 'SKINCARE', items: [
+        { name: 'Facial Cleansers', href: '/products/skincare/facial-cleansers' }, { name: 'Makeup Removers', href: '/products/skincare/makeup-removers' },
+        { name: 'Toners & Facial Mists', href: '/products/skincare/toners-facial-mists' }, { name: 'Toner & Treatment Pads', href: '/products/skincare/toner-treatment-pads' },
+        { name: 'Active Serums', href: '/products/skincare/active-serums' }, { name: 'Moisturizers & Face Creams', href: '/products/skincare/moisturizers-face-creams' },
+        { name: 'Face Masks & Hydrogel Masks', href: '/products/skincare/face-masks-hydrogel-masks' }, { name: 'Eye & Lip Care', href: '/products/skincare' },
       ]},
     ],
     viewAllHref: '/products/skincare',
@@ -117,7 +109,6 @@ export function MegaDropdown({ onClose }: { onClose: () => void }) {
             <div className="mega-columns">
               {active.columns.map((col) => (
                 <div className="mega-column" key={col.title}>
-                  <h4 className="mega-col-title">{col.title}</h4>
                   <ul className="mega-col-list">
                     {col.items.map((item) => (
                       <li key={item.name}><Link href={item.href} onClick={onClose}>{item.name}</Link></li>

@@ -126,20 +126,6 @@ export function MegaDropdown({ onClose }: { onClose: () => void }) {
                 </div>
               ))}
             </div>
-            {active.featured && (
-              <div className="mega-featured">
-                <h4 className="mega-featured-title">{active.featured.title}</h4>
-                <ul className="mega-featured-list">
-                  {active.featured.items.map((item) => (
-                    <li key={item.name}><Link href={item.href} onClick={onClose}>{item.name}</Link></li>
-                  ))}
-                </ul>
-                <div className="mega-featured-divider" />
-                <Link href="/start-your-project" className="mega-featured-cta" onClick={onClose}>Start Your Brand &rarr;</Link>
-                <p className="mega-featured-hint">Low MOQ available</p>
-                <Link href={active.viewAllHref} className="mega-view-all" onClick={onClose}>VIEW ALL {active.label}</Link>
-              </div>
-            )}
           </div>
         </div>
       </div>

@@ -92,8 +92,9 @@ const tabs: TabData[] = [
 ];
 
 export function MegaDropdown({ onClose }: { onClose: () => void }) {
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const [activeTab, setActiveTab] = useState('skincare');
   const active = tabs.find((t) => t.id === activeTab) || tabs[0];
+  const orderedTabs = [...tabs].sort((a, b) => (a.id === 'skincare' ? -1 : b.id === 'skincare' ? 1 : 0));
 
   return (
     <>
@@ -101,7 +102,7 @@ export function MegaDropdown({ onClose }: { onClose: () => void }) {
       <div className="mega-dropdown">
         <div className="mega-inner">
           <div className="mega-sidebar">
-            {tabs.map((tab) => (
+            {orderedTabs.map((tab) => (
               <button
                 key={tab.id}
                 className={`mega-tab ${activeTab === tab.id ? 'mega-tab-active' : ''}`}

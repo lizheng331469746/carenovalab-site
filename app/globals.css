@@ -120,7 +120,7 @@ p { color: var(--muted); }
   border: 0; background: transparent; color: var(--muted);
   transition: background .15s, color .15s;
 }
-.mega-tab:hover { background: rgba(0,0,0,.04); }
+.mega-tab:hover { background: var(--ink); color: white; }
 .mega-tab-active { background: var(--ink) !important; color: white !important; }
 
 .mega-body { flex: 1; display: flex; padding: 24px 24px; gap: 24px; }

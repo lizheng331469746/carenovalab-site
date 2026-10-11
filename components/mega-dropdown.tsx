@@ -59,9 +59,9 @@ const tabs: TabData[] = [
     label: 'SKINCARE',
     columns: [
       { title: 'BY CATEGORY', items: [
-        { name: 'Cleansers', href: '/products/skincare/cleansers' }, { name: 'Makeup Removers', href: '/products/skincare/makeup-removers' }, { name: 'Toners & Mists', href: '/products/skincare/toners' },
-        { name: 'Serums', href: '/products/skincare/serums' }, { name: 'Moisturizers', href: '/products/skincare/face-creams' },
-        { name: 'Masks', href: '/products/skincare/masks' }, { name: 'Eye & Lip Care', href: '/products/skincare' },
+        { name: 'Cleansers', href: '/products/skincare/facial-cleansers' }, { name: 'Makeup Removers', href: '/products/skincare/makeup-removers' }, { name: 'Toners & Mists', href: '/products/skincare/toners-facial-mists' },
+        { name: 'Serums', href: '/products/skincare/active-serums' }, { name: 'Moisturizers', href: '/products/skincare/moisturizers-face-creams' },
+        { name: 'Masks', href: '/products/skincare/face-masks-hydrogel-masks' }, { name: 'Eye & Lip Care', href: '/products/skincare' },
         { name: 'Hair Care', href: '/products/hair-care' },
       ]},
       { title: 'BY CONCERN', items: [
@@ -131,3 +131,4 @@ export function MegaDropdown({ onClose }: { onClose: () => void }) {
     </>
   );
 }
+

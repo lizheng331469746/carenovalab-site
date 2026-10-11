@@ -103,14 +103,14 @@ p { color: var(--muted); }
 
 .mega-dropdown {
   position: absolute; top: calc(100% + 0px); left: 0;
-  z-index: 50; width: min(1040px, calc(100vw - 32px));
+  z-index: 50; width: min(900px, calc(100vw - 32px));
   background: var(--white); border: 1px solid var(--line);
   border-radius: 0 0 16px 16px; box-shadow: 0 24px 80px rgba(36,38,37,.16);
 }
 
 .mega-inner { display: flex; }
 .mega-sidebar {
-  width: 160px; flex-shrink: 0;
+  width: 172px; flex-shrink: 0;
   background: var(--paper-2); border-radius: 0 0 0 16px;
   padding: 6px 0;
 }
@@ -123,7 +123,7 @@ p { color: var(--muted); }
 .mega-tab:hover { background: var(--ink); color: white; }
 .mega-tab-active { background: var(--ink) !important; color: white !important; }
 
-.mega-body { flex: 1; display: flex; padding: 16px 20px; gap: 16px; }
+.mega-body { flex: 1; display: flex; padding: 14px 16px; gap: 12px; }
 .mega-columns { flex: 1; display: flex; gap: 0; }
 .mega-column {
   flex: 1; padding: 0 14px;
@@ -742,5 +742,6 @@ details p { margin: 15px 0 0; }
   .detail-actions { flex-wrap: wrap; }
   .product-detail-grid > * { min-width: 0; }
 }
+
 
 

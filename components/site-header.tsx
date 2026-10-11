@@ -25,7 +25,8 @@ export function SiteHeader() {
       <header className="site-header">
         <div className="container header-inner">
           <Link href="/" className="brand" aria-label="CareNova Lab home">
-            <img src="/images/logo.svg" alt="CareNova Lab" />
+            <span className="brand-mark" aria-hidden="true">CNL</span>
+            <span className="brand-copy"><span>CARENOVA LAB</span><small>Cosmetic R&amp;D · OEM/ODM</small></span>
           </Link>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {primaryNav.map((item) => {
@@ -73,3 +74,4 @@ export function SiteHeader() {
     </>
   );
 }
+

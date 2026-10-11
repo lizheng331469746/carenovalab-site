@@ -75,6 +75,20 @@ const tabs: TabData[] = [
     ],
     viewAllHref: '/products/skincare',
   },
+  ...([
+    ['sun-care', 'SUN CARE', ['SPF Creams & Lotions', 'SPF Gels & Serums', 'SPF Sprays & Mists', 'Sunscreen Sticks & Cushions', 'After-Sun & Cooling Care']],
+    ['body-care', 'BODY CARE', ['Body Wash & Shower Oils', 'Body Lotions & Butters', 'Body Scrubs & Exfoliators', 'Body Serums & Targeted Care', 'Deodorants & Antiperspirants']],
+    ['hair-care', 'HAIR CARE', ['Shampoos & Scalp Cleansers', 'Conditioners & Hair Masks', 'Scalp Serums & Exfoliants', 'Hair Oils & Leave-In Care', 'Styling & Heat Protection']],
+    ['soap', 'SOAP & BARS', ['Botanical & Moisturizing Soaps', 'Kojic Acid & Brightening Soaps', 'Clarifying & Exfoliating Soaps', 'Handmade & Artisan Soaps', 'Syndet & Solid Cleansing Bars']],
+    ['essential-oils-fragrance', 'OILS & AROMA', ['Single Essential Oils', 'Essential Oil Blends', 'Carrier & Botanical Oils', 'Aroma Roll-Ons & Gift Sets']],
+    ['home-care', 'HOME CARE', ['Laundry Detergents & Pods', 'Fabric Care & Stain Treatment', 'Household Surface Cleaners', 'Reed Diffusers & Fragrance Oils', 'Room & Linen Sprays']]
+  ] as [string, string, string[]][]).map(([id, label, groups]) => ({
+    id,
+    label,
+    columns: [{ title: 'CORE PRODUCTS', items: groups.map((name) => ({ name, href: `/products/${id}/${name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}` })) }],
+    featured: { title: 'BUILD YOUR BRAND', items: [{ name: 'Private Label', href: '/start-your-project' }, { name: 'Custom Formulation', href: '/start-your-project' }, { name: 'Packaging Solutions', href: '/contact' }] },
+    viewAllHref: `/products/${id}`
+  })),
 ];
 
 export function MegaDropdown({ onClose }: { onClose: () => void }) {

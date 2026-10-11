@@ -75,7 +75,11 @@ p { color: var(--muted); }
 .announcement-link { border: 0; background: none; color: #e3c88f; padding: 0; font-weight: 700; }
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(248,245,238,.92); border-bottom: 1px solid rgba(36,38,37,.08); backdrop-filter: blur(18px); }
 .header-inner { height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand img { width: 190px; height: auto; }
+.brand { display: inline-flex; align-items: center; gap: 13px; color: var(--ink); }
+.brand-mark { font-size: 2.05rem; line-height: 1; letter-spacing: -.13em; font-weight: 500; }
+.brand-copy { display: inline-flex; flex-direction: column; gap: 3px; border-left: 1px solid var(--gold-dark); padding-left: 13px; line-height: 1; }
+.brand-copy > span { font-size: 1.12rem; letter-spacing: .08em; font-weight: 500; white-space: nowrap; }
+.brand-copy small { color: var(--gold-dark); font-size: .55rem; letter-spacing: .16em; white-space: nowrap; }
 .desktop-nav { display: flex; align-items: center; gap: 25px; font-size: .91rem; font-weight: 650; }
 .desktop-nav a { position: relative; }
 .desktop-nav a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -8px; height: 1px; background: var(--gold-dark); transition: right .2s ease; }
@@ -528,7 +532,11 @@ details p { margin: 15px 0 0; }
   .announcement span { display: none; }
   .announcement { justify-content: center; }
   .header-inner { height: 70px; }
-  .brand img { width: 160px; }
+  .brand { gap: 8px; }
+  .brand-mark { font-size: 1.7rem; }
+  .brand-copy { padding-left: 8px; }
+  .brand-copy > span { font-size: .78rem; }
+  .brand-copy small { font-size: .42rem; }
   .header-actions { display: none; }
   h1 { font-size: clamp(2rem, 9vw, 3rem); min-height: 2.2em; }
   .home-hero { min-height: auto; }
@@ -734,3 +742,4 @@ details p { margin: 15px 0 0; }
   .detail-actions { flex-wrap: wrap; }
   .product-detail-grid > * { min-width: 0; }
 }
+

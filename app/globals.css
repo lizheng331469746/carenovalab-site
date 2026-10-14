@@ -124,6 +124,9 @@ p { color: var(--muted); }
 .mega-tab-active { background: var(--ink) !important; color: white !important; }
 
 .mega-body { flex: 1; display: flex; padding: 14px 16px; gap: 12px; }
+.mega-dropdown:has(.mega-column:only-child) { width: min(620px, calc(100vw - 32px)); }
+.mega-dropdown:has(.mega-column:only-child) .mega-body { flex: 0 0 360px; }
+.mega-dropdown:has(.mega-column:only-child) .mega-column { flex: 0 0 100%; }
 .mega-columns { flex: 1; display: flex; gap: 0; }
 .mega-column {
   flex: 1; padding: 0 14px;
@@ -742,6 +745,8 @@ details p { margin: 15px 0 0; }
   .detail-actions { flex-wrap: wrap; }
   .product-detail-grid > * { min-width: 0; }
 }
+
+
 
 
 

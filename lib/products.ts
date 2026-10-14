@@ -41,7 +41,7 @@ export const productCategories: ProductCategory[] = [
     image: '/images/categories/skincare.webp',
     groups: [
       { 
-        name: 'Cleansers', 
+        name: 'Facial Cleansers', 
         products: [
           ...cleansingProducts,
           { name: 'Gel Cleanser', description: 'Lightweight, refreshing gel texture suitable for all skin types, especially oily and combination skin.' },
@@ -50,7 +50,7 @@ export const productCategories: ProductCategory[] = [
       },
       { name: 'Makeup Removers', products: makeupRemoverProducts },
       { 
-        name: 'Toners', 
+        name: 'Toners & Facial Mists', 
         products: [
           { name: 'Hydrating Toner', description: 'Instant moisture boost with multi-weight hyaluronic acid to prep skin for serums.' },
           { name: 'Brightening Toner', description: 'Infused with Vitamin C and botanical extracts to clarify complexion and improve radiance.' },
@@ -59,7 +59,7 @@ export const productCategories: ProductCategory[] = [
         ] 
       },
       { 
-        name: 'Serums', 
+        name: 'Active Serums', 
         products: [
           { name: 'Vitamin C Serum', description: 'High-stability 10% L-Ascorbic Acid derivative. Targets radiance, dark spots, and photo-aging protection.' },
           { name: 'Niacinamide Serum', description: 'Concentrated Vitamin B3 to improve skin texture, minimize pores, and strengthen the barrier.' },
@@ -69,8 +69,17 @@ export const productCategories: ProductCategory[] = [
           { name: 'Centella Serum', description: 'Pure cica extract formula to accelerate skin recovery and soothe stressed complexions.' }
         ] 
       },
+      {
+        name: 'Toner & Treatment Pads',
+        products: [
+          { name: 'Vitamin C Brightening Toner Pads', description: 'Pre-soaked facial toner pads with a brightening vitamin C direction for daily tone care and gentle skin preparation.', tags: ['Vitamin C', 'Brightening', 'Toner Pads'], moq: 'MOQ confirmed by project' },
+          { name: 'Vitamin C Brightening Toner Pads 013.1', description: 'Vitamin C radiance pads with a serum-style brightening direction and a convenient jar format for daily facial care.', tags: ['Vitamin C', 'Brightening', 'Toner Pads'], moq: 'MOQ confirmed by project' },
+          { name: 'Vitamin C Brightening Toner Pads 013.2', description: 'Brightening toner pads designed for uneven-looking skin tone, with a gentle pre-soaked pad format for routine use.', tags: ['Vitamin C', 'Brightening', 'Toner Pads'], moq: 'MOQ confirmed by project' },
+          { name: 'AHA/BHA Exfoliating Pads 014', description: 'Dual-sided exfoliating toner pads with an AHA/BHA direction for smoother-looking texture and refined daily skin care.', tags: ['AHA', 'BHA', 'Exfoliating Pads'], moq: 'MOQ confirmed by project' }
+        ]
+      },
       { 
-        name: 'Face Creams', 
+        name: 'Moisturizers & Face Creams', 
         products: [
           { name: 'Moisturizing Cream', description: 'Ceramide-rich daily moisturizer for long-lasting hydration and barrier support.' },
           { name: 'Brightening Cream', description: 'Radiance-boosting moisturizer that evens skin tone while providing protective antioxidants.' },
@@ -79,7 +88,7 @@ export const productCategories: ProductCategory[] = [
         ] 
       },
       { 
-        name: 'Masks', 
+        name: 'Face Masks & Hydrogel Masks', 
         products: [
           { name: 'Sheet Mask', description: 'Ultra-thin biodegradable sheet infused with concentrated essences for immediate results.' },
           { name: 'Sleeping Mask', description: 'Overnight leave-on treatment that deeply nourishes and restores skin while you sleep.' },
@@ -159,7 +168,7 @@ export const productCategories: ProductCategory[] = [
     image: '/images/categories/body-care.webp',
     groups: [
       { 
-        name: 'Body Wash', 
+        name: 'Body Wash & Shower Oils', 
         products: [
           { name: 'Moisturizing Body Wash', description: 'Creamy, sulfate-free cleanser that leaves skin feeling soft, smooth, and hydrated.' },
           { name: 'Brightening Body Wash', description: 'Infused with Niacinamide and Vitamin C to improve skin tone during the cleansing ritual.' },
@@ -167,7 +176,7 @@ export const productCategories: ProductCategory[] = [
         ] 
       },
       { 
-        name: 'Body Lotion', 
+        name: 'Body Lotions & Butters', 
         products: [
           { name: 'Body Lotion', description: 'Lightweight, fast-absorbing daily moisturizer for smooth and comfortable skin.' },
           { name: 'Body Butter', description: 'Ultra-rich whipped texture with shea butter for intensive nourishment of very dry skin.' },
@@ -175,7 +184,7 @@ export const productCategories: ProductCategory[] = [
         ] 
       },
       { 
-        name: 'Body Scrub', 
+        name: 'Body Scrubs & Exfoliators', 
         products: [
           { name: 'Salt Scrub', description: 'Mineral-rich sea salt base for vigorous exfoliation and skin detoxification.' },
           { name: 'Sugar Scrub', description: 'Gentle sugar-based exfoliant infused with oils for smooth, glowing skin texture.' },
@@ -183,7 +192,7 @@ export const productCategories: ProductCategory[] = [
         ] 
       },
       { 
-        name: 'Deodorant', 
+        name: 'Deodorants & Antiperspirants', 
         products: [
           { name: 'Roll-on Deodorant', description: 'Long-lasting protection with a quick-drying, skin-friendly formula in convenient packaging.' },
           { name: 'Deodorant Stick', description: 'Smooth-glide solid deodorant that provides effective odor control without white marks.' },
@@ -201,7 +210,7 @@ export const productCategories: ProductCategory[] = [
     image: '/images/categories/hair-care.webp',
     groups: [
       { 
-        name: 'Shampoo', 
+        name: 'Shampoos & Scalp Cleansers', 
         products: [
           { name: 'Moisturizing Shampoo', description: 'Hydrating formula that restores moisture balance and shine to dry, dull hair.' },
           { name: 'Anti-Dandruff Shampoo', description: 'Effective scalp treatment that eliminates flakes while soothing itchiness and irritation.' },
@@ -210,7 +219,7 @@ export const productCategories: ProductCategory[] = [
         ] 
       },
       { 
-        name: 'Conditioner', 
+        name: 'Conditioners & Hair Masks', 
         products: [
           { name: 'Daily Conditioner', description: 'Weightless detangling and smoothing for manageable, healthy-looking hair every day.' },
           { name: 'Repair Conditioner', description: 'Intensive restorative formula for damaged or chemically-treated hair to rebuild strength.' }
@@ -224,7 +233,7 @@ export const productCategories: ProductCategory[] = [
         ] 
       },
       { 
-        name: 'Scalp Care', 
+        name: 'Scalp Serums & Exfoliants', 
         products: [
           { name: 'Scalp Scrub', description: 'Physical and chemical exfoliant to remove buildup and revitalize the hair follicles.' },
           { name: 'Scalp Serum', description: 'Concentrated treatment to balance oil production, soothe irritation, or support growth.' },

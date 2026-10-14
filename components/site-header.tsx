@@ -37,11 +37,17 @@ export function SiteHeader() {
                     className="mega-trigger"
                     onMouseEnter={onMegaEnter}
                     onMouseLeave={onMegaLeave}
+                    onClick={(event) => {
+                      if (event.target === event.currentTarget) setMegaOpen((value) => !value);
+                    }}
                   >
                     <Link
                       href={item.href}
                       className={megaOpen ? 'mega-trigger-active' : ''}
-                      onClick={(e) => { if (megaOpen) { e.preventDefault(); setMegaOpen(false); } }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setMegaOpen((value) => !value);
+                      }}
                     >
                       {item.label}
                       <svg className="mega-chevron" width="10" height="6" fill="none" stroke="currentColor" viewBox="0 0 10 6">

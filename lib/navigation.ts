@@ -31,9 +31,9 @@ export const aboutNavItems = [
 ] as const;
 
 export const primaryNav = [
-  { label: 'How We Work', href: '/how-we-work', children: howWeWorkNavItems },
+  { label: 'How We Work', href: '/how-we-work' },
   { label: 'Who We Help', href: '/who-we-help', children: audienceNavItems },
   { label: 'Products', href: '/products', productMenu: true },
   { label: 'Insights', href: '/insights', children: insightNavItems },
-  { label: 'About', href: '/about', children: aboutNavItems }
+  { label: 'About', href: '/about' }
 ] as const;

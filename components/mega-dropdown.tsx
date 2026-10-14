@@ -46,14 +46,16 @@ export function MegaDropdown({ onClose }: { onClose: () => void }) {
         <div className="mega-inner">
           <div className="mega-sidebar">
             {orderedTabs.map((tab) => (
-              <button
+              <Link
                 key={tab.id}
+                href={tab.viewAllHref}
                 className={`mega-tab ${activeTab === tab.id ? 'mega-tab-active' : ''}`}
                 onMouseEnter={() => setActiveTab(tab.id)}
-                onClick={() => setActiveTab(tab.id)}
+                onFocus={() => setActiveTab(tab.id)}
+                onClick={onClose}
               >
                 {tab.label}
-              </button>
+              </Link>
             ))}
           </div>
           <div className="mega-body">

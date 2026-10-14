@@ -1,5 +1,6 @@
 import { cleansingProducts, makeupRemoverProducts } from './cleansing-collection';
 import { taxonomyGroupsByCategory } from './product-taxonomy';
+import { getSeedProducts } from './product-seed';
 
 export type Product = {
   name: string;
@@ -508,9 +509,10 @@ export const productCategories: ProductCategory[] = rawProductCategories.map((ca
     ...category,
     groups: taxonomyGroups.map((name) => {
       const sourceNames = taxonomyGroupSources[`${category.slug}:${name}`] ?? [name];
-      const products = sourceNames.flatMap(
+      const existingProducts = sourceNames.flatMap(
         (sourceName) => category.groups.find((group) => group.name === sourceName)?.products ?? []
       );
+      const products = [...existingProducts, ...getSeedProducts(name)];
       return {
         name,
         products: [...new Map(products.map((product) => [product.name, product])).values()],

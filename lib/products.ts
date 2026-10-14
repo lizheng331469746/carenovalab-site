@@ -274,7 +274,7 @@ const rawProductCategories: ProductCategory[] = [
   },
   {
     slug: 'soap',
-    name: 'Soap',
+    name: 'Soap & Cleansing Bars',
     eyebrow: 'Bar soap and handmade formats',
     description: 'Beauty, functional, handmade and men’s soap directions for retail, gifting, hospitality and daily care.',
     color: 'lavender',
@@ -336,7 +336,7 @@ const rawProductCategories: ProductCategory[] = [
   },
   {
     slug: 'essential-oils-fragrance',
-    name: 'Essential Oils & Fragrance',
+    name: 'Oils & Aromatherapy',
     eyebrow: 'Oils, blends and fragrance formats',
     description: 'Single oils, blends, facial oils, massage oils, wellness oils, hair oils and home-fragrance oils.',
     color: 'moss',

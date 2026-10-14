@@ -1,12 +1,10 @@
 import { productCategories, type Product as CatalogProduct, type ProductCategory, type ProductGroup } from '@/lib/products';
 import { asset } from '@/lib/assets';
 import type { Product, ProductImage } from './types';
+import { productSlug } from '@/lib/product-paths';
 import { createProcurementFaq, type Procurement } from './content';
 
-/** Keep the existing catalog URL algorithm; changing it would break inbound links. */
-export function catalogSlug(name: string): string {
-  return name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-');
-}
+export const catalogSlug = productSlug;
 export function catalogProductPath(category: ProductCategory, group: ProductGroup, item: CatalogProduct): `/products/${string}` {
   return `/products/${category.slug}/${catalogSlug(group.name)}/${catalogSlug(item.name)}`;
 }

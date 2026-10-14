@@ -6,6 +6,7 @@ import { Package, Leaf, Droplets, Clock } from 'lucide-react';
 import { productCategories } from '@/lib/products';
 import { useInquiry } from './inquiry-provider';
 import { asset } from '@/lib/assets';
+import { productPath } from '@/lib/product-paths';
 
 export function ProductLibraryClient() {
   const [active, setActive] = useState('all');
@@ -41,7 +42,7 @@ export function ProductLibraryClient() {
       <div className="product-grid-refined">
         {products.map((item) => (
           <article className="refined-product-card" key={`${item.category.slug}-${item.group}-${item.product.name}`}>
-            <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className={`refined-card-art${item.product.details ? ' collection-product-art' : ''}`}>
+            <Link href={productPath(item.category.slug, item.group, item.product.name)} className={`refined-card-art${item.product.details ? ' collection-product-art' : ''}`}>
               {item.product.image ? (
                 <img src={asset(item.product.image)} alt={item.product.name} loading="lazy" width={1254} height={1254} />
               ) : (
@@ -52,7 +53,7 @@ export function ProductLibraryClient() {
             </Link>
             <div className="refined-card-body">
               <span className="refined-meta">{item.category.name} · {item.group}</span>
-              <Link href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>
+              <Link href={productPath(item.category.slug, item.group, item.product.name)}>
                 <h3>{item.product.name}</h3>
               </Link>
               <p>{item.product.description}</p>
@@ -63,7 +64,7 @@ export function ProductLibraryClient() {
 
               <div className="refined-actions">
                 <button className="button-request" onClick={() => openInquiry({ product: item.product.name, source: 'Product Library' })}>Request a Quote</button>
-                <Link className="link-details" href={`/products/${item.category.slug}/${item.group.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}/${item.product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>View Product Details →</Link>
+                <Link className="link-details" href={productPath(item.category.slug, item.group, item.product.name)}>View Product Details →</Link>
               </div>
             </div>
           </article>

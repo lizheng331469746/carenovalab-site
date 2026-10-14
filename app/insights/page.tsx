@@ -6,7 +6,35 @@ import { SectionHeading } from '@/components/section-heading';
 import { insights } from '@/lib/insights';
 import { asset } from '@/lib/assets';
 
-const insightCategories = [
+const editorialCategories = [
+  {
+    id: 'formulation-ingredients',
+    title: 'Formulation & Ingredients',
+    desc: 'Formula design, active ingredients, textures, stability and product performance.'
+  },
+  {
+    id: 'packaging-customization',
+    title: 'Packaging & Customization',
+    desc: 'Packaging formats, decoration, branding, sets and practical customization routes.'
+  },
+  {
+    id: 'oem-odm-manufacturing',
+    title: 'OEM/ODM Manufacturing',
+    desc: 'Sampling, MOQ, production planning, quality control and supply chain execution.'
+  },
+  {
+    id: 'regulatory-compliance',
+    title: 'Regulatory & Compliance',
+    desc: 'Target-market requirements, claims, testing and available product documentation.'
+  },
+  {
+    id: 'beauty-market-trends',
+    title: 'Beauty Market Trends',
+    desc: 'Emerging consumer needs, product opportunities and category development ideas.'
+  }
+];
+
+const developmentSteps = [
   {
     num: '1',
     title: 'Market Insight',
@@ -51,7 +79,11 @@ export const metadata: Metadata = {
 };
 
 export default function InsightsPage(){return <>
-  <section className="section section-white"><div className="container"><SectionHeading eyebrow="Featured Insights" title="Start With the Three Strategic Directions" text="These articles explain the logic behind CareNova Lab’s current solution-led product development approach."/><div className="insight-grid-5">{insights.map(article=><Link className="insight-card" href={`/insights/${article.slug}`} key={article.slug}><div className="insight-art"><img src={asset(article.image)} alt={article.title} /></div><div className="insight-copy"><div className="insight-meta"><span>{article.category}</span><span>{article.readTime}</span></div><h3>{article.title}</h3><p className="excerpt-sm">{article.excerpt}</p><strong>Read Insight →</strong></div></Link>)}</div>
+  <section className="section section-white"><div className="container">
+    <SectionHeading eyebrow="Knowledge Center" title="Insights for Building Better Beauty Products" text="Explore practical guidance across formulation, packaging, manufacturing, compliance and beauty market opportunities."/>
+    <div className="insight-category-grid">{editorialCategories.map((category, index) => <section className="insight-category-card anchor-target" id={category.id} key={category.id}><span>{String(index + 1).padStart(2, '0')}</span><h3>{category.title}</h3><p>{category.desc}</p><a href="#featured-insights">Browse Insights →</a></section>)}</div>
+  </div></section>
+  <section className="section section-muted anchor-target" id="featured-insights"><div className="container"><SectionHeading eyebrow="Featured Insights" title="Start With the Latest Strategic Directions" text="These articles connect market opportunities with practical product development decisions."/><div className="insight-grid-5">{insights.map(article=><Link className="insight-card" href={`/insights/${article.slug}`} key={article.slug}><div className="insight-art"><img src={asset(article.image)} alt={article.title} /></div><div className="insight-copy"><div className="insight-meta"><span>{article.category}</span><span>{article.readTime}</span></div><h3>{article.title}</h3><p className="excerpt-sm">{article.excerpt}</p><strong>Read Insight →</strong></div></Link>)}</div>
 </div></section>
   <section className="section section-muted">
     <div className="container">
@@ -69,7 +101,7 @@ export default function InsightsPage(){return <>
       </div>
       
       <div className="insight-process-grid">
-        {insightCategories.map((item, index) => (
+        {developmentSteps.map((item, index) => (
           <div className="insight-process-item" key={item.title}>
             <div className="step-num">{item.num}. {item.title}</div>
             <p>{item.desc}</p>
@@ -77,7 +109,7 @@ export default function InsightsPage(){return <>
               <div className="insight-process-image">
                 <img src={asset(item.image)} alt={item.title} />
               </div>
-              {index < insightCategories.length - 1 && (
+              {index < developmentSteps.length - 1 && (
                 <div className="insight-process-arrow">
                   <ChevronRight />
                 </div>

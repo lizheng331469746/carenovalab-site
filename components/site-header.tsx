@@ -2,21 +2,21 @@
 
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
-import { primaryNav, siteConfig } from '@/lib/site';
-import { InquiryButton } from './inquiry-provider';
+import { primaryNav } from '@/lib/navigation';
 import { MegaDropdown } from './mega-dropdown';
+import { SectionDropdown } from './section-dropdown';
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [megaOpen, setMegaOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const megaTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const onMegaEnter = () => {
+  const onMegaEnter = (href: string) => {
     if (megaTimer.current) clearTimeout(megaTimer.current);
-    setMegaOpen(true);
+    setOpenMenu(href);
   };
   const onMegaLeave = () => {
-    megaTimer.current = setTimeout(() => setMegaOpen(false), 200);
+    megaTimer.current = setTimeout(() => setOpenMenu(null), 200);
   };
   useEffect(() => () => { if (megaTimer.current) clearTimeout(megaTimer.current); }, []);
 
@@ -30,23 +30,23 @@ export function SiteHeader() {
           </Link>
           <nav className="desktop-nav" aria-label="Primary navigation">
             {primaryNav.map((item) => {
-              if (item.href === '/products') {
+              if ('productMenu' in item || 'children' in item) {
+                const isOpen = openMenu === item.href;
                 return (
                   <div
                     key={item.href}
-                    className="mega-trigger"
-                    onMouseEnter={onMegaEnter}
+                    className="nav-trigger"
+                    onMouseEnter={() => onMegaEnter(item.href)}
                     onMouseLeave={onMegaLeave}
-                    onClick={(event) => {
-                      if (event.target === event.currentTarget) setMegaOpen((value) => !value);
-                    }}
                   >
                     <Link
                       href={item.href}
-                      className={megaOpen ? 'mega-trigger-active' : ''}
+                      className={isOpen ? 'mega-trigger-active' : ''}
+                      aria-haspopup="true"
+                      aria-expanded={isOpen}
                       onClick={(e) => {
                         e.preventDefault();
-                        setMegaOpen((value) => !value);
+                        setOpenMenu((value) => value === item.href ? null : item.href);
                       }}
                     >
                       {item.label}
@@ -54,7 +54,9 @@ export function SiteHeader() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M1 1l4 4 4-4" />
                       </svg>
                     </Link>
-                    {megaOpen && <MegaDropdown onClose={() => setMegaOpen(false)} />}
+                    {isOpen && ('productMenu' in item
+                      ? <MegaDropdown onClose={() => setOpenMenu(null)} />
+                      : <SectionDropdown items={item.children} onClose={() => setOpenMenu(null)} />)}
                   </div>
                 );
               }
@@ -62,7 +64,7 @@ export function SiteHeader() {
             })}
           </nav>
           <div className="header-actions">
-            <InquiryButton context={{ source: 'Header' }} className="button button-gold button-small">Talk to Our Team</InquiryButton>
+            <Link href="/start-your-project" className="button button-gold button-small">Start Your Project →</Link>
           </div>
           <button className="menu-button" onClick={() => setMenuOpen((value) => !value)} aria-label="Toggle menu">
             <span /><span /><span />
@@ -70,10 +72,13 @@ export function SiteHeader() {
         </div>
         {menuOpen ? (
           <nav className="mobile-nav" aria-label="Mobile navigation">
-            {primaryNav.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</Link>
-            ))}
-            <Link href="/contact" onClick={() => setMenuOpen(false)}>Contact Our Team</Link>
+            {primaryNav.map((item) => <div className="mobile-nav-group" key={item.href}>
+              <Link href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</Link>
+              {'children' in item && <div className="mobile-nav-children">{item.children.map((child) => (
+                <Link key={child.href} href={child.href} onClick={() => setMenuOpen(false)}>{child.label}</Link>
+              ))}</div>}
+            </div>)}
+            <Link className="mobile-project-link" href="/start-your-project" onClick={() => setMenuOpen(false)}>Start Your Project →</Link>
           </nav>
         ) : null}
       </header>

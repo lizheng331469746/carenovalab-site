@@ -1,4 +1,5 @@
 import { cleansingProducts, makeupRemoverProducts } from './cleansing-collection';
+import { taxonomyGroupsByCategory } from './product-taxonomy';
 
 export type Product = {
   name: string;
@@ -31,7 +32,7 @@ export type ProductCategory = {
   groups: ProductGroup[];
 };
 
-export const productCategories: ProductCategory[] = [
+const rawProductCategories: ProductCategory[] = [
   {
     slug: 'skincare',
     name: 'Skincare',
@@ -468,6 +469,55 @@ export const productCategories: ProductCategory[] = [
     ]
   }
 ];
+
+const taxonomyGroupSources: Record<string, string[]> = {
+  'makeup:Cushion & Base Makeup': ['Face & Cheek'],
+  'makeup:Lip Makeup & Lip Oils': ['Lips'],
+  'makeup:Eye & Brow Makeup': ['Eyes & Brows'],
+  'makeup:Cheek & Contour Makeup': ['Face & Cheek'],
+  'makeup:Makeup Primers & Setting': ['Face & Cheek'],
+  'sun-care:SPF Creams & Lotions': ['Sun Care'],
+  'sun-care:SPF Gels & Serums': ['Sun Care'],
+  'sun-care:SPF Sprays & Mists': ['Sun Care'],
+  'sun-care:Sunscreen Sticks & Cushions': ['Sun Care'],
+  'sun-care:Tinted & Hybrid Sunscreens': ['Sun Care'],
+  'sun-care:After-Sun & Cooling Care': ['After Sun Care'],
+  'hair-care:Conditioners & Hair Masks': ['Conditioners & Hair Masks', 'Hair Mask'],
+  'soap:Botanical & Moisturizing Soaps': ['Bar Soap'],
+  'soap:Kojic Acid & Brightening Soaps': ['Beauty Soap'],
+  'soap:Clarifying & Exfoliating Soaps': ['Beauty Soap'],
+  'soap:Functional & Deodorizing Soaps': ['Functional Soap'],
+  'soap:Handmade & Artisan Soaps': ['Handmade Soap'],
+  "soap:Men's & Sports Soap Bars": ['Men’s Soap'],
+  'soap:Syndet & Solid Cleansing Bars': ['Bar Soap'],
+  'essential-oils-fragrance:Carrier & Botanical Oils': ['Facial Oils', 'Beauty Oils', 'Massage Oils', 'Wellness Oils', 'Hair Oils'],
+  'essential-oils-fragrance:Aroma Roll-Ons & Gift Sets': ['Essential Oil Blends'],
+  'home-care:Laundry Detergents & Pods': ['Laundry Care'],
+  'home-care:Fabric Care & Stain Treatment': ['Laundry Care'],
+  'home-care:Household Surface Cleaners': ['Household Cleaning'],
+  'home-care:Reed Diffusers & Fragrance Oils': ['Home Fragrance'],
+  'home-care:Room & Linen Sprays': ['Home Fragrance'],
+  'home-care:Home Scent Accessories & Sets': ['Home Fragrance'],
+};
+
+export const productCategories: ProductCategory[] = rawProductCategories.map((category) => {
+  const taxonomyGroups = taxonomyGroupsByCategory[category.slug];
+  if (!taxonomyGroups) return category;
+
+  return {
+    ...category,
+    groups: taxonomyGroups.map((name) => {
+      const sourceNames = taxonomyGroupSources[`${category.slug}:${name}`] ?? [name];
+      const products = sourceNames.flatMap(
+        (sourceName) => category.groups.find((group) => group.name === sourceName)?.products ?? []
+      );
+      return {
+        name,
+        products: [...new Map(products.map((product) => [product.name, product])).values()],
+      };
+    }),
+  };
+});
 
 export function getCategory(slug: string) {
   return productCategories.find((item) => item.slug === slug);

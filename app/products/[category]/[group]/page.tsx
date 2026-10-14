@@ -5,12 +5,13 @@ import { Package, Leaf, Droplets, Clock } from 'lucide-react';
 import { getCategory } from '@/lib/products';
 import { InquiryButton } from '@/components/inquiry-provider';
 import { asset } from '@/lib/assets';
+import { categoryPath, groupPath, productPath, productSlug } from '@/lib/product-paths';
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string; group: string }> }): Promise<Metadata> {
   const p = await params;
   const category = getCategory(p.category);
   if (!category) return { title: 'Not Found' };
-  const group = category.groups.find((g) => g.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-') === p.group);
+  const group = category.groups.find((g) => productSlug(g.name) === p.group);
   if (!group) return { title: 'Not Found' };
   return { title: `${group.name} | ${category.name}` };
 }
@@ -21,7 +22,7 @@ export default async function GroupPage({ params }: { params: Promise<{ category
   if (!category) notFound();
 
   const group = category.groups.find(
-    (g) => g.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-') === p.group
+    (g) => productSlug(g.name) === p.group
   );
   if (!group) notFound();
 
@@ -31,7 +32,7 @@ export default async function GroupPage({ params }: { params: Promise<{ category
         <div className="breadcrumb">
           <Link href="/">Home</Link> <span>/</span>{' '}
           <Link href="/products">Products</Link> <span>/</span>{' '}
-          <Link href={`/products/${category.slug}`}>{category.name}</Link> <span>/</span>{' '}
+          <Link href={categoryPath(category.slug)}>{category.name}</Link> <span>/</span>{' '}
           <span className="font-semibold text-[var(--ink)]">{group.name}</span>
         </div>
       </div>
@@ -51,7 +52,7 @@ export default async function GroupPage({ params }: { params: Promise<{ category
                 key={g.name}
                 className={g.name === group.name ? 'group-sidebar-active' : ''}
               >
-                <Link href={`/products/${category.slug}/${g.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>
+                <Link href={groupPath(category.slug, g.name)}>
                   {g.name}
                 </Link>
               </li>
@@ -61,7 +62,7 @@ export default async function GroupPage({ params }: { params: Promise<{ category
         <div className="product-grid-refined">
           {group.products.map((product) => (
             <article className="refined-product-card" key={product.name}>
-              <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className={`refined-card-art${product.details ? ' collection-product-art' : ''}`}>
+              <Link href={productPath(category.slug, group.name, product.name)} className={`refined-card-art${product.details ? ' collection-product-art' : ''}`}>
                 {product.image ? (
                   <img src={asset(product.image)} alt={product.name} loading="lazy" width={1254} height={1254} />
                 ) : (
@@ -72,7 +73,7 @@ export default async function GroupPage({ params }: { params: Promise<{ category
               </Link>
               <div className="refined-card-body">
                 <span className="refined-meta">{category.name} · {group.name}</span>
-                <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`}>
+                <Link href={productPath(category.slug, group.name, product.name)}>
                   <h3>{product.name}</h3>
                 </Link>
                 <p>{product.description}</p>
@@ -88,7 +89,7 @@ export default async function GroupPage({ params }: { params: Promise<{ category
                   >
                     Request a Quote
                   </InquiryButton>
-                  <Link href={`/products/${category.slug}/${p.group}/${product.name.toLowerCase().replace(/\s+&\s+/g, '-').replace(/\s+/g, '-')}`} className="link-details">
+                  <Link href={productPath(category.slug, group.name, product.name)} className="link-details">
                     View Product Details →
                   </Link>
                 </div>

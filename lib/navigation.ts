@@ -1,32 +1,39 @@
-export const solutionNavItems = [
-  { label: 'Private Label Cosmetics', href: '/solutions#private-label-cosmetics' },
-  { label: 'Custom Formulation Development', href: '/solutions#custom-formulation-development' },
-  { label: 'Packaging & Branding Solutions', href: '/solutions#packaging-branding-solutions' },
-  { label: 'Low MOQ Manufacturing', href: '/solutions#low-moq-manufacturing' },
-  { label: 'Regulatory & Compliance Support', href: '/solutions#regulatory-compliance-support' }
+export const howWeWorkNavItems = [
+  { label: 'OEM/ODM Services', href: '/how-we-work#oem-odm-services' },
+  { label: 'Three Product Development Models', href: '/how-we-work#product-development-models' },
+  { label: 'Six-Step Collaboration Process', href: '/how-we-work#six-step-process' },
+  { label: 'Packaging & Production Support', href: '/how-we-work#packaging-production-support' },
+  { label: 'FAQ / Project Consultation', href: '/how-we-work#project-consultation' }
 ] as const;
 
 export const audienceNavItems = [
   { label: 'Beauty Startups', href: '/who-we-help#beauty-startups' },
   { label: 'Established Beauty Brands', href: '/who-we-help#established-beauty-brands' },
   { label: 'Distributors & Wholesalers', href: '/who-we-help#distributors-wholesalers' },
-  { label: 'E-commerce & Amazon Sellers', href: '/who-we-help#ecommerce-amazon-sellers' },
-  { label: 'Salons & Spa Businesses', href: '/who-we-help#salons-spa-businesses' }
+  { label: 'E-commerce Sellers', href: '/who-we-help#ecommerce-sellers' },
+  { label: 'Salons & Spas', href: '/who-we-help#salons-spas' }
 ] as const;
 
 export const insightNavItems = [
-  { label: 'Formulation & Ingredients', href: '/insights#formulation-ingredients' },
+  { label: 'Ingredients & Formulation', href: '/insights#ingredients-formulation' },
+  { label: 'OEM/ODM Knowledge', href: '/insights#oem-odm-knowledge' },
   { label: 'Packaging & Customization', href: '/insights#packaging-customization' },
-  { label: 'OEM/ODM Manufacturing', href: '/insights#oem-odm-manufacturing' },
   { label: 'Regulatory & Compliance', href: '/insights#regulatory-compliance' },
-  { label: 'Beauty Market Trends', href: '/insights#beauty-market-trends' }
+  { label: 'Market Insights', href: '/insights#market-insights' }
+] as const;
+
+export const aboutNavItems = [
+  { label: 'Brand Introduction', href: '/about#brand-introduction' },
+  { label: 'R&D & Innovation', href: '/about#rd-innovation' },
+  { label: 'Manufacturing', href: '/about#manufacturing' },
+  { label: 'Quality & Compliance', href: '/about#quality-compliance' },
+  { label: 'Global Partnerships', href: '/about#global-partnerships' }
 ] as const;
 
 export const primaryNav = [
-  { label: 'Product Solutions', href: '/solutions', children: solutionNavItems },
-  { label: 'Products', href: '/products', productMenu: true },
+  { label: 'How We Work', href: '/how-we-work', children: howWeWorkNavItems },
   { label: 'Who We Help', href: '/who-we-help', children: audienceNavItems },
-  { label: 'How We Work', href: '/how-we-work' },
+  { label: 'Products', href: '/products', productMenu: true },
   { label: 'Insights', href: '/insights', children: insightNavItems },
-  { label: 'About', href: '/about' }
+  { label: 'About', href: '/about', children: aboutNavItems }
 ] as const;

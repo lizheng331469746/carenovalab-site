@@ -8,9 +8,14 @@ import { asset } from '@/lib/assets';
 
 const editorialCategories = [
   {
-    id: 'formulation-ingredients',
-    title: 'Formulation & Ingredients',
+    id: 'ingredients-formulation',
+    title: 'Ingredients & Formulation',
     desc: 'Formula design, active ingredients, textures, stability and product performance.'
+  },
+  {
+    id: 'oem-odm-knowledge',
+    title: 'OEM/ODM Knowledge',
+    desc: 'Sampling, MOQ, production planning, quality control and supply chain execution.'
   },
   {
     id: 'packaging-customization',
@@ -18,18 +23,13 @@ const editorialCategories = [
     desc: 'Packaging formats, decoration, branding, sets and practical customization routes.'
   },
   {
-    id: 'oem-odm-manufacturing',
-    title: 'OEM/ODM Manufacturing',
-    desc: 'Sampling, MOQ, production planning, quality control and supply chain execution.'
-  },
-  {
     id: 'regulatory-compliance',
     title: 'Regulatory & Compliance',
     desc: 'Target-market requirements, claims, testing and available product documentation.'
   },
   {
-    id: 'beauty-market-trends',
-    title: 'Beauty Market Trends',
+    id: 'market-insights',
+    title: 'Market Insights',
     desc: 'Emerging consumer needs, product opportunities and category development ideas.'
   }
 ];

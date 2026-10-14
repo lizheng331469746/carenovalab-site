@@ -60,7 +60,7 @@ export function SiteHeader() {
                   </div>
                 );
               }
-              return <Link key={item.href} href={item.href}>{item.label}</Link>;
+              return null;
             })}
           </nav>
           <div className="header-actions">

@@ -31,15 +31,15 @@ const groups = [
     cta: 'Plan a Product Range'
   },
   {
-    id: 'ecommerce-amazon-sellers',
-    title: 'E-commerce & Amazon Sellers',
+    id: 'ecommerce-sellers',
+    title: 'E-commerce Sellers',
     problem: 'You need products that can be explained visually, bundled clearly and replenished regularly.',
     help: ['Develop products with strong demonstration potential','Build bundles and routine-based collections','Coordinate packaging that supports online presentation','Prepare listing structure and key selling points'],
     cta: 'Explore E-commerce Ideas'
   },
   {
-    id: 'salons-spa-businesses',
-    title: 'Salons & Spa Businesses',
+    id: 'salons-spas',
+    title: 'Salons & Spas',
     problem: 'You want to extend professional services into retail and home-use products without losing routine logic.',
     help: ['Develop professional-to-home product systems','Create treatment support and maintenance products','Build branded sets and retail extensions','Coordinate training and launch-content direction'],
     cta: 'Develop Professional Care'

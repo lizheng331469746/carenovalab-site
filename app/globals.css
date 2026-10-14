@@ -110,7 +110,7 @@ p { color: var(--muted); }
 
 .mega-inner { display: flex; }
 .mega-sidebar {
-  width: 172px; flex-shrink: 0;
+  width: 220px; flex-shrink: 0;
   background: var(--paper-2); border-radius: 0 0 0 16px;
   padding: 6px 0;
 }
@@ -118,7 +118,7 @@ p { color: var(--muted); }
   display: block; width: 100%; text-align: left;
   padding: 8px 22px; font-size: .78rem; font-weight: 700;
   border: 0; background: transparent; color: var(--muted);
-  transition: background .15s, color .15s;
+  transition: background .15s, color .15s; white-space: nowrap;
 }
 .mega-tab:hover { background: var(--ink); color: white; }
 .mega-tab-active { background: var(--ink) !important; color: white !important; }
@@ -209,7 +209,7 @@ p { color: var(--muted); }
 .group-sidebar-back a { font-size: .8rem; color: var(--muted); font-weight: 650; }
 .group-sidebar-list a {
   display: block; padding: 6px 12px; border-radius: 6px;
-  font-size: .84rem; color: var(--muted); transition: background .15s, color .15s;
+  font-size: .84rem; color: var(--muted); transition: background .15s, color .15s; white-space: nowrap;
 }
 .group-sidebar-list a:hover { background: var(--paper-2); color: var(--ink); }
 .group-sidebar-active a {
@@ -742,6 +742,7 @@ details p { margin: 15px 0 0; }
   .detail-actions { flex-wrap: wrap; }
   .product-detail-grid > * { min-width: 0; }
 }
+
 
 
 

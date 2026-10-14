@@ -1,5 +1,6 @@
 import { productCategories } from './products';
 import { insights } from './insights';
+import { productPath } from './product-paths';
 
 export type HomeImage = { src?: string; alt: string; role: 'hero'|'category'|'product'|'process'|'project'|'factory'|'insight' };
 export const placeholder = (role: HomeImage['role'], alt: string): HomeImage => ({ alt, role });
@@ -7,7 +8,7 @@ export const homeCategories = productCategories.slice(0, 5).map((category, index
   ...category, image: placeholder('category', `${category.name} product development`), layout: index === 0 ? 'large' : index === 1 ? 'medium' : 'small'
 }));
 export const homeProducts = productCategories.flatMap(category => category.groups.flatMap(group => group.products.slice(0, 1).map(product => ({
-  name: product.name, description: product.description, category: category.name, image: placeholder('product', `${product.name} product`), href: `/products/${category.slug}/${group.name.toLowerCase().replace(/\s+/g, '-')}/${product.name.toLowerCase().replace(/\s+/g, '-')}`
+  name: product.name, description: product.description, category: category.name, image: placeholder('product', `${product.name} product`), href: productPath(category.slug, group.name, product.name)
 })))).slice(0, 6);
 export const homeInsights = insights.slice(0, 3);
 export const processSteps = [

@@ -4,37 +4,42 @@ import { SectionHeading } from '@/components/section-heading';
 import { InquiryButton } from '@/components/inquiry-provider';
 
 export const metadata: Metadata = {
-  title: 'Product Development for Beauty Brands, Devices & Distributors',
-  description: 'See how CareNova Lab supports startup brands, e-commerce sellers, beauty device companies, distributors, salons and beauty chains.'
+  title: 'Product Development for Beauty Businesses',
+  description: 'See how CareNova Lab supports beauty startups, established brands, distributors, e-commerce sellers, salons and spa businesses.'
 };
 
 const groups = [
   {
-    title: 'Startup Beauty Brands',
+    id: 'beauty-startups',
+    title: 'Beauty Startups',
     problem: 'You need to narrow many ideas into a first launch that is commercially realistic.',
     help: ['Prioritize one hero product and supporting SKUs','Compare private label, semi-custom and full custom routes','Review packaging, MOQ and launch timing together','Prepare product names, packaging copy and launch content'],
     cta: 'Plan My First Product'
   },
   {
-    title: 'E-commerce Beauty Brands',
-    problem: 'You need products that can be explained visually, bundled clearly and replenished regularly.',
-    help: ['Develop products with strong demonstration potential','Build bundles and routine-based collections','Coordinate packaging that supports online presentation','Prepare listing structure and key selling points'],
-    cta: 'Explore E-commerce Ideas'
+    id: 'established-beauty-brands',
+    title: 'Established Beauty Brands',
+    problem: 'You need to extend a proven brand without weakening its positioning, quality expectations or operational consistency.',
+    help: ['Identify product and range expansion opportunities','Translate existing brand standards into new formats','Coordinate formulation, packaging and claims across SKUs','Plan sampling and scale-up around the launch calendar'],
+    cta: 'Plan My Next Product'
   },
   {
-    title: 'Beauty Device Companies',
-    problem: 'Hardware alone does not create a complete home-care routine or repeat-purchase system.',
-    help: ['Map pre-device, during-device and post-device care','Develop gels, serums, masks, creams and sprays','Build device care kits and refill opportunities','Coordinate technical use and packaging requirements'],
-    cta: 'Build a Device Care System'
-  },
-  {
-    title: 'Distributors & Importers',
+    id: 'distributors-wholesalers',
+    title: 'Distributors & Wholesalers',
     problem: 'You need a product range that fits local price points, channels, consumer habits and documentation needs.',
     help: ['Plan a focused range instead of a random catalog','Match product formats to the market and channel','Coordinate multiple SKUs and packaging formats','Organize project-specific document questions'],
     cta: 'Plan a Product Range'
   },
   {
-    title: 'Salons, Clinics & Chains',
+    id: 'ecommerce-sellers',
+    title: 'E-commerce Sellers',
+    problem: 'You need products that can be explained visually, bundled clearly and replenished regularly.',
+    help: ['Develop products with strong demonstration potential','Build bundles and routine-based collections','Coordinate packaging that supports online presentation','Prepare listing structure and key selling points'],
+    cta: 'Explore E-commerce Ideas'
+  },
+  {
+    id: 'salons-spas',
+    title: 'Salons & Spas',
     problem: 'You want to extend professional services into retail and home-use products without losing routine logic.',
     help: ['Develop professional-to-home product systems','Create treatment support and maintenance products','Build branded sets and retail extensions','Coordinate training and launch-content direction'],
     cta: 'Develop Professional Care'
@@ -44,13 +49,13 @@ const groups = [
 export default function WhoWeHelpPage() {
   return (
     <>
-      <PageHero eyebrow="Who We Help" title="Different Business Models Need Different Product Development Paths" description="A startup brand, a beauty device company and a distributor should not receive the same product recommendation. We adjust the project route according to your channel, market, quantity, timeline and commercial goal." image="/images/hero-about.svg" backgroundImage="https://sc02.alicdn.com/kf/H1edba2089b1447468063dd5821dd8dfaf.jpg" primaryLabel="Talk to Our Team" primaryContext={{ source: 'Who We Help page' }} secondaryLabel="Explore Product Solutions" secondaryHref="/solutions" />
+      <PageHero eyebrow="Who We Help" title="Different Business Models Need Different Product Development Paths" description="A beauty startup, an established brand, a distributor and an e-commerce seller need different product strategies. We adjust the project route according to your channel, market, quantity, timeline and commercial goal." image="/images/hero-about.svg" backgroundImage="https://sc02.alicdn.com/kf/H1edba2089b1447468063dd5821dd8dfaf.jpg" primaryLabel="Start Your Project" primaryContext={{ source: 'Who We Help page' }} secondaryLabel="Explore Product Solutions" secondaryHref="/solutions" />
       <section className="section section-white">
         <div className="container">
           <SectionHeading eyebrow="Client Types" title="How We Support Each Type of Partner" text="The goal is not to add more services. It is to identify the decisions that matter most for your type of project." />
           <div className="category-groups">
             {groups.map((group, index) => (
-              <div className="split-grid" key={group.title}>
+              <div className="split-grid anchor-target" id={group.id} key={group.title}>
                 <div className={`product-visual ${index % 2 ? 'tone-rose' : 'tone-sage'}`}>
                   <div className="visual-orb orb-one"/><div className="visual-orb orb-two"/>
                   <div className="bottle bottle-tall"><span>{String(index + 1).padStart(2, '0')}</span></div>

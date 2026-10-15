@@ -7,11 +7,11 @@ export const howWeWorkNavItems = [
 ] as const;
 
 export const audienceNavItems = [
-  { label: 'Beauty Startups', href: '/who-we-help#beauty-startups' },
-  { label: 'Established Beauty Brands', href: '/who-we-help#established-beauty-brands' },
-  { label: 'Distributors & Wholesalers', href: '/who-we-help#distributors-wholesalers' },
-  { label: 'E-commerce Sellers', href: '/who-we-help#ecommerce-sellers' },
-  { label: 'Salons & Spas', href: '/who-we-help#salons-spas' }
+  { label: 'Beauty Startups', href: '/who-we-help/beauty-startups' },
+  { label: 'Established Beauty Brands', href: '/who-we-help/established-beauty-brands' },
+  { label: 'Distributors & Wholesalers', href: '/who-we-help/distributors-wholesalers' },
+  { label: 'E-commerce Sellers', href: '/who-we-help/ecommerce-sellers' },
+  { label: 'Salons & Spas', href: '/who-we-help/salons-spas' }
 ] as const;
 
 export const insightNavItems = [
@@ -37,3 +37,4 @@ export const primaryNav = [
   { label: 'Insights', href: '/insights', children: insightNavItems },
   { label: 'About', href: '/about' }
 ] as const;
+

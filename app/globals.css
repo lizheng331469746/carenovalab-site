@@ -189,17 +189,17 @@ p { color: var(--muted); }
 .section-dropdown {
   position: absolute; top: 100%; left: 0; z-index: 50;
   width: 330px; padding: 10px;
-  background: var(--white); border: 1px solid var(--line);
+  background: var(--paper-2); border: 1px solid var(--line);
   border-radius: 0 0 14px 14px; box-shadow: 0 24px 80px rgba(36,38,37,.16);
 }
 .section-nav-list { list-style: none; padding: 0; margin: 0; }
 .section-nav-list a {
   display: flex; align-items: center;
-  padding: 10px 12px; border-radius: 7px; color: var(--gold);
+  padding: 10px 12px; border-radius: 7px; color: var(--muted);
   font-size: .82rem; line-height: 1.35; transition: background .15s, color .15s;
 }
 .section-nav-list a::after { display: none; }
-.section-nav-list a:hover, .section-nav-list a:focus-visible { background: var(--ink); color: var(--gold); }
+.section-nav-list a:hover, .section-nav-list a:focus-visible { background: var(--ink); color: var(--white); }
 
 .anchor-target { scroll-margin-top: 110px; }
 .solution-service-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }

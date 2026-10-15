@@ -23,7 +23,6 @@ export function SectionDropdown({
             <li key={item.href}>
               <Link href={item.href} onClick={onClose}>
                 <span>{item.label}</span>
-                <span aria-hidden="true">→</span>
               </Link>
             </li>
           ))}
@@ -32,3 +31,4 @@ export function SectionDropdown({
     </>
   );
 }
+

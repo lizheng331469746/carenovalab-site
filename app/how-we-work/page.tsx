@@ -34,7 +34,7 @@ const faqs = [
 
 export default function HowWeWorkPage() {
   return <>
-    <PageHero eyebrow="How We Work" title="A Clear OEM/ODM Path From Product Brief to Market-Ready Launch" description="We connect the commercial brief, development model, formula, packaging, compliance questions and production plan in one coordinated process." backgroundImage="/images/how-we-work-hero.jpg" primaryLabel="Start Your Project" primaryContext={{source:'How We Work page'}} secondaryLabel="Complete a Project Brief" secondaryHref="/start-your-project"/>
+    <PageHero eyebrow="How We Work" title="A Clear OEM/ODM Path From Product Brief to Market-Ready Launch" description="We connect the commercial brief, development model, formula, packaging, compliance questions and production plan in one coordinated process." backgroundImage="https://sc02.alicdn.com/kf/H71ae70c0f9bb4d3cab585cb8de9f61aaR.jpg" primaryLabel="Start Your Project" primaryContext={{source:'How We Work page'}} secondaryLabel="Complete a Project Brief" secondaryHref="/start-your-project"/>
 
     <section className="section section-white anchor-target" id="oem-odm-services"><div className="container"><SectionHeading eyebrow="OEM/ODM Services" title="One Project Team Across Product Development and Execution" text="CareNova Lab helps beauty businesses turn a product idea into a workable development route. The scope is confirmed around your product category, market, quantity, packaging and schedule."/><div className="card-grid">{[
       ['Product Strategy', 'Clarify the consumer, channel, product role, range structure and commercial priorities.'],
@@ -51,3 +51,4 @@ export default function HowWeWorkPage() {
     <section className="section section-dark anchor-target" id="project-consultation"><div className="container"><SectionHeading eyebrow="FAQ / Project Consultation" title="Prepare the Right Information for a Useful First Discussion" text="Share what is already decided and what still needs recommendations. We will identify the next questions and the most practical route."/><div className="trust-grid">{faqs.map((faq, index) => <article className="trust-item" key={faq[0]}><span>{String(index + 1).padStart(2, '0')}</span><h3>{faq[0]}</h3><p>{faq[1]}</p></article>)}</div><div className="hero-actions"><InquiryButton context={{source:'How We Work FAQ'}}>Start a Project Consultation</InquiryButton><Link className="button button-outline" href="/start-your-project">Send a Structured Brief</Link></div></div></section>
   </>;
 }
+

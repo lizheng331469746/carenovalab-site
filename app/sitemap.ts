@@ -6,7 +6,7 @@ import { categoryPath, groupPath, productPath } from '@/lib/product-paths';
 
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ['', '/solutions', '/solutions/device-companion-skincare', '/solutions/fragrance-body-care', '/solutions/scenario-based-care', '/products', '/who-we-help', '/how-we-work', '/insights', '/about', '/contact', '/start-your-project', '/privacy', '/terms'];
+  const paths = ['', '/solutions', '/solutions/device-companion-skincare', '/solutions/fragrance-body-care', '/solutions/scenario-based-care', '/products', '/who-we-help', '/who-we-help/beauty-startups', '/who-we-help/established-beauty-brands', '/who-we-help/distributors-wholesalers', '/who-we-help/ecommerce-sellers', '/who-we-help/salons-spas', '/how-we-work', '/insights', '/about', '/contact', '/start-your-project', '/privacy', '/terms'];
   const productPaths = productCategories.flatMap((category) =>
     category.groups.flatMap((group) => {
       const groupUrl = groupPath(category.slug, group.name);
@@ -24,3 +24,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...insights.map((item) => ({ url: `${siteConfig.url}/insights/${item.slug}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: .65 }))
   ];
 }
+

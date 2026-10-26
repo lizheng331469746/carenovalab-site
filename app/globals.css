@@ -288,7 +288,7 @@ p { color: var(--muted); }
 .how-process-section { overflow: hidden; }
 .how-process-section .section-heading { max-width: 850px; margin-bottom: 42px; }
 .how-process-track {
-  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 18px;
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px;
   overflow: visible;
 }
 .how-process-card {
@@ -317,12 +317,12 @@ p { color: var(--muted); }
 .how-process-image img { object-fit: cover; transition: transform .45s ease; }
 .how-process-card:hover .how-process-image img { transform: scale(1.025); }
 .how-process-arrow {
-  position: absolute; z-index: 2; top: 50%; right: -27px;
-  width: 34px; height: 34px; display: grid; place-items: center;
-  transform: translateY(-50%); border: 2px solid var(--white); border-radius: 50%;
-  background: var(--gold); color: var(--white); box-shadow: 0 5px 16px rgba(73,55,27,.16);
+  position: absolute; z-index: 3; top: 50%; right: -23px;
+  width: 22px; height: 22px; display: grid; place-items: center;
+  transform: translateY(-50%); border: 1px solid var(--white); border-radius: 50%;
+  background: var(--gold); color: var(--white); box-shadow: 0 4px 12px rgba(73,55,27,.16);
 }
-.how-process-arrow svg { width: 18px; height: 18px; }
+.how-process-arrow svg { width: 13px; height: 13px; }
 .how-process-swipe { display: none; }
 
 @media (max-width: 1050px) {
@@ -340,7 +340,7 @@ p { color: var(--muted); }
   }
   .how-process-swipe span { font-size: 1rem; }
   .how-process-track {
-    display: flex; gap: 18px; overflow-x: auto; padding: 0 32px 18px;
+    display: flex; gap: 24px; overflow-x: auto; padding: 0 32px 18px;
     scroll-snap-type: x mandatory; scroll-padding-inline: 32px;
     scrollbar-width: thin; scrollbar-color: var(--gold) var(--paper-2);
   }

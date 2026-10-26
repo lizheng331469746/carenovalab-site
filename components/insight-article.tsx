@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { insights } from '@/lib/insights';
 import { InquiryButton } from '@/components/inquiry-provider';
-import { asset } from '@/lib/assets';
 
 const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:string[]}[]; solution:string; solutionHref:string }> = {
   'beauty-device-companion-skincare': {
@@ -92,7 +91,6 @@ export function InsightArticle({ slug }: { slug: string }) {
   const itemIndex = insights.findIndex((x) => x.slug === slug);
   const previous = itemIndex > 0 ? insights[itemIndex - 1] : insights[insights.length - 1];
   const next = itemIndex < insights.length - 1 ? insights[itemIndex + 1] : insights[0];
-  const related = insights.filter((article) => article.categorySlug === item.categorySlug && article.slug !== slug).slice(0, 2);
   const sectionId = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
   return (
@@ -130,16 +128,6 @@ export function InsightArticle({ slug }: { slug: string }) {
         <Link href={`/insights/${previous.slug}`}><span>OLDER INSIGHT</span><strong>{previous.title}</strong></Link>
         <Link href={`/insights/${next.slug}`}><span>NEWER INSIGHT</span><strong>{next.title}</strong></Link>
       </nav>
-
-      {related.length > 0 && <section className="container insight-related">
-        <div className="insight-related-heading"><span>CONTINUE READING</span><h2>More from {item.category}</h2></div>
-        <div className="insight-related-grid">
-          {related.map((article) => <Link href={`/insights/${article.slug}`} key={article.slug}>
-            <img src={asset(article.image)} alt="" />
-            <div><span>{article.readTime}</span><h3>{article.title}</h3><strong>Read Insight →</strong></div>
-          </Link>)}
-        </div>
-      </section>}
     </main>
   );
 }

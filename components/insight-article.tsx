@@ -27,6 +27,22 @@ const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:
       {title:'Define the consumer before the formula',paragraphs:['The brief should describe habits, environment, channel, price level and expected use frequency. These details help determine whether the hero product should be a wash-off product, treatment, spray, serum, oil or set.','They also help reduce unnecessary sampling because the project team understands the desired user experience.']},
       {title:'Build from a hero product to a routine',paragraphs:['A scenario can launch with one hero product and later expand into complementary products. For example, post-workout care may begin with a scalp scrub and later add shampoo, body wash, deodorant and mist.','Planning the architecture early makes later expansion more consistent and easier to communicate.']}
     ],solution:'Scenario-Based Personal Care',solutionHref:'/solutions/scenario-based-care'
+  },
+  'evaluate-cosmetic-oem-odm-partner': {
+    intro:'Choosing an OEM/ODM partner is not only a price comparison. The right partner must fit the product type, customization level, quantity, target market, packaging route and launch schedule.',
+    sections:[
+      {title:'Compare capability against the actual brief',paragraphs:['A factory may have broad capability but limited experience with the exact dosage form, packaging component or testing requirement in your project. Begin with a structured brief and ask how similar products are developed and produced.','Review whether the proposed route is private label, semi-custom or full custom, because each route changes sampling time, MOQ, cost and differentiation.']},
+      {title:'Review samples and quality checkpoints',paragraphs:['A useful sample review covers texture, color, fragrance, application, packaging compatibility and any measurable performance requirements. Agree how feedback will be recorded and how revisions will be approved.','Before production, confirm the approved sample, specification, artwork, packaging components and quality checkpoints in writing.']},
+      {title:'Evaluate communication and delivery readiness',paragraphs:['Clear project ownership matters when formula, packaging, compliance questions and production timing must move together. Ask who coordinates each decision and how changes are documented.','The most reliable proposal explains assumptions, exclusions and dependencies instead of offering an unsupported timeline or universal MOQ.']}
+    ],solution:'OEM/ODM Development Process',solutionHref:'/how-we-work'
+  },
+  'beauty-market-entry-compliance-checklist': {
+    intro:'The target market affects formula choices, claims, labels, testing and documents. Confirming the destination early helps the product team identify questions before packaging and production are finalized.',
+    sections:[
+      {title:'Start with the destination and product classification',paragraphs:['Requirements differ by market and product type. A cosmetic, OTC product, sunscreen, soap or device companion product may follow different pathways.','Define where the product will be sold, who will act as the responsible local party and which product claims are commercially essential.']},
+      {title:'Align claims, formula and testing',paragraphs:['Marketing language should be reviewed alongside the formula and available evidence. Testing needs may include stability, compatibility, microbiological quality or claim support depending on the product and market.','Avoid finalizing front-label claims before the technical and regulatory route has been reviewed.']},
+      {title:'Confirm labels and available documents',paragraphs:['Ingredient naming, warnings, net contents, responsible-party information and language requirements can affect artwork. Document availability also depends on the selected manufacturer and product.','Create a market-entry checklist before production so required information can be gathered without delaying launch preparation.']}
+    ],solution:'Quality & Compliance',solutionHref:'/about#quality-compliance'
   }
 };
 
@@ -45,3 +61,4 @@ export function InsightArticle({ slug }: { slug: string }) {
     </article></section>
   );
 }
+

@@ -15,11 +15,11 @@ export const audienceNavItems = [
 ] as const;
 
 export const insightNavItems = [
-  { label: 'Ingredients & Formulation', href: '/insights#ingredients-formulation' },
-  { label: 'OEM/ODM Knowledge', href: '/insights#oem-odm-knowledge' },
-  { label: 'Packaging & Customization', href: '/insights#packaging-customization' },
-  { label: 'Regulatory & Compliance', href: '/insights#regulatory-compliance' },
-  { label: 'Market Insights', href: '/insights#market-insights' }
+  { label: 'Ingredients & Formulation', href: '/insights/ingredients-formulation' },
+  { label: 'OEM/ODM Knowledge', href: '/insights/oem-odm-knowledge' },
+  { label: 'Packaging & Customization', href: '/insights/packaging-customization' },
+  { label: 'Regulatory & Compliance', href: '/insights/regulatory-compliance' },
+  { label: 'Market Insights', href: '/insights/market-insights' }
 ] as const;
 
 export const aboutNavItems = [

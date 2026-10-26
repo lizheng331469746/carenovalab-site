@@ -89,15 +89,73 @@ const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:
 export function InsightArticle({ slug }: { slug: string }) {
   const item = insights.find((x) => x.slug === slug)!;
   const body = bodies[slug];
+  const itemIndex = insights.findIndex((x) => x.slug === slug);
+  const previous = itemIndex > 0 ? insights[itemIndex - 1] : insights[insights.length - 1];
+  const next = itemIndex < insights.length - 1 ? insights[itemIndex + 1] : insights[0];
+  const related = insights.filter((article) => article.categorySlug === item.categorySlug && article.slug !== slug).slice(0, 2);
+  const sectionId = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
   return (
-    <section className="section section-white"><article className="container article">
-      <span className="eyebrow">{item.category} · {item.readTime}</span><h1>{item.title}</h1><p className="article-lead">{body.intro}</p>
-      <div className="insight-art" style={{height:460,borderRadius:28,margin:'45px 0',overflow:'hidden'}}>
-        <img src={asset((item as any).image)} alt={item.title} style={{width:'100%',height:'100%',objectFit:'cover'}} />
+    <main className="insight-detail">
+      <header className="insight-detail-header">
+        <div className="container">
+          <Link className="insight-detail-breadcrumb" href={`/insights/${item.categorySlug}`}>Knowledge Center / {item.category}</Link>
+          <h1>{item.title}</h1>
+          <p>{body.intro}</p>
+          <div className="insight-detail-meta"><span>{item.category}</span><time>{item.published}</time><span>{item.readTime}</span></div>
+        </div>
+      </header>
+
+      <div className="container insight-detail-content">
+        <figure className="insight-detail-image">
+          <img src={asset(item.image)} alt={item.title} />
+        </figure>
+
+        <div className="insight-detail-reading">
+          <aside className="insight-detail-toc">
+            <span>TABLE OF CONTENTS</span>
+            <nav>
+              {body.sections.map((section, index) => <a href={`#${sectionId(section.title)}`} key={section.title}><b>{String(index + 1).padStart(2, '0')}</b>{section.title}</a>)}
+            </nav>
+          </aside>
+
+          <article className="article insight-article-body">
+            <div className="insight-key-takeaways">
+              <span>KEY TAKEAWAYS</span>
+              <ul>{body.sections.map((section) => <li key={section.title}>{section.title}</li>)}</ul>
+            </div>
+            {body.sections.map(section => <section id={sectionId(section.title)} key={section.title}><h2>{section.title}</h2>{section.paragraphs.map(p => <p key={p}>{p}</p>)}</section>)}
+            <div className="article-callout"><strong>Project note</strong><p>Formula, claims, testing, documents, compatibility, MOQ and timeline must be confirmed according to the specific product, target market and manufacturing partner.</p></div>
+          </article>
+        </div>
       </div>
-      {body.sections.map(section=><section key={section.title}><h2>{section.title}</h2>{section.paragraphs.map(p=><p key={p}>{p}</p>)}</section>)}
-      <div className="article-callout"><strong>Project note:</strong><p>Formula, claims, testing, documents, compatibility, MOQ and timeline must be confirmed according to the specific product, target market and manufacturing partner.</p></div>
-      <div className="hero-actions"><Link className="button button-outline" href={body.solutionHref}>Explore {body.solution}</Link><InquiryButton context={{source:`Insight: ${item.title}`,solution:body.solution}}>Discuss This Product Direction</InquiryButton></div>
-    </article></section>
+
+      <section className="insight-market-cta" id="consult-our-team">
+        <div className="container">
+          <span>BRING THIS INSIGHT TO MARKET</span>
+          <h2>Turn this direction into a product brief.</h2>
+          <p>Talk with CareNova Lab about formula development, packaging, manufacturing and the practical route to your target market.</p>
+          <div className="hero-actions">
+            <InquiryButton className="button button-gold" context={{source:`Insight: ${item.title}`,solution:body.solution}}>Consult Our Team</InquiryButton>
+            <Link className="button button-outline button-outline-light" href={body.solutionHref}>Explore {body.solution}</Link>
+          </div>
+        </div>
+      </section>
+
+      <nav className="container insight-post-navigation" aria-label="Article navigation">
+        <Link href={`/insights/${previous.slug}`}><span>OLDER INSIGHT</span><strong>{previous.title}</strong></Link>
+        <Link href={`/insights/${next.slug}`}><span>NEWER INSIGHT</span><strong>{next.title}</strong></Link>
+      </nav>
+
+      {related.length > 0 && <section className="container insight-related">
+        <div className="insight-related-heading"><span>CONTINUE READING</span><h2>More from {item.category}</h2></div>
+        <div className="insight-related-grid">
+          {related.map((article) => <Link href={`/insights/${article.slug}`} key={article.slug}>
+            <img src={asset(article.image)} alt="" />
+            <div><span>{article.readTime}</span><h3>{article.title}</h3><strong>Read Insight →</strong></div>
+          </Link>)}
+        </div>
+      </section>}
+    </main>
   );
 }

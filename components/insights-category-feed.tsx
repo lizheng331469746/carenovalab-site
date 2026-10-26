@@ -29,11 +29,6 @@ export function InsightsCategoryFeed({ category }: { category: InsightCategory }
       <section className="insights-category-results">
         <div className="container">
           <div className="insights-category-shell">
-            <div className="insights-category-shell-head">
-              <div><span>Knowledge Center</span><h2>{category.label}</h2></div>
-              <p>{articles.length} {articles.length === 1 ? 'insight' : 'insights'}</p>
-            </div>
-
             {articles.length ? (
               <div className="insights-news-feed">
                 {articles.map((article) => (
@@ -61,4 +56,3 @@ export function InsightsCategoryFeed({ category }: { category: InsightCategory }
     </main>
   );
 }
-

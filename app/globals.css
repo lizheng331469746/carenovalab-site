@@ -902,7 +902,7 @@ details p { margin: 15px 0 0; }
 .insights-library-nav a:hover, .insights-library-nav a.is-active { color: var(--gold-dark); }
 .insights-library-nav a.is-active::after { transform: scaleX(1); }
 .insights-library-results { padding: 46px 0 86px; }
-.insights-library-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.insights-library-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .insights-library-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; color: inherit; background: var(--white); border: 1px solid var(--line); transition: transform .18s ease, box-shadow .18s ease; }
 .insights-library-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(36,38,37,.08); }
 .insights-library-card > img { width: 100%; aspect-ratio: 1.52 / 1; object-fit: cover; }

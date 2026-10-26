@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { insights } from '@/lib/insights';
 import { InquiryButton } from '@/components/inquiry-provider';
-import { asset } from '@/lib/assets';
 
 const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:string[]}[]; solution:string; solutionHref:string }> = {
   'beauty-device-companion-skincare': {
@@ -27,21 +26,108 @@ const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:
       {title:'Define the consumer before the formula',paragraphs:['The brief should describe habits, environment, channel, price level and expected use frequency. These details help determine whether the hero product should be a wash-off product, treatment, spray, serum, oil or set.','They also help reduce unnecessary sampling because the project team understands the desired user experience.']},
       {title:'Build from a hero product to a routine',paragraphs:['A scenario can launch with one hero product and later expand into complementary products. For example, post-workout care may begin with a scalp scrub and later add shampoo, body wash, deodorant and mist.','Planning the architecture early makes later expansion more consistent and easier to communicate.']}
     ],solution:'Scenario-Based Personal Care',solutionHref:'/solutions/scenario-based-care'
+  },
+  'evaluate-cosmetic-oem-odm-partner': {
+    intro:'Choosing an OEM/ODM partner is not only a price comparison. The right partner must fit the product type, customization level, quantity, target market, packaging route and launch schedule.',
+    sections:[
+      {title:'Compare capability against the actual brief',paragraphs:['A factory may have broad capability but limited experience with the exact dosage form, packaging component or testing requirement in your project. Begin with a structured brief and ask how similar products are developed and produced.','Review whether the proposed route is private label, semi-custom or full custom, because each route changes sampling time, MOQ, cost and differentiation.']},
+      {title:'Review samples and quality checkpoints',paragraphs:['A useful sample review covers texture, color, fragrance, application, packaging compatibility and any measurable performance requirements. Agree how feedback will be recorded and how revisions will be approved.','Before production, confirm the approved sample, specification, artwork, packaging components and quality checkpoints in writing.']},
+      {title:'Evaluate communication and delivery readiness',paragraphs:['Clear project ownership matters when formula, packaging, compliance questions and production timing must move together. Ask who coordinates each decision and how changes are documented.','The most reliable proposal explains assumptions, exclusions and dependencies instead of offering an unsupported timeline or universal MOQ.']}
+    ],solution:'OEM/ODM Development Process',solutionHref:'/how-we-work'
+  },
+  'beauty-market-entry-compliance-checklist': {
+    intro:'The target market affects formula choices, claims, labels, testing and documents. Confirming the destination early helps the product team identify questions before packaging and production are finalized.',
+    sections:[
+      {title:'Start with the destination and product classification',paragraphs:['Requirements differ by market and product type. A cosmetic, OTC product, sunscreen, soap or device companion product may follow different pathways.','Define where the product will be sold, who will act as the responsible local party and which product claims are commercially essential.']},
+      {title:'Align claims, formula and testing',paragraphs:['Marketing language should be reviewed alongside the formula and available evidence. Testing needs may include stability, compatibility, microbiological quality or claim support depending on the product and market.','Avoid finalizing front-label claims before the technical and regulatory route has been reviewed.']},
+      {title:'Confirm labels and available documents',paragraphs:['Ingredient naming, warnings, net contents, responsible-party information and language requirements can affect artwork. Document availability also depends on the selected manufacturer and product.','Create a market-entry checklist before production so required information can be gathered without delaying launch preparation.']}
+    ],solution:'Quality & Compliance',solutionHref:'/about#quality-compliance'
+  },
+  'active-skincare-formula-brief': {
+    intro:'A useful formulation brief gives the laboratory enough commercial and technical direction to develop the right product without unnecessary rounds of sampling.',
+    sections:[
+      {title:'Define the consumer and product role',paragraphs:['Explain who will use the product, where it sits in the routine and which problem it should address. This helps the development team choose a suitable format and sensorial direction.','Include the target price, sales channel and market position so the formula is designed for the intended offer.']},
+      {title:'Prioritize texture, ingredients and claims',paragraphs:['Separate essential requirements from preferences. List the texture, finish, fragrance direction, hero ingredients and claims that matter most to the launch.','A short prioritized brief is more useful than a long list of ingredients that may not work together or fit the target cost.']},
+      {title:'Set clear sample review criteria',paragraphs:['Agree how the team will review spreadability, absorption, residue, fragrance, color and packaging compatibility. Record feedback against the same criteria for every sample.','This gives each revision a clear purpose and makes approval easier to document.']}
+    ],solution:'Skincare Product Development',solutionHref:'/products/skincare'
+  },
+  'choose-product-development-model': {
+    intro:'Private label, semi-custom and full custom development offer different balances of speed, differentiation, cost and project input. The right route depends on the launch brief.',
+    sections:[
+      {title:'Use private label for speed and simplicity',paragraphs:['A proven base formula can shorten development and reduce technical uncertainty. The brand focuses on product selection, packaging, artwork and commercial positioning.','This route works best when fast market entry matters more than a unique formula.']},
+      {title:'Use semi-custom for focused differentiation',paragraphs:['A semi-custom route may adjust fragrance, color, selected ingredients or texture within an established development framework. It can create a clearer brand fit without starting every technical decision from zero.','Confirm which changes are available and how they affect MOQ, testing and timing.']},
+      {title:'Use full custom when the concept requires it',paragraphs:['Full custom development supports a specific formula brief and stronger differentiation, but usually needs more sampling, testing and decision time.','Choose it when the formula itself is central to the product promise and the project can support the required investment.']}
+    ],solution:'Product Development Models',solutionHref:'/how-we-work#product-development-models'
+  },
+  'stock-packaging-vs-custom-molds': {
+    intro:'Packaging affects cost, lead time, formula compatibility and brand expression. Comparing stock components with custom molds early prevents late changes to the launch plan.',
+    sections:[
+      {title:'Understand the advantage of stock packaging',paragraphs:['Existing bottles, jars and pumps can reduce tooling cost and shorten sourcing time. Decoration, color, labels and secondary packaging can still create a distinctive presentation.','Stock packaging is often suitable for early launches, smaller ranges and projects that need flexibility.']},
+      {title:'Know when a custom mold is justified',paragraphs:['A proprietary shape can strengthen recognition and protect a long-term packaging system. It also introduces tooling, development, testing and higher quantity commitments.','The business case should consider future volume and range expansion, not only the first purchase order.']},
+      {title:'Test the complete pack with the formula',paragraphs:['Material, pump output, closure, leakage, decoration and transportation performance should be reviewed with the intended formula.','Approve compatibility and final artwork before production quantities are released.']}
+    ],solution:'Packaging & Production Support',solutionHref:'/how-we-work#packaging-production-support'
+  },
+  'cosmetic-claims-labels-documents-review': {
+    intro:'Claims, labels and supporting documents should be reviewed together before packaging artwork is approved. A late compliance change can affect both schedule and cost.',
+    sections:[
+      {title:'Check claims against the product route',paragraphs:['Confirm that the marketing language fits the product classification, formula and available evidence in the target market. Avoid committing to unsupported performance or medical language.','Claims should be reviewed before they are built into front-label design and campaign content.']},
+      {title:'Verify required label information',paragraphs:['Ingredient naming, warnings, net contents, responsible-party details, batch information and language requirements vary by market and product type.','Use a market-specific checklist and leave enough artwork space for required information.']},
+      {title:'Confirm document availability',paragraphs:['Ask which product, ingredient, testing and manufacturing documents will be available and when they can be issued.','Record any documents that depend on final formula, packaging or production details so they are tracked through the project.']}
+    ],solution:'Quality & Compliance',solutionHref:'/about#quality-compliance'
+  },
+  'turn-beauty-trend-into-product-direction': {
+    intro:'A broad beauty trend becomes commercially useful only when it is translated into a defined consumer, occasion, product format and range plan.',
+    sections:[
+      {title:'Identify the underlying consumer need',paragraphs:['Look beyond the trend name and define the behavior or problem driving it. This may be convenience, sensory pleasure, climate adaptation, simplified routines or ingredient awareness.','A clear need gives the product concept more staying power than a short-lived visual reference.']},
+      {title:'Choose one hero product direction',paragraphs:['Select the format that communicates the idea most clearly and fits the channel, price and expected use frequency. Avoid launching too many weakly connected SKUs at once.','The hero product should be easy to explain and capable of supporting future extensions.']},
+      {title:'Build a scalable range architecture',paragraphs:['Plan which products could logically follow the hero SKU and how the packaging, naming and claims will stay consistent.','This turns an isolated trend response into a product platform that can grow with customer feedback and demand.']}
+    ],solution:'Product Solutions',solutionHref:'/solutions'
   }
 };
 
 export function InsightArticle({ slug }: { slug: string }) {
   const item = insights.find((x) => x.slug === slug)!;
   const body = bodies[slug];
+  const itemIndex = insights.findIndex((x) => x.slug === slug);
+  const previous = itemIndex > 0 ? insights[itemIndex - 1] : insights[insights.length - 1];
+  const next = itemIndex < insights.length - 1 ? insights[itemIndex + 1] : insights[0];
+  const sectionId = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
   return (
-    <section className="section section-white"><article className="container article">
-      <span className="eyebrow">{item.category} · {item.readTime}</span><h1>{item.title}</h1><p className="article-lead">{body.intro}</p>
-      <div className="insight-art" style={{height:460,borderRadius:28,margin:'45px 0',overflow:'hidden'}}>
-        <img src={asset((item as any).image)} alt={item.title} style={{width:'100%',height:'100%',objectFit:'cover'}} />
-      </div>
-      {body.sections.map(section=><section key={section.title}><h2>{section.title}</h2>{section.paragraphs.map(p=><p key={p}>{p}</p>)}</section>)}
-      <div className="article-callout"><strong>Project note:</strong><p>Formula, claims, testing, documents, compatibility, MOQ and timeline must be confirmed according to the specific product, target market and manufacturing partner.</p></div>
-      <div className="hero-actions"><Link className="button button-outline" href={body.solutionHref}>Explore {body.solution}</Link><InquiryButton context={{source:`Insight: ${item.title}`,solution:body.solution}}>Discuss This Product Direction</InquiryButton></div>
-    </article></section>
+    <main className="insight-detail insight-detail-simple">
+      <article className="container insight-simple-article">
+        <header className="insight-simple-header">
+          <h1>{item.title}</h1>
+          <div className="insight-simple-meta">
+            <Link href={`/insights/${item.categorySlug}`}># {item.category}</Link>
+            <span>/ {item.published}</span>
+            <span>/ {item.readTime}</span>
+          </div>
+        </header>
+
+        <nav className="insight-simple-index" aria-label="Article sections">
+          <span>INDEX &amp; KEY INSIGHTS</span>
+          {body.sections.map((section) => <a href={`#${sectionId(section.title)}`} key={section.title}>{section.title}</a>)}
+        </nav>
+
+        <p className="insight-simple-intro">{body.intro}</p>
+        <div className="insight-simple-body">
+          {body.sections.map(section => <section id={sectionId(section.title)} key={section.title}><h2>{section.title}</h2>{section.paragraphs.map(p => <p key={p}>{p}</p>)}</section>)}
+        </div>
+      </article>
+
+      <section className="insight-market-cta" id="consult-our-team">
+        <div className="container">
+          <h2>Bring This Insight to Market</h2>
+          <p>Partner with CareNova Lab to turn this direction into a focused product brief, with coordinated support for formulation, packaging, manufacturing and target-market preparation.</p>
+          <InquiryButton className="button button-gold" context={{source:`Insight: ${item.title}`,solution:body.solution}}>Consult Our Team</InquiryButton>
+        </div>
+      </section>
+
+      <nav className="container insight-post-navigation" aria-label="Article navigation">
+        <Link href={`/insights/${previous.slug}`}><span>OLDER INSIGHT</span><strong>{previous.title}</strong></Link>
+        <Link href={`/insights/${next.slug}`}><span>NEWER INSIGHT</span><strong>{next.title}</strong></Link>
+      </nav>
+    </main>
   );
 }

@@ -58,6 +58,55 @@ export const insights = [
     readTime: '6 min read',
     published: 'September 28, 2026',
     image: '/images/site/solution-scenario.webp'
+  },
+  {
+    slug: 'active-skincare-formula-brief',
+    category: 'Ingredients & Formulation',
+    categorySlug: 'ingredients-formulation',
+    title: 'How to Build a Clear Brief for an Active Skincare Formula',
+    excerpt: 'Define the consumer, product role, texture, priority ingredients and claims direction before the first laboratory sample is prepared.',
+    readTime: '6 min read',
+    published: 'September 22, 2026',
+    image: '/images/site/insight-step-3.webp'
+  },
+  {
+    slug: 'choose-product-development-model',
+    category: 'OEM/ODM Knowledge',
+    categorySlug: 'oem-odm-knowledge',
+    title: 'Private Label, Semi-Custom or Full Custom: Which Route Fits Your Launch?',
+    excerpt: 'Compare speed, differentiation, MOQ and development input before choosing the right manufacturing route for a new beauty product.',
+    readTime: '6 min read',
+    published: 'September 18, 2026',
+    image: '/images/site/product-library-flatlay.webp'
+  },
+  {
+    slug: 'stock-packaging-vs-custom-molds',
+    category: 'Packaging & Customization',
+    categorySlug: 'packaging-customization',
+    title: 'Stock Packaging vs Custom Molds: What Beauty Brands Should Compare',
+    excerpt: 'Evaluate tooling cost, MOQ, decoration, lead time and formula compatibility before committing to a custom packaging route.',
+    readTime: '5 min read',
+    published: 'September 14, 2026',
+    image: '/images/site/insight-step-4.webp'
+  },
+  {
+    slug: 'cosmetic-claims-labels-documents-review',
+    category: 'Regulatory & Compliance',
+    categorySlug: 'regulatory-compliance',
+    title: 'Cosmetic Claims, Labels and Documents: A Pre-Production Review',
+    excerpt: 'Review claims, ingredient naming, warnings, label information and document availability before approving final packaging artwork.',
+    readTime: '7 min read',
+    published: 'September 9, 2026',
+    image: '/images/site/solution-scenario.webp'
+  },
+  {
+    slug: 'turn-beauty-trend-into-product-direction',
+    category: 'Market Insights',
+    categorySlug: 'market-insights',
+    title: 'How to Turn a Beauty Trend Into a Scalable Product Direction',
+    excerpt: 'Translate a broad trend into a defined consumer, hero SKU and range architecture that can support sampling, launch and later expansion.',
+    readTime: '6 min read',
+    published: 'September 4, 2026',
+    image: '/images/site/insight-step-1.webp'
   }
 ] as const;
-

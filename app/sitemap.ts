@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/lib/site';
 import { productCategories } from '@/lib/products';
-import { insights } from '@/lib/insights';
+import { insightCategories, insights } from '@/lib/insights';
 import { categoryPath, groupPath, productPath } from '@/lib/product-paths';
 
 
@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...paths.map((path) => ({ url: `${siteConfig.url}${path}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: path === '' ? 1 : .7 })),
     ...productCategories.map((item) => ({ url: `${siteConfig.url}${categoryPath(item.slug)}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: .7 })),
     ...productPaths.map((path) => ({ url: `${siteConfig.url}${path}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: .6 })),
+    ...insightCategories.map((item) => ({ url: `${siteConfig.url}/insights/${item.slug}`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: .65 })),
     ...insights.map((item) => ({ url: `${siteConfig.url}/insights/${item.slug}`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: .65 }))
   ];
 }

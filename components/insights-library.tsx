@@ -22,7 +22,7 @@ export function InsightsLibrary() {
       <section className="insights-library-hero">
         <div className="container">
           <span className="insights-library-kicker">CARENOVA LAB KNOWLEDGE CENTER</span>
-          <h1>Beauty Business<br />Intelligence</h1>
+          <h1>Beauty Business Intelligence</h1>
           <p>Practical insights for beauty brand development, formulation, packaging, manufacturing and market entry.</p>
           <label className="insights-library-search">
             <span className="sr-only">Search insights</span>

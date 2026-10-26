@@ -13,7 +13,10 @@ export function SiteFooter() {
     <footer className="site-footer" id="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <img src="/images/logo-light.svg" alt="CareNova Lab" />
+          <Link href="/" className="brand footer-logo" aria-label="CareNova Lab home">
+            <span className="brand-mark" aria-hidden="true">CNL</span>
+            <span className="brand-copy"><span>CARENOVA LAB</span><small>Cosmetic R&amp;D · OEM/ODM</small></span>
+          </Link>
           <p>Your partner in cosmetic formulation, private label manufacturing, packaging customization, and global product development.</p>
           <p className="footer-location"><MapPin aria-hidden="true" size={18} />Guangzhou, China</p>
         </div>

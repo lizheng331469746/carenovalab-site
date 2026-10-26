@@ -34,7 +34,7 @@ export function InsightsCategoryFeed({ category }: { category: InsightCategory }
                 {articles.map((article) => (
                   <Link className="insights-news-row" href={`/insights/${article.slug}`} key={article.slug}>
                     <div>
-                      <span className="insights-news-meta">{article.category.toUpperCase()} · {article.readTime.toUpperCase()}</span>
+                      <span className="insights-news-meta">{article.readTime.toUpperCase()}</span>
                       <h2>{article.title}</h2>
                       <p>{article.excerpt}</p>
                       <time>{article.published}</time>

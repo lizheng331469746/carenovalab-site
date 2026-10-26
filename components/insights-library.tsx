@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Search } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { asset } from '@/lib/assets';
@@ -20,7 +21,9 @@ export function InsightsLibrary() {
   return (
     <main className="insights-library">
       <section className="insights-library-hero">
-        <div className="container">
+        <Image className="insights-hero-image" src="/images/insights/heroes/all-insights.webp" alt="" fill priority sizes="100vw" />
+        <div className="insights-hero-overlay" aria-hidden="true" />
+        <div className="container insights-hero-content">
           <span className="insights-library-kicker">CARENOVA LAB KNOWLEDGE CENTER</span>
           <h1>Beauty Business Intelligence</h1>
           <p>Practical insights for beauty brand development, formulation, packaging, manufacturing and market entry.</p>
@@ -65,4 +68,5 @@ export function InsightsLibrary() {
     </main>
   );
 }
+
 

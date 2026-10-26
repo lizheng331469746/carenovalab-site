@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { asset } from '@/lib/assets';
 import { insightCategories, insights, type InsightCategory } from '@/lib/insights';
 
@@ -8,7 +9,9 @@ export function InsightsCategoryFeed({ category }: { category: InsightCategory }
   return (
     <main className="insights-category-page">
       <section className="insights-category-heading">
-        <div className="container">
+        <Image className="insights-hero-image" src={category.heroImage} alt="" fill priority sizes="100vw" />
+        <div className="insights-hero-overlay" aria-hidden="true" />
+        <div className="container insights-hero-content">
           <Link href="/insights">Knowledge Center</Link>
           <h1>{category.label}</h1>
           <p>{category.description}</p>
@@ -56,3 +59,4 @@ export function InsightsCategoryFeed({ category }: { category: InsightCategory }
     </main>
   );
 }
+

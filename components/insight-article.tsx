@@ -43,6 +43,46 @@ const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:
       {title:'Align claims, formula and testing',paragraphs:['Marketing language should be reviewed alongside the formula and available evidence. Testing needs may include stability, compatibility, microbiological quality or claim support depending on the product and market.','Avoid finalizing front-label claims before the technical and regulatory route has been reviewed.']},
       {title:'Confirm labels and available documents',paragraphs:['Ingredient naming, warnings, net contents, responsible-party information and language requirements can affect artwork. Document availability also depends on the selected manufacturer and product.','Create a market-entry checklist before production so required information can be gathered without delaying launch preparation.']}
     ],solution:'Quality & Compliance',solutionHref:'/about#quality-compliance'
+  },
+  'active-skincare-formula-brief': {
+    intro:'A useful formulation brief gives the laboratory enough commercial and technical direction to develop the right product without unnecessary rounds of sampling.',
+    sections:[
+      {title:'Define the consumer and product role',paragraphs:['Explain who will use the product, where it sits in the routine and which problem it should address. This helps the development team choose a suitable format and sensorial direction.','Include the target price, sales channel and market position so the formula is designed for the intended offer.']},
+      {title:'Prioritize texture, ingredients and claims',paragraphs:['Separate essential requirements from preferences. List the texture, finish, fragrance direction, hero ingredients and claims that matter most to the launch.','A short prioritized brief is more useful than a long list of ingredients that may not work together or fit the target cost.']},
+      {title:'Set clear sample review criteria',paragraphs:['Agree how the team will review spreadability, absorption, residue, fragrance, color and packaging compatibility. Record feedback against the same criteria for every sample.','This gives each revision a clear purpose and makes approval easier to document.']}
+    ],solution:'Skincare Product Development',solutionHref:'/products/skincare'
+  },
+  'choose-product-development-model': {
+    intro:'Private label, semi-custom and full custom development offer different balances of speed, differentiation, cost and project input. The right route depends on the launch brief.',
+    sections:[
+      {title:'Use private label for speed and simplicity',paragraphs:['A proven base formula can shorten development and reduce technical uncertainty. The brand focuses on product selection, packaging, artwork and commercial positioning.','This route works best when fast market entry matters more than a unique formula.']},
+      {title:'Use semi-custom for focused differentiation',paragraphs:['A semi-custom route may adjust fragrance, color, selected ingredients or texture within an established development framework. It can create a clearer brand fit without starting every technical decision from zero.','Confirm which changes are available and how they affect MOQ, testing and timing.']},
+      {title:'Use full custom when the concept requires it',paragraphs:['Full custom development supports a specific formula brief and stronger differentiation, but usually needs more sampling, testing and decision time.','Choose it when the formula itself is central to the product promise and the project can support the required investment.']}
+    ],solution:'Product Development Models',solutionHref:'/how-we-work#product-development-models'
+  },
+  'stock-packaging-vs-custom-molds': {
+    intro:'Packaging affects cost, lead time, formula compatibility and brand expression. Comparing stock components with custom molds early prevents late changes to the launch plan.',
+    sections:[
+      {title:'Understand the advantage of stock packaging',paragraphs:['Existing bottles, jars and pumps can reduce tooling cost and shorten sourcing time. Decoration, color, labels and secondary packaging can still create a distinctive presentation.','Stock packaging is often suitable for early launches, smaller ranges and projects that need flexibility.']},
+      {title:'Know when a custom mold is justified',paragraphs:['A proprietary shape can strengthen recognition and protect a long-term packaging system. It also introduces tooling, development, testing and higher quantity commitments.','The business case should consider future volume and range expansion, not only the first purchase order.']},
+      {title:'Test the complete pack with the formula',paragraphs:['Material, pump output, closure, leakage, decoration and transportation performance should be reviewed with the intended formula.','Approve compatibility and final artwork before production quantities are released.']}
+    ],solution:'Packaging & Production Support',solutionHref:'/how-we-work#packaging-production-support'
+  },
+  'cosmetic-claims-labels-documents-review': {
+    intro:'Claims, labels and supporting documents should be reviewed together before packaging artwork is approved. A late compliance change can affect both schedule and cost.',
+    sections:[
+      {title:'Check claims against the product route',paragraphs:['Confirm that the marketing language fits the product classification, formula and available evidence in the target market. Avoid committing to unsupported performance or medical language.','Claims should be reviewed before they are built into front-label design and campaign content.']},
+      {title:'Verify required label information',paragraphs:['Ingredient naming, warnings, net contents, responsible-party details, batch information and language requirements vary by market and product type.','Use a market-specific checklist and leave enough artwork space for required information.']},
+      {title:'Confirm document availability',paragraphs:['Ask which product, ingredient, testing and manufacturing documents will be available and when they can be issued.','Record any documents that depend on final formula, packaging or production details so they are tracked through the project.']}
+    ],solution:'Quality & Compliance',solutionHref:'/about#quality-compliance'
+  },
+  'turn-beauty-trend-into-product-direction': {
+    intro:'A broad beauty trend becomes commercially useful only when it is translated into a defined consumer, occasion, product format and range plan.',
+    sections:[
+      {title:'Identify the underlying consumer need',paragraphs:['Look beyond the trend name and define the behavior or problem driving it. This may be convenience, sensory pleasure, climate adaptation, simplified routines or ingredient awareness.','A clear need gives the product concept more staying power than a short-lived visual reference.']},
+      {title:'Choose one hero product direction',paragraphs:['Select the format that communicates the idea most clearly and fits the channel, price and expected use frequency. Avoid launching too many weakly connected SKUs at once.','The hero product should be easy to explain and capable of supporting future extensions.']},
+      {title:'Build a scalable range architecture',paragraphs:['Plan which products could logically follow the hero SKU and how the packaging, naming and claims will stay consistent.','This turns an isolated trend response into a product platform that can grow with customer feedback and demand.']}
+    ],solution:'Product Solutions',solutionHref:'/solutions'
   }
 };
 
@@ -61,4 +101,3 @@ export function InsightArticle({ slug }: { slug: string }) {
     </article></section>
   );
 }
-

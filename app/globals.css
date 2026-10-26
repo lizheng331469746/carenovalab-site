@@ -294,13 +294,13 @@ p { color: var(--muted); }
 .how-process-card {
   position: relative; min-width: 0; min-height: 470px;
   display: flex; flex-direction: column; padding: 22px 18px 18px;
-  overflow: hidden; isolation: isolate;
+  isolation: isolate;
   background: var(--paper); border: 1px solid var(--line); border-radius: 18px;
 }
 .how-process-card::after {
   content: ''; position: absolute; z-index: 1; inset: 0;
   background: linear-gradient(180deg, rgba(248,245,238,.96) 0%, rgba(248,245,238,.9) 42%, rgba(248,245,238,.58) 68%, rgba(248,245,238,.12) 100%);
-  pointer-events: none;
+  border-radius: inherit; pointer-events: none;
 }
 .how-process-copy { position: relative; z-index: 2; display: flex; flex: 1; flex-direction: column; }
 .how-process-number {
@@ -311,7 +311,7 @@ p { color: var(--muted); }
 .how-process-card h3 { margin: 0 0 13px; font-size: 1.08rem; line-height: 1.2; letter-spacing: -.02em; }
 .how-process-card p { margin: 0 0 22px; color: var(--muted); font-size: .79rem; line-height: 1.58; }
 .how-process-image {
-  position: absolute; z-index: 0; inset: 0; overflow: hidden;
+  position: absolute; z-index: 0; inset: 0; overflow: hidden; border-radius: inherit;
   background: var(--paper-2);
 }
 .how-process-image img { object-fit: cover; transition: transform .45s ease; }

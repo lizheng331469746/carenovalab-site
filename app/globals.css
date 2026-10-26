@@ -294,9 +294,15 @@ p { color: var(--muted); }
 .how-process-card {
   position: relative; min-width: 0; min-height: 470px;
   display: flex; flex-direction: column; padding: 22px 18px 18px;
+  overflow: hidden; isolation: isolate;
   background: var(--paper); border: 1px solid var(--line); border-radius: 18px;
 }
-.how-process-copy { display: flex; flex: 1; flex-direction: column; }
+.how-process-card::after {
+  content: ''; position: absolute; z-index: 1; inset: 0;
+  background: linear-gradient(180deg, rgba(248,245,238,.96) 0%, rgba(248,245,238,.9) 42%, rgba(248,245,238,.58) 68%, rgba(248,245,238,.12) 100%);
+  pointer-events: none;
+}
+.how-process-copy { position: relative; z-index: 2; display: flex; flex: 1; flex-direction: column; }
 .how-process-number {
   width: 34px; height: 34px; display: grid; place-items: center;
   margin-bottom: 24px; border: 1px solid var(--gold); border-radius: 50%;
@@ -305,10 +311,11 @@ p { color: var(--muted); }
 .how-process-card h3 { margin: 0 0 13px; font-size: 1.08rem; line-height: 1.2; letter-spacing: -.02em; }
 .how-process-card p { margin: 0 0 22px; color: var(--muted); font-size: .79rem; line-height: 1.58; }
 .how-process-image {
-  position: relative; width: 100%; aspect-ratio: 3 / 2; overflow: hidden;
-  margin-top: auto; border-radius: 12px; background: var(--paper-2);
+  position: absolute; z-index: 0; inset: 0; overflow: hidden;
+  background: var(--paper-2);
 }
-.how-process-image img { object-fit: cover; }
+.how-process-image img { object-fit: cover; transition: transform .45s ease; }
+.how-process-card:hover .how-process-image img { transform: scale(1.025); }
 .how-process-arrow {
   position: absolute; z-index: 2; top: 50%; right: -27px;
   width: 34px; height: 34px; display: grid; place-items: center;
@@ -1139,3 +1146,4 @@ details p { margin: 15px 0 0; }
   .insight-related-grid { grid-template-columns: 1fr; }
   .insight-related-grid > a { grid-template-columns: 110px minmax(0, 1fr); min-height: 130px; }
 }
+

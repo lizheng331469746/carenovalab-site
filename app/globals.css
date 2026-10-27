@@ -448,10 +448,9 @@ p { color: var(--muted); }
 .page-hero-art img { width: 100%; max-height: 510px; object-fit: cover; border-radius: 28px; box-shadow: var(--shadow); }
 
 /* About: editorial video-led page */
-.about-title-section { padding: clamp(70px, 10vw, 132px) 0 clamp(38px, 5vw, 64px); text-align: center; background: var(--surface); }
+.about-title-section { padding: clamp(54px, 7vw, 90px) 0 clamp(30px, 4vw, 48px); text-align: center; background: var(--surface); }
 .about-title-section .container { max-width: 980px; }
-.about-title-section h1 { margin: 15px auto 20px; max-width: 920px; font-size: clamp(2.75rem, 5.3vw, 5.5rem); line-height: .98; letter-spacing: -.06em; }
-.about-title-section p { max-width: 680px; margin: 0 auto; font-size: 1.06rem; line-height: 1.65; }
+.about-title-section h1 { margin: 12px auto 0; font-size: clamp(2.7rem, 4.4vw, 4.8rem); line-height: 1; letter-spacing: -.055em; }
 .about-film-section { padding: 0 0 clamp(76px, 10vw, 132px); background: var(--surface); }
 .about-film-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #1d201f url('/images/homepage-laboratory-hero.webp') center / cover no-repeat; }
 .about-film-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }

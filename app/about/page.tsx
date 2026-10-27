@@ -8,48 +8,28 @@ export const metadata: Metadata = {
   description: 'Learn about CareNova Lab, our beauty R&D approach, manufacturing coordination, quality and compliance process, and global partnerships.'
 };
 
+const audiences = [
+  ['Beauty Startups', 'Turn an early product idea into a clear brief, sample plan and practical route to launch.'],
+  ['Growing Brands', 'Develop new categories, packaging directions and product ranges around changing market needs.'],
+  ['OEM/ODM Projects', 'Coordinate formulas, packaging, production and documentation for project-specific requirements.']
+];
+
+const capabilities = [
+  ['Product Development', 'Clarify the product role, target customer, formula direction and sampling priorities before execution.'],
+  ['Supply Chain Coordination', 'Connect suitable development and manufacturing partners around the product, quantity and packaging needs.'],
+  ['Launch Preparation', 'Organize the product information, packaging decisions and market-facing materials required for launch.']
+];
+
 export default function AboutPage() {
   const aboutVideoUrl = process.env.NEXT_PUBLIC_ABOUT_VIDEO_URL;
 
   return <>
-    <section className="about-video-hero">
-      <div className="about-video-media">
-        <video autoPlay={Boolean(aboutVideoUrl)} loop muted playsInline poster="/images/homepage-laboratory-hero.webp" aria-label="CareNova Lab product development and laboratory film">
-          {aboutVideoUrl ? <source src={aboutVideoUrl} type="video/mp4" /> : null}
-        </video>
-        <div className="about-video-overlay" aria-hidden="true" />
-      </div>
-      <div className="container about-video-content">
-        <span className="eyebrow eyebrow-light">ABOUT CARENOVA LAB</span>
-        <h1>A Product Development and China Supply Chain Partner for Beauty Brands</h1>
-        <p>CareNova Lab helps overseas beauty and personal care brands clarify product opportunities and execute them through coordinated OEM/ODM supply chains in China.</p>
-        <div className="hero-actions">
-          <InquiryButton context={{source:'About page'}}>Meet the Product Team</InquiryButton>
-        </div>
-      </div>
-    </section>
-
-    <section className="section section-white anchor-target" id="brand-introduction"><div className="container split-grid"><div><SectionHeading eyebrow="Brand Introduction" title="A Product Development Partner Built Around Better Decisions" text="CareNova Lab connects product strategy, R&D coordination, packaging, manufacturing and market preparation for beauty and personal care projects."/><p>We begin with the target consumer, channel, product role, quantity and launch objective. From there, we help define a practical route and coordinate the partners and information required to move the project forward.</p></div><div><img src="/images/hero-about.svg" alt="CareNova Lab beauty product development team"/></div></div></section>
-
-    <section className="section section-muted anchor-target" id="rd-innovation"><div className="container"><SectionHeading eyebrow="R&D & Innovation" title="Translate Market Opportunities Into Workable Product Directions" text="Innovation becomes useful when it connects consumer demand with formula feasibility, sensory experience, packaging and a clear commercial position."/><div className="card-grid">{[
-      ['Market-Led Concepts', 'Use target-market signals, consumer needs and channel context to shape the product brief.'],
-      ['Formula Direction', 'Define ingredient, texture, sensory and claims directions before sampling begins.'],
-      ['Range Architecture', 'Connect hero products, supporting SKUs, routines and bundles into a coherent launch plan.']
-    ].map(item => <article className="info-card" key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></div></section>
-
-    <section className="section section-white anchor-target" id="manufacturing"><div className="container split-grid"><div><img className="content-photo content-photo-portrait" src={asset('/images/site/insight-step-5.webp')} alt="Beauty product manufacturing and production coordination"/></div><div><SectionHeading eyebrow="Manufacturing" title="Match Each Project With the Right Production Route" text="Different products, quantities, packaging formats and customization levels require different manufacturing capabilities."/><div className="list-check">{['Private label, semi-custom and full custom routes','Manufacturing partner matching by product and project need','Formula, packaging and filling compatibility coordination','Sampling, production schedule and quality checkpoint follow-up','Project-specific MOQ and quotation confirmation'].map(item => <div key={item}>{item}</div>)}</div></div></div></section>
-
-    <section className="section section-dark anchor-target" id="quality-compliance"><div className="container"><SectionHeading eyebrow="Quality & Compliance" title="Confirm Requirements at the Project Level" text="Product specifications, claims, testing, documents and market requirements must be reviewed for the actual product and destination."/><div className="trust-grid">{[
-      ['01', 'Approved Direction', 'Align the sample, packaging and product specifications before production.'],
-      ['02', 'Quality Checkpoints', 'Coordinate agreed checks through bulk, filling, packing and delivery preparation.'],
-      ['03', 'Document Review', 'Organize available product and manufacturer documents around the project need.'],
-      ['04', 'Market Preparation', 'Identify claims, testing and regulatory questions for the target country or region.']
-    ].map(item => <article className="trust-item" key={item[0]}><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div></div></section>
-
-    <section className="section section-white anchor-target" id="global-partnerships"><div className="container"><SectionHeading eyebrow="Global Partnerships" title="Support Different Business Models and Target Markets" text="We work with beauty startups, established brands, distributors, e-commerce sellers, salons and spas that need clear communication across markets and supply-chain partners."/><div className="card-grid">{[
-      ['Market Context', 'Plan product direction around the destination market, sales channel and customer expectations.'],
-      ['Project Communication', 'Keep decisions, feedback, approvals and open questions visible across multiple parties.'],
-      ['Long-Term Development', 'Create a practical path from first samples to repeat orders and future range expansion.']
-    ].map(item => <article className="info-card" key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div><div className="hero-actions"><InquiryButton context={{source:'About global partnerships'}}>Discuss a Partnership</InquiryButton></div></div></section>
+    <section className="about-title-section"><div className="container"><span className="eyebrow">ABOUT CARENOVA LAB</span><h1>A Product Development and China Supply Chain Partner for Beauty Brands</h1><p>CareNova Lab helps overseas beauty and personal care brands clarify product opportunities and execute them through coordinated OEM/ODM supply chains in China.</p></div></section>
+    <section className="about-film-section" aria-label="CareNova Lab introduction film"><div className="container"><div className="about-film-frame"><video autoPlay={Boolean(aboutVideoUrl)} loop muted playsInline poster="/images/homepage-laboratory-hero.webp" aria-label="CareNova Lab product development and laboratory film">{aboutVideoUrl ? <source src={aboutVideoUrl} type="video/mp4" /> : null}</video>{!aboutVideoUrl && <div className="about-film-note">CareNova Lab</div>}</div></div></section>
+    <section className="about-intro-section section section-white anchor-target" id="brand-introduction"><div className="container about-intro-copy"><SectionHeading eyebrow="WHERE CLARITY MEETS EXECUTION" title="Better Product Decisions, From First Brief to Launch" text="We bring product strategy, R&D coordination, packaging, manufacturing and market preparation into one practical project path." /></div></section>
+    <section className="section section-muted anchor-target" id="our-story"><div className="container split-grid about-story-grid"><div className="about-story-image"><img src="/images/homepage-laboratory-hero.webp" alt="CareNova Lab product development and laboratory coordination" /></div><div><span className="eyebrow">OUR STORY</span><h2>This Is Where a Product Plan Takes Shape</h2><p>CareNova Lab was created to give beauty brands a clearer route from opportunity to execution. We begin with the target consumer, channel, product role, quantity and launch objective, then connect the partners and decisions required to move forward.</p><p>We are not presented as the owner of every production capability shown on the website. Instead, we coordinate practical development routes with matched manufacturing partners according to the actual project.</p></div></div></section>
+    <section className="section section-white anchor-target" id="who-we-serve"><div className="container"><SectionHeading eyebrow="WHO WE SERVE" title="Built for Different Stages of Beauty Growth" /><div className="about-audience-grid">{audiences.map(([title, text], index) => <article className="about-audience-card" key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p><InquiryButton context={{source:`About ${title}`}}>Talk to Our Team</InquiryButton></article>)}</div></div></section>
+    <section className="section section-dark anchor-target" id="capabilities"><div className="container"><SectionHeading eyebrow="OUR CAPABILITIES" title="A Connected Route From Direction to Delivery" text="Every project is built around the actual product, destination market and commercial objective—then confirmed at each step." /><div className="about-capability-grid">{capabilities.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+    <section className="section section-white anchor-target" id="global-partnerships"><div className="container split-grid about-partnership-grid"><div><span className="eyebrow">GLOBAL PARTNERSHIPS</span><h2>Support for the Market You Are Building</h2><p>From first samples to repeat orders, we help keep product, packaging, production and market preparation connected across global projects.</p><InquiryButton context={{source:'About global partnerships'}}>Talk to Our Team</InquiryButton></div><img className="content-photo" src={asset('/images/site/insight-step-5.webp')} alt="Beauty product manufacturing and production coordination" /></div></section>
   </>;
 }

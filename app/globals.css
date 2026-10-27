@@ -463,6 +463,13 @@ p { color: var(--muted); }
 .about-story-grid p, .about-partnership-grid p { max-width: 560px; line-height: 1.7; }
 .about-story-image { min-height: 490px; overflow: hidden; }
 .about-story-image img { width: 100%; height: 100%; min-height: 490px; object-fit: cover; }
+.about-team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.about-team-grid article { display: grid; grid-template-columns: minmax(168px, 36%) 1fr; border: 1px solid var(--line); background: var(--surface); }
+.about-team-grid img { width: 100%; height: 100%; min-height: 310px; object-fit: cover; }
+.about-team-grid article > div { padding: 32px; }
+.about-team-grid h3 { margin: 0 0 6px; font-size: 1.7rem; }
+.about-team-grid span { display: block; color: var(--gold-deep); font-size: .76rem; font-weight: 700; letter-spacing: .08em; line-height: 1.45; text-transform: uppercase; }
+.about-team-grid p { margin: 22px 0 0; line-height: 1.62; }
 .about-audience-grid, .about-capability-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .about-audience-card, .about-capability-grid article { padding: 34px; min-height: 318px; border-left: 1px solid var(--line); display: flex; flex-direction: column; align-items: flex-start; }
 .about-audience-card:first-child, .about-capability-grid article:first-child { border-left: 0; }
@@ -771,6 +778,10 @@ details p { margin: 15px 0 0; }
   .about-film-section { padding-bottom: 72px; }
   .about-film-frame { aspect-ratio: 4 / 3; }
   .about-story-image, .about-story-image img { min-height: 310px; }
+  .about-team-grid { grid-template-columns: 1fr; }
+  .about-team-grid article { grid-template-columns: 132px 1fr; }
+  .about-team-grid img { min-height: 220px; }
+  .about-team-grid article > div { padding: 24px 20px; }
   .about-audience-grid, .about-capability-grid { grid-template-columns: 1fr; }
   .about-audience-card, .about-capability-grid article { min-height: 0; border-left: 0; border-top: 1px solid var(--line); padding: 28px 0; }
   .about-audience-card:first-child, .about-capability-grid article:first-child { border-top: 0; }

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { SectionHeading } from '@/components/section-heading';
 import { InquiryButton } from '@/components/inquiry-provider';
-import { asset } from '@/lib/assets';
 
 export const metadata: Metadata = {
   title: 'About CareNova Lab | Beauty R&D and OEM/ODM Partner',

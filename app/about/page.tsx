@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { PageHero } from '@/components/page-hero';
 import { SectionHeading } from '@/components/section-heading';
 import { InquiryButton } from '@/components/inquiry-provider';
 import { asset } from '@/lib/assets';
@@ -10,8 +9,25 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const aboutVideoUrl = process.env.NEXT_PUBLIC_ABOUT_VIDEO_URL;
+
   return <>
-    <PageHero eyebrow="About CareNova Lab" title="Beauty R&D, Product Development and Supply Chain Coordination" description="CareNova Lab helps international beauty businesses turn market opportunities into practical product briefs, samples, packaging systems and coordinated OEM/ODM projects." image="/images/hero-about.svg" backgroundImage="https://sc02.alicdn.com/kf/H4a0e9b018274420b8e44727ceb5a5d43y.jpg" primaryLabel="Start Your Project" primaryContext={{source:'About page'}} secondaryLabel="See How We Work" secondaryHref="/how-we-work"/>
+    <section className="about-video-hero">
+      <div className="about-video-media">
+        <video autoPlay={Boolean(aboutVideoUrl)} loop muted playsInline poster="/images/homepage-laboratory-hero.webp" aria-label="CareNova Lab product development and laboratory film">
+          {aboutVideoUrl ? <source src={aboutVideoUrl} type="video/mp4" /> : null}
+        </video>
+        <div className="about-video-overlay" aria-hidden="true" />
+      </div>
+      <div className="container about-video-content">
+        <span className="eyebrow eyebrow-light">ABOUT CARENOVA LAB</span>
+        <h1>A Product Development and China Supply Chain Partner for Beauty Brands</h1>
+        <p>CareNova Lab helps overseas beauty and personal care brands clarify product opportunities and execute them through coordinated OEM/ODM supply chains in China.</p>
+        <div className="hero-actions">
+          <InquiryButton context={{source:'About page'}}>Meet the Product Team</InquiryButton>
+        </div>
+      </div>
+    </section>
 
     <section className="section section-white anchor-target" id="brand-introduction"><div className="container split-grid"><div><SectionHeading eyebrow="Brand Introduction" title="A Product Development Partner Built Around Better Decisions" text="CareNova Lab connects product strategy, R&D coordination, packaging, manufacturing and market preparation for beauty and personal care projects."/><p>We begin with the target consumer, channel, product role, quantity and launch objective. From there, we help define a practical route and coordinate the partners and information required to move the project forward.</p></div><div><img src="/images/hero-about.svg" alt="CareNova Lab beauty product development team"/></div></div></section>
 

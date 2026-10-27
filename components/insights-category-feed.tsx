@@ -9,7 +9,15 @@ export function InsightsCategoryFeed({ category }: { category: InsightCategory }
   return (
     <main className="insights-category-page">
       <section className="insights-category-heading">
-        <Image className="insights-hero-image" src={category.heroImage} alt="" fill priority sizes="100vw" />
+        <Image
+          className="insights-hero-image"
+          src={category.heroImage}
+          style={category.slug === 'market-insights' ? { objectPosition: 'center 25%' } : undefined}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+        />
         <div className="insights-hero-overlay" aria-hidden="true" />
         <div className="container insights-hero-content">
           <Link href="/insights">Knowledge Center</Link>

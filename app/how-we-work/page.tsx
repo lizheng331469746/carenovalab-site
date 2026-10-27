@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { asset } from '@/lib/assets';
 import { SectionHeading } from '@/components/section-heading';
 import { InquiryButton } from '@/components/inquiry-provider';
+import { HowWeWorkProcess } from '@/components/how-we-work-process';
 
 export const metadata: Metadata = {
   title: 'OEM/ODM Beauty Product Development Process',
@@ -19,15 +20,6 @@ const models = [
   ['Private Label', 'Choose from proven product directions and adapt packaging, presentation and selected formula options for a faster launch.', '/images/site/product-library-flatlay.webp'],
   ['Semi-Custom', 'Start from an existing formula platform and adjust selected ingredients, texture, fragrance, claims direction or packaging.', '/images/site/formula-ampoules.webp'],
   ['Full Custom', 'Develop from a detailed brief with a dedicated formula, sampling pathway, packaging system and project-specific testing plan.', '/images/site/insight-step-5.webp']
-];
-
-const steps = [
-  ['01', 'Project Brief', 'Confirm the product, target market, channel, quantity, price direction and expected launch timing.', '/images/site/insight-step-1.webp'],
-  ['02', 'Development Route', 'Select private label, semi-custom or full custom and match the project with suitable manufacturing resources.', '/images/site/insight-step-2.webp'],
-  ['03', 'Formula & Sampling', 'Prepare samples, collect structured feedback and coordinate revisions toward an approved product direction.', '/images/site/insight-step-3.webp'],
-  ['04', 'Packaging & Compliance', 'Match packaging to the formula and organize claims, artwork, testing and available document requirements.', '/images/site/insight-step-4.webp'],
-  ['05', 'Production & Quality', 'Coordinate approved specifications, bulk production, filling, packaging and agreed quality checkpoints.', '/images/site/insight-step-5.webp'],
-  ['06', 'Delivery & Launch Support', 'Prepare delivery coordination and organize product information for packaging, listings and sales presentation.', '/images/site/insight-step-6.webp']
 ];
 
 const faqs = [
@@ -80,12 +72,7 @@ export default function HowWeWorkPage() {
       </div>
     </section>
 
-    <section className="section section-white anchor-target" id="six-step-process">
-      <div className="container">
-        <SectionHeading align="center" eyebrow="Six-Step Collaboration Process" title="From First Brief to Coordinated Delivery" text="The exact schedule depends on formula route, packaging, sample revisions, testing, documents and production availability."/>
-        <div className="process-article-grid process-step-grid">{steps.map((step) => <article className="process-article-card" key={step[0]}><img src={asset(step[3])} alt={`${step[1]} stage`}/><div><span>STEP {step[0]}</span><h3>{step[1]}</h3><p>{step[2]}</p></div></article>)}</div>
-      </div>
-    </section>
+    <HowWeWorkProcess />
 
     <section className="section section-muted anchor-target" id="packaging-production-support">
       <div className="container split-grid process-support-grid">

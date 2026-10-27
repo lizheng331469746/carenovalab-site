@@ -1,9 +1,9 @@
 export const insightCategories = [
-  { slug: 'ingredients-formulation', label: 'Ingredients & Formulation', description: 'Formula design, active ingredients, textures, stability and product performance.' },
-  { slug: 'oem-odm-knowledge', label: 'OEM/ODM Knowledge', description: 'Sampling, MOQ, production planning, quality control and supply chain execution.' },
-  { slug: 'packaging-customization', label: 'Packaging & Customization', description: 'Packaging formats, materials, decoration, labels and practical customization routes.' },
-  { slug: 'regulatory-compliance', label: 'Regulatory & Compliance', description: 'Target-market requirements, claims, testing, certification and product documentation.' },
-  { slug: 'market-insights', label: 'Market Insights', description: 'Consumer needs, category trends and commercial opportunities for beauty brands.' }
+  { slug: 'ingredients-formulation', label: 'Ingredients & Formulation', description: 'Formula design, active ingredients, textures, stability and product performance.', heroImage: '/images/insights/heroes/ingredients-formulation.webp' },
+  { slug: 'oem-odm-knowledge', label: 'OEM/ODM Knowledge', description: 'Sampling, MOQ, production planning, quality control and supply chain execution.', heroImage: '/images/insights/heroes/oem-odm-knowledge.webp' },
+  { slug: 'packaging-customization', label: 'Packaging & Customization', description: 'Packaging formats, materials, decoration, labels and practical customization routes.', heroImage: '/images/insights/heroes/packaging-customization.webp' },
+  { slug: 'regulatory-compliance', label: 'Regulatory & Compliance', description: 'Target-market requirements, claims, testing, certification and product documentation.', heroImage: '/images/insights/heroes/regulatory-compliance.webp' },
+  { slug: 'market-insights', label: 'Market Insights', description: 'Consumer needs, category trends and commercial opportunities for beauty brands.', heroImage: '/images/insights/heroes/market-insights.webp' }
 ] as const;
 
 export type InsightCategory = (typeof insightCategories)[number];
@@ -110,3 +110,4 @@ export const insights = [
     image: '/images/site/insight-step-1.webp'
   }
 ] as const;
+

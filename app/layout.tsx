@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     template: '%s | CareNova Lab'
   },
   description: siteConfig.description,
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg'
+  },
   openGraph: {
     title: 'CareNova Lab',
     description: siteConfig.description,

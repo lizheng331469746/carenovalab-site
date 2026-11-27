@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { insights } from '@/lib/insights';
 import { InquiryButton } from '@/components/inquiry-provider';
 
-const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:string[]}[]; solution:string; solutionHref:string; sources?:{label:string;url:string}[] }> = {
+const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:string[]; products?:{brand:string; name:string; image:string; alt:string; productUrl:string; sourceName:string; sourceUrl:string}[]}[]; solution:string; solutionHref:string; sources?:{label:string;url:string}[] }> = {
   'global-anti-aging-skincare-market-2026': {
     "intro": "Anti-aging skincare is not running out of opportunities. It is changing what consumers expect from a product: visible results, comfortable daily use, stronger evidence and a routine that supports healthy-looking skin over time. For beauty brands, the next opportunity is not simply adding a higher concentration of a popular active. It is building a commercially viable age-support platform around the right consumer, market, formula, packaging and evidence.",
     "sections": [
@@ -46,6 +46,26 @@ const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:
       },
       {
         "title": "5. What leading brands are teaching the market",
+        "products": [
+          {
+            "brand": "The Ordinary",
+            "name": "GF 15% Solution",
+            "image": "https://media.ulta.com/i/ulta/2637073",
+            "alt": "The Ordinary GF 15% Solution serum in its original dropper bottle",
+            "productUrl": "https://theordinary.com/en-us/gf-15-solution-growth-factors-serum-100702.html",
+            "sourceName": "Ulta Beauty",
+            "sourceUrl": "https://www.ulta.com/p/gf-15-serum-visible-skin-repair-wrinkles-pimprod2050414?sku=2637073"
+          },
+          {
+            "brand": "SHISEIDO",
+            "name": "Ultimune Power Infusing Serum",
+            "image": "https://www.shiseido.co.jp/resources/sw/products/img/20241121/SHOHIN_PL_C1_H61303.jpg",
+            "alt": "Shiseido Ultimune Power Infusing Serum in its original red bottle",
+            "productUrl": "https://www.shiseido.com/us/en/ultimune-power-infusing-serum-0768614223900.html",
+            "sourceName": "Shiseido official store",
+            "sourceUrl": "https://www.shiseido.co.jp/sw/onlinestore/products/H61303.html"
+          }
+        ],
         "paragraphs": [
           "Accessible biotechnology positioning: The Ordinary introduced GF 15% Solution, a serum centered on a blend of biomimetic peptides. [7] The strategic lesson is that an advanced ingredient story can be communicated through a single recognizable product at an accessible position. Its brand-specific formula and claims should not be copied or assumed to apply to other products.",
           "Premium science storytelling: Shiseido's 2025 renewal of Ultimune features a proprietary fermented-camellia technology linked to its long-running research program. [8] The commercial lesson is to connect a specific technology with a consistent product identity, rather than repeatedly changing the hero ingredient to chase trends.",
@@ -257,8 +277,23 @@ export function InsightArticle({ slug }: { slug: string }) {
 
         <p className="insight-simple-intro">{body.intro}</p>
         <div className="insight-simple-body">
-          {body.sections.map(section => <section id={sectionId(section.title)} key={section.title}><h2>{section.title}</h2>{section.paragraphs.map(p => <p key={p}>{p}</p>)}</section>)}
-          {body.sources?.length ? <section id="references"><h2>Sources & Further Reading</h2><ul>{body.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" style={{textDecoration:'underline'}}>{source.label}</a></li>)}</ul></section> : null}
+          {body.sections.map(section => <section id={sectionId(section.title)} key={section.title}>
+            <h2>{section.title}</h2>
+            {section.products?.length ? <div className="insight-product-examples">
+              {section.products.map(product => <figure className="insight-product-example" key={product.productUrl}>
+                <a className="insight-product-image" href={product.productUrl} target="_blank" rel="noopener noreferrer">
+                  <img src={product.image} alt={product.alt} loading="lazy" referrerPolicy="no-referrer" />
+                </a>
+                <figcaption>
+                  <span className="insight-product-brand">{product.brand}</span>
+                  <a className="insight-product-name" href={product.productUrl} target="_blank" rel="noopener noreferrer">{product.name}</a>
+                  <span className="insight-product-credit">Image: <a href={product.sourceUrl} target="_blank" rel="noopener noreferrer">{product.sourceName}</a></span>
+                </figcaption>
+              </figure>)}
+            </div> : null}
+            {section.paragraphs.map(p => <p key={p}>{p}</p>)}
+          </section>)}
+          {body.sources?.length ? <section id="references" className="insight-simple-references"><h2>Sources & Further Reading</h2><ul>{body.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul></section> : null}
         </div>
       </article>
 

@@ -1472,3 +1472,21 @@ details p { margin: 15px 0 0; }
   .startup-inquiry-form { order: 1; }
 }
 
+
+/* Editorial product photography and compact scholarly references */
+.insight-product-examples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 20px 0 24px; }
+.insight-product-example { margin: 0; border: 1px solid #e4dfd6; background: #fff; overflow: hidden; }
+.insight-product-image { display: block; width: 100%; aspect-ratio: 4 / 3; background: #fff; padding: 16px; }
+.insight-product-image img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.insight-product-example figcaption { padding: 14px 16px 16px; border-top: 1px solid #eeeae2; }
+.insight-product-brand { display: block; color: var(--gold-dark); font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.insight-product-name { display: block; margin: 5px 0 6px; color: var(--ink); font-size: .97rem; font-weight: 600; line-height: 1.35; }
+.insight-product-credit { display: block; color: #777873; font-size: .69rem; line-height: 1.4; }
+.insight-product-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.insight-simple-body .insight-simple-references { margin-top: 40px; padding-top: 18px; border-top: 1px solid #e7e3db; color: #70736e; }
+.insight-simple-body .insight-simple-references h2 { margin: 0 0 12px; padding: 0; border: 0; color: #70736e; font-size: .95rem; font-weight: 600; letter-spacing: 0; }
+.insight-simple-references ul { margin: 0; padding: 0; list-style: none; }
+.insight-simple-references li { margin: 0 0 7px; font-size: .73rem; line-height: 1.55; }
+.insight-simple-references a { color: #70736e; text-decoration: none; overflow-wrap: anywhere; }
+.insight-simple-references a:hover { color: var(--gold-dark); text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 520px) { .insight-product-examples { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; } .insight-product-image { padding: 8px; } .insight-product-example figcaption { padding: 10px; } .insight-product-name { font-size: .8rem; } .insight-product-credit { font-size: .63rem; } }

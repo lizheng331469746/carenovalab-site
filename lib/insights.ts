@@ -10,6 +10,16 @@ export type InsightCategory = (typeof insightCategories)[number];
 
 export const insights = [
   {
+    "slug": "global-anti-aging-skincare-market-2026",
+    "category": "Market Insights",
+    "categorySlug": "market-insights",
+    "title": "The Global Anti-Aging Skincare Market in 2026: From Anti-Wrinkle Products to Skin Longevity",
+    "excerpt": "Explore the 2026 global anti-aging market, regional opportunities, emerging actives and a practical OEM/ODM strategy for building a skin-longevity product line.",
+    "readTime": "10 min read",
+    "published": "November 27, 2026",
+    "image": "/images/insights/heroes/market-insights.webp"
+  },
+  {
     slug: 'beauty-device-companion-skincare',
     category: 'Ingredients & Formulation',
     categorySlug: 'ingredients-formulation',

@@ -2,7 +2,151 @@ import Link from 'next/link';
 import { insights } from '@/lib/insights';
 import { InquiryButton } from '@/components/inquiry-provider';
 
-const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:string[]}[]; solution:string; solutionHref:string }> = {
+const bodies: Record<string, { intro:string; sections:{title:string; paragraphs:string[]}[]; solution:string; solutionHref:string; sources?:{label:string;url:string}[] }> = {
+  'global-anti-aging-skincare-market-2026': {
+    "intro": "Anti-aging skincare is not running out of opportunities. It is changing what consumers expect from a product: visible results, comfortable daily use, stronger evidence and a routine that supports healthy-looking skin over time. For beauty brands, the next opportunity is not simply adding a higher concentration of a popular active. It is building a commercially viable age-support platform around the right consumer, market, formula, packaging and evidence.",
+    "sections": [
+      {
+        "title": "1. The global anti-aging market in 2026",
+        "paragraphs": [
+          "Grand View Research estimates the anti-aging products market at US$55.6 billion in 2025 and US$59.3 billion in 2026, with a forecast of US$107.6 billion by 2033 and an annualized growth rate of 8.9% for 2026–2033. Its estimates cover the anti-aging product category, not the entire beauty, supplement or medical-aesthetics market. North America represented 35.9% of 2025 category revenue in its model, while Asia Pacific is projected to grow the fastest. [1]",
+          "Demand is also visible in retail performance. Circana reported that US prestige skincare reached US$7.4 billion through September 2026, up 7% year on year. Mass skincare dollar sales increased by nearly 8%, with facial anti-aging products among the categories contributing strong gains. [2] More broadly, McKinsey's 2026 outlook projects the four core beauty categories to reach US$590 billion by 2030, growing around 5% annually. [3] These estimates describe different markets and should not be added together.",
+          "The combination of demographic aging, daily preventive-care habits and greater scrutiny of product value creates space for a wide range of price positions. WHO projects that one in six people globally will be aged 60 or over by 2030. [4] But an aging population alone is not a product strategy: the challenge is converting a specific skin concern into a credible, repeatable daily routine."
+        ]
+      },
+      {
+        "title": "2. From anti-wrinkle products to skin longevity",
+        "paragraphs": [
+          "In our market-development framework, anti-aging has evolved through four overlapping stages: basic moisturization; recognizable actives such as retinol and vitamin C; combinations of actives supported by formula science and testing; and a longer-term approach that connects appearance, hydration, comfort, daily protection and skin resilience.",
+          "Skin longevity is a useful commercial concept when it refers to maintaining healthy-looking skin over time. It does not mean that a cosmetic can reverse biological aging, extend cellular lifespan or replace medical treatment. Brands should translate the concept into tangible consumer benefits: smoother-looking fine lines, a more even-looking complexion, better moisturization and a comfortable skin barrier.",
+          "The competitive question is therefore shifting from 'What is the strongest ingredient?' to 'Which formula can provide a clearly defined benefit, remain comfortable in everyday use and earn repeat purchase?'"
+        ]
+      },
+      {
+        "title": "3. Regional opportunities: one strategy does not fit every market",
+        "paragraphs": [
+          "North America — a priority market for efficacy-led products. Consider peptide firming serums, retinol night treatments, antioxidant serums and companion moisturizers. Define a differentiated hero claim and design an evidence package that can support product pages and retail education. Test value at the intended price tier.",
+          "Europe — a promising direction for tolerability-led performance. Develop fragrance-free or low-fragrance options, barrier-support creams and carefully formulated age-support serums. Pay particularly close attention to ingredient restrictions, responsible-person requirements and claims substantiation.",
+          "East Asia — an opportunity to evaluate technology-led formats such as ampoules, essences, hydrogel masks and peptide or fermentation-based serums. Consider sodium DNA and PDRN-related positioning as emerging development concepts, but verify the precise ingredient identity, source, specifications and claim evidence before commercializing.",
+          "Southeast Asia and India — test lightweight textures for hot and humid environments, with fast absorption, comfortable layering and accessible pricing. Hydration, uneven-looking tone, antioxidant care and daily sun-care routines can provide a more relevant starting point than a single wrinkle message.",
+          "Middle East — explore climate-adapted formulas that combine lasting moisturization with elegant, non-greasy textures. Premium serum-and-cream sets, dry-skin comfort and daily photoaging-related care are plausible product directions. Confirm local registration, language, fragrance preference, packaging and any halal requirements for the selected country and channel.",
+          "Latin America — evaluate accessible daily care, antioxidant and tone-evening concepts, moisturization and body-care extensions. A routine that is easy to understand and replenish may compete more effectively than a technically complex multi-step program.",
+          "These are CareNova Lab's product-development hypotheses, not uniform descriptions of every consumer in each region. Validate them using local competitor audits, channel pricing, customer interviews and sample feedback."
+        ]
+      },
+      {
+        "title": "4. Which anti-aging ingredients deserve investment?",
+        "paragraphs": [
+          "Established active platforms: retinol and selected retinoid derivatives, vitamin C and suitable derivatives, niacinamide and specific peptides are useful starting points for visible signs of aging and uneven-looking tone. A formula brief must address stability, delivery, tolerability and the evidence for the exact active and concentration, rather than relying on a generic ingredient reputation.",
+          "Daily skin-support platforms: ceramides and complementary lipids, glycerin, hyaluronic acid, panthenol, ectoin and other suitable moisturization or comfort ingredients can help build products that consumers enjoy using regularly. Barrier support is not merely an accessory to an active serum; it can be the central commercial proposition.",
+          "Emerging technology platforms: sodium DNA, PDRN-related ingredients, recombinant collagen, biomimetic peptides, fermented extracts and other biotechnology-derived actives are worth screening for differentiated premium concepts. Evidence for an injectable procedure, a laboratory experiment or a supplier ingredient cannot be automatically transferred to a topical finished product.",
+          "Bakuchiol illustrates how an emerging active can be assessed responsibly. A small 12-week randomized study comparing topical bakuchiol and retinol found improvements in the measured signs of photoaging for both groups, with more scaling and stinging reported by retinol users. [5] That finding is informative, but does not establish equivalence for every concentration or finished formula.",
+          "Daily photoaging protection remains important. A randomized study of sunscreen use found less measured skin aging in the daily-use group than in the discretionary-use group. [6] SPF is therefore a meaningful complementary category, but sunscreen development must follow the product classification and testing pathway of the intended destination."
+        ]
+      },
+      {
+        "title": "5. What leading brands are teaching the market",
+        "paragraphs": [
+          "Accessible biotechnology positioning: The Ordinary introduced GF 15% Solution, a serum centered on a blend of biomimetic peptides. [7] The strategic lesson is that an advanced ingredient story can be communicated through a single recognizable product at an accessible position. Its brand-specific formula and claims should not be copied or assumed to apply to other products.",
+          "Premium science storytelling: Shiseido's 2025 renewal of Ultimune features a proprietary fermented-camellia technology linked to its long-running research program. [8] The commercial lesson is to connect a specific technology with a consistent product identity, rather than repeatedly changing the hero ingredient to chase trends.",
+          "Biotechnology-inspired textures and routines: PDRN-themed serums, ampoules and masks have made science-inspired skincare easier to present as a recognizable daily routine. For a new brand, the opportunity is to create an original formulation and user experience with appropriate claim support, not imitate another brand's formula, identity or packaging."
+        ]
+      },
+      {
+        "title": "6. Inside-out beauty: a growing adjacent opportunity, not a shortcut",
+        "paragraphs": [
+          "Consumers increasingly encounter topical skincare alongside wellness products, oral beauty and aesthetic services. This broadening definition of beauty is also reflected in the global market research. [3] It suggests that future product ecosystems may include complementary categories, education and partnerships beyond the traditional cosmetic shelf.",
+          "However, oral beauty should be assessed separately from cosmetics. Collagen peptides and oral hyaluronic acid have been studied, but research findings and quality vary. A 2025 systematic review of collagen trials found that outcomes were sensitive to study funding and quality; trials without pharmaceutical-company funding did not show the same benefits reported by funded trials. [9] An ingredient's popularity is not proof that a supplement will deliver anti-aging results.",
+          "CareNova Lab's immediate opportunity is in topical cosmetic development. Brands exploring oral nutrition or aesthetic procedures should work with appropriately qualified partners and independently confirm the evidence, manufacturing standards and applicable regulatory classifications. Topical products can complement a broader care experience without claiming to substitute for those categories."
+        ]
+      },
+      {
+        "title": "7. Build a product portfolio around three levels of demand",
+        "paragraphs": [
+          "Level 1: Daily prevention and maintenance. Start with a hydrating antioxidant serum and a barrier-support moisturizer, supported by a market-appropriate sun-care product where the required pathway is available. This is the foundation for accessible everyday repeat purchase.",
+          "Level 2: Targeted visible age support. Add a peptide firming serum, a carefully designed evening retinol or bakuchiol product and a richer night cream. Each SKU should have one primary consumer benefit and a complementary role in the routine.",
+          "Level 3: Premium innovation. Explore a sodium-DNA or biotechnology-inspired ampoule, an advanced peptide serum, a hydrogel mask or a focused professional-use cosmetic companion product. Use this tier to test differentiation and willingness to pay before committing to a broad premium range.",
+          "A lean launch may begin with just three products: a 30 ml hero age-support serum, a 50 g daily barrier moisturizer and a targeted night treatment. Expand to eye care, neck care, hand care or body care after feedback indicates demand. Final sizes, formulas, claims, packaging and production quantities must be confirmed through development."
+        ]
+      },
+      {
+        "title": "8. How beauty brands should enter the market",
+        "paragraphs": [
+          "Phase 1 — define the commercial brief: select one destination country, one consumer segment, one channel and one core concern. Compare retail prices, review gaps, competing formats and claim language. Set an achievable target cost and price before selecting ingredients.",
+          "Phase 2 — validate the hero formula: choose private label, semi-custom or full custom development according to differentiation, budget and time. Develop samples with criteria for appearance, spreadability, absorption, residue, fragrance, compatibility and consumer satisfaction. Do not approve a formula based on the active list alone.",
+          "Phase 3 — substantiate and prepare for launch: establish stability, microbiological quality and packaging compatibility requirements, and build an appropriate claims-support plan. Depending on the promise, finished-product testing can include hydration measurements, standardized photography, wrinkle-appearance assessments and consumer-use feedback. Select endpoints and time points before testing; do not promise results that have not been measured.",
+          "Phase 4 — learn and scale: start with a focused launch, monitor reviews, returns, repeat purchase, cost of acquisition and product margin, and then use that evidence to decide which additional SKUs to develop. Localize textures, packaging and communication only where the market requires it."
+        ]
+      },
+      {
+        "title": "9. Compliance is part of the anti-aging strategy",
+        "paragraphs": [
+          "In the United States, FDA distinguishes appearance-related cosmetic claims from claims intended to affect bodily structure or function. Cosmetic messaging should avoid unsupported language about reversing aging, restoring cellular function or increasing collagen production. [10] In the European Union, cosmetic claims must satisfy common criteria including evidence appropriate to the claim. [11] Regulation (EU) 2024/996 also introduced specific Vitamin A restrictions and labeling requirements, so retinol-related products require an up-to-date market review. [12]",
+          "Claims, ingredient eligibility, labeling, safety evaluation and documentation must be verified for every destination. A cosmetic manufacturer is not automatically a supplement manufacturer, and an aesthetic-device claim does not automatically transfer to a companion cosmetic."
+        ]
+      },
+      {
+        "title": "10. CareNova Lab's approach: from insight to market execution",
+        "paragraphs": [
+          "CareNova Lab connects market research and practical cosmetic OEM/ODM execution. We help brands translate a broad anti-aging trend into a focused consumer concept, a suitable formulation brief, an appropriate packaging direction, a sampling plan and coordinated manufacturing support.",
+          "Our recommended direction is to build a reliable everyday age-support platform first, then add targeted active products and carefully selected technology-led premium concepts. We evaluate the target country, intended claims, consumer experience, cost, packaging feasibility and documentation requirements together. MOQ, timing, testing and document availability are confirmed for each project with the selected manufacturing partner.",
+          "The next generation of anti-aging products will not be defined by the longest ingredient list. It will be defined by products that consumers understand, enjoy using and trust enough to buy again. Whether you are creating a private-label anti-aging line or developing an original skincare brand, the best starting point is a clear market brief and a realistic hero-product strategy."
+        ]
+      }
+    ],
+    "solution": "Anti-Aging Skincare OEM/ODM",
+    "solutionHref": "/products/skincare",
+    "sources": [
+      {
+        "label": "[1] Grand View Research — Anti-Aging Products Market, 2026–2033",
+        "url": "https://www.grandviewresearch.com/industry-analysis/anti-aging-products-market"
+      },
+      {
+        "label": "[2] Circana — US Beauty Market Through Q3 2026",
+        "url": "https://www.circana.com/post/beauty-industry-maintains-momentum-as-u-s-consumers-balance-self-indulgence-and-value-seeking-ahead"
+      },
+      {
+        "label": "[3] McKinsey — From Aisle to Algorithm: State of Beauty 2026",
+        "url": "https://www.mckinsey.com/industries/consumer-packaged-goods/our-insights/state-of-beauty"
+      },
+      {
+        "label": "[4] World Health Organization — Ageing and Health",
+        "url": "https://www.who.int/en/news-room/fact-sheets/detail/ageing-and-health"
+      },
+      {
+        "label": "[5] Dhaliwal et al. — Randomized Comparison of Topical Bakuchiol and Retinol (2019)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29947134/"
+      },
+      {
+        "label": "[6] Hughes et al. — Sunscreen and Prevention of Skin Aging: Randomized Trial (2013)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23732711/"
+      },
+      {
+        "label": "[7] The Ordinary — GF 15% Solution, Official Product Information",
+        "url": "https://theordinary.com/en-us/gf-15-solution-growth-factors-serum-100702.html"
+      },
+      {
+        "label": "[8] Shiseido — 2025 Ultimune Renewal, Official Company Announcement",
+        "url": "https://corp.shiseido.com/en/news/detail.html?n=00000000003953"
+      },
+      {
+        "label": "[9] Effects of Collagen Supplements on Skin Aging: Systematic Review and Meta-Analysis (2025)",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40324552/"
+      },
+      {
+        "label": "[10] US FDA — Wrinkle Treatments and Other Anti-Aging Products",
+        "url": "https://www.fda.gov/cosmetics/cosmetic-products/wrinkle-treatments-and-other-anti-aging-products"
+      },
+      {
+        "label": "[11] European Union — Regulation (EU) No 655/2013, Cosmetic Claims",
+        "url": "https://eur-lex.europa.eu/eli/reg/2013/655/oj/eng"
+      },
+      {
+        "label": "[12] European Union — Regulation (EU) 2024/996, Including Vitamin A",
+        "url": "https://eur-lex.europa.eu/eli/reg/2024/996/oj"
+      }
+    ]
+  },
   'beauty-device-companion-skincare': {
     intro:'A beauty device is often sold as a one-time hardware purchase. Companion skincare changes the business model by adding consumable products, a clearer usage ritual and more opportunities for repeat purchase.',
     sections:[
@@ -108,11 +252,13 @@ export function InsightArticle({ slug }: { slug: string }) {
         <nav className="insight-simple-index" aria-label="Article sections">
           <span>INDEX &amp; KEY INSIGHTS</span>
           {body.sections.map((section) => <a href={`#${sectionId(section.title)}`} key={section.title}>{section.title}</a>)}
+          {body.sources?.length ? <a href="#references">Sources & Further Reading</a> : null}
         </nav>
 
         <p className="insight-simple-intro">{body.intro}</p>
         <div className="insight-simple-body">
           {body.sections.map(section => <section id={sectionId(section.title)} key={section.title}><h2>{section.title}</h2>{section.paragraphs.map(p => <p key={p}>{p}</p>)}</section>)}
+          {body.sources?.length ? <section id="references"><h2>Sources & Further Reading</h2><ul>{body.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer" style={{textDecoration:'underline'}}>{source.label}</a></li>)}</ul></section> : null}
         </div>
       </article>
 
